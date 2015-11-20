@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "../../dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.demo.backstage.dao.rightDao">
+	<resultMap type="right" id="rightMap">
+	<id column="right_id" property="id"/>
+	<result column="right_name" property="newType" />
+	<result column="right_parent_id" property="newTitle" />
+	<result column="right_is_show" property="newContent" />
+	<result column="right_type" property="createTime" />
+	</resultMap>
+	
+	
+	<!-- 查询菜单栏数据 -->
+	<select id="findZtreeMenu" parameterType="util" resultMap="rightMap">
+		SELECT
+			r.*
+		FROM
+			backstage_user_role ul,
+			backstage_role_rights rg,
+			backstage_rights r
+		WHERE
+			ul.role_id = rg.role_id
+		AND rg.right_id = r.right_id
+		AND r.right_is_show = 1
+		AND r.right_type = #{str1}
+		AND ul.user_id = #{integer1}
+	</select>
+	
+	<!-- 查询用户所有权限 -->
+	<select id="findAllRights" parameterType="Integer" resultMap="rightMap">
+		SELECT
+			r.*
+		FROM
+			backstage_user_role ul,
+			backstage_role_rights rg,
+			backstage_rights r
+		WHERE
+			ul.role_id = rg.role_id
+		AND rg.right_id = r.right_id
+		AND ul.user_id = #{0}
+	</select>
+	
+	
+	
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="mysqlConnection.properties" />
+	<!-- 可以设置性能 让性能更佳-->
+	
+	<typeAliases>
+		<typeAlias type="com.demo.backstage.doman.User" alias="user" />
+		<typeAlias type="com.demo.backstage.doman.Role" alias="role" />
+		<typeAlias type="com.demo.backstage.doman.Right" alias="right" />
+		<typeAlias type="com.demo.backstage.doman.util" alias="util" />
+		<typeAlias type="com.demo.backstage.doman.Menu" alias="menu" />
+		<typeAlias type="com.demo.backstage.doman.Product" alias="product" />
+		<typeAlias type="com.demo.backstage.doman.News" alias="news" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="doman/backstage/user.xml" />
+		<mapper resource="doman/backstage/role.xml" />
+		<mapper resource="doman/backstage/right.xml" />
+		<mapper resource="doman/backstage/news.xml" />
+		<mapper resource="doman/reception/menu.xml" />
+	</mappers>
+</configuration>
