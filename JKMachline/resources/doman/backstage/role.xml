@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "../../dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.demo.backstage.dao.roleDao">
+	<resultMap type="role" id="roleMap">
+	<id column="role_id" property="id"/>
+	<result column="role_name" property="name" />
+	<result column="role_id_delete" property="isDelete" />
+	</resultMap>
+	
+	<!-- 查询用户角色 -->
+	<select id="findAllRole" parameterType="Integer" resultMap="roleMap">
+		SELECT r.* FROM backstage_user_role ul, backstage_role r
+		WHERE
+			ul.role_id = r.role_id
+		AND ul.user_id = #{0}
+	</select>
+</mapper>

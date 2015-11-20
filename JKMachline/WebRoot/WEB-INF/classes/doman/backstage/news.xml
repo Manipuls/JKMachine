@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "../../dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.demo.backstage.dao.newsDao">
+	<resultMap type="news" id="newsMap">
+	<id column="id" property="id"/>
+		<result column="new_type" property="newType" />
+		<result column="new_title" property="newTitle" />
+		<result column="new_content" property="newContent" />
+		<result column="create_time" property="createTime" />
+		<result column="is_delete" property="isDelete" />
+	</resultMap>
+	
+	<select id="pageFindNews" parameterType="util" resultMap="newsMap">
+		select * from backstage_news n where n.new_type=#{str1}   and  create_time &lt;#{date1} ORDER BY create_time desc limit #{integer1},#{integer2} 
+	</select>
+	
+	<!--获取news.jsp页面的新闻数据翻页   create_time  desc  -->
+	<select id="getPageForNews" parameterType="util" resultMap="newsMap">
+		select * from backstage_news n ORDER BY create_time  asc  limit #{integer1},#{integer2} 
+	</select>
+	
+	<!-- 查看新闻详细内容  -->
+	<select id="getNewsById" parameterType="Integer" resultMap="newsMap">
+		select * from backstage_news n  where id=#{0}
+	</select>
+	
+	
+	
+	
+	
+</mapper>
+	

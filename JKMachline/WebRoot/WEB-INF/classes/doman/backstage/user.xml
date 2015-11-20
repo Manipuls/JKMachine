@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "../../dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.backstage.dao.userDao">
+	<resultMap type="user" id="userMap">
+		<id column="user_id" property="id" />
+		<result column="user_name" property="name" />
+		<result column="user_password" property="password" />
+		<result column="isadmin" property="isAdmin" />
+	</resultMap>
+	
+	<resultMap type="user" id="user_role" extends="userMap">
+			<association property="role" resultMap="com.demo.backstage.dao.roleDao.roleMap" />
+	</resultMap>
+	
+	<!-- 根据相应的条件获取user对象 -->
+	<select id="getUser" parameterType="user" resultMap="userMap">
+		select * from backstage_user  where 1=1
+			<if test="id!=null">
+				and user_id=#{id}  
+			</if>
+			<if test="name!=null">
+				and user_name=#{name}  
+			</if>
+			<if test="password!=null">
+				and user_password=#{password}  
+			</if>
+			<if test="isAdmin!=null">
+				and isadmin=#{isadmin}  
+			</if>
+	</select>
+	
+	
+	<select id="queryAll" ></select>
+	
+	
+	
+	
+	
+	
+</mapper>
