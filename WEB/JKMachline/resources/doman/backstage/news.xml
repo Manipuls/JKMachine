@@ -26,6 +26,9 @@
 	<select id="getNewsById" parameterType="Integer" resultMap="newsMap">
 		select * from backstage_news n  where id=#{0}
 	</select>
+	<select id="getCountNews"  resultType="Integer">
+		select count(*) from backstage_news
+	</select>
 	
 	
 	

@@ -1,5 +1,7 @@
 package com.demo.backstage.service;
 
+import java.util.List;
+
 import com.demo.backstage.doman.News;
 import com.demo.backstage.doman.util;
 
@@ -16,6 +18,7 @@ public interface newsServices {
 	 * @return
 	 */
 	public String getPageForNews(util news);
+	public List<News> getPageForNewsToJsp(util news);
 	
 	/**
 	 * 查询新闻信息表--查看新闻详细内容
@@ -23,4 +26,15 @@ public interface newsServices {
 	 * @return
 	 */
 	public String getNewsContent(News news);
+	public News getNewsContentToJsp(News news);
+	
+	/**
+	 * 获取多少条
+	 * @return Integer  
+	 * @throws
+	 *
+	 * @author LIUFEI
+	 * @date 2015-11-21 下午3:29:58
+	 */
+	public Integer getCountNews();
 }

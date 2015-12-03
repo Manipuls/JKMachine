@@ -45,7 +45,6 @@ public class BaseAction extends ActionSupport  {
 			this.resultType = resultType;
 			this.title = title;
 			this.result = result;
-			
 		}
 		
 		public void setJson(String resultType){
@@ -61,8 +60,6 @@ public class BaseAction extends ActionSupport  {
 			File f = new File("style");
 			String path = f.getAbsolutePath();
 			System.out.println(path+"----------------------------------");
-			//String replaceAll = path.substring(path.indexOf("ShopMarket"));
-			//this.cssPath=replaceAll;
 			
 		}
 		

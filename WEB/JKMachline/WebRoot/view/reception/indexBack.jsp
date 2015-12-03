@@ -21,7 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div id="mainbg"></div>
 <div id="bottom">
   <div style="width:1000px; margin:auto; height:50px;">
   <div id="bottom_l">
@@ -45,8 +44,11 @@ $("#bottom_r").hover(function(){
 <div id="foot">
   <div style="width:1000px; margin:auto; padding-top:20px; padding-bottom:10px;">
     <div style="width:620px; float:left;">
-      <p style="font-size:16px; color:#333; border-bottom:1px dotted #AAA; padding-bottom:10px;">关于华通</p>
-      <p style="line-height:190%; color:#999; margin-top:10px;">华通机电股份有限公司创办于1998年，是华通机电集团下属控股子公司，是国内最大的高、低压电器、仪器仪表、电力变压器等机电产品制造商之一，拥有800多家销售网点。现有员工1200多人，厂房面积8万平方米，总资产5.8亿元。公司连续多年跻身中国民营企业500强、中国机械工业500强、浙江百强企业前列，荣获了高新技术企业、省质量奖、省科技奖、AAA标准化良好行为企业、全国用户满意企业、全国用户满意产品等荣誉称号。</p>
+      <p style="font-size:16px; color:#333; border-bottom:1px dotted #AAA; padding-bottom:10px;">关于劲凯</p>
+      <p style="line-height:190%; color:#999; margin-top:10px;">
+      
+      华通机电股份有限公司创办于1998年，是华通机电集团下属控股子公司，是国内最大的高、低压电器、仪器仪表、电力变压器等机电产品制造商之一，拥有800多家销售网点。现有员工1200多人，厂房面积8万平方米，总资产5.8亿元。公司连续多年跻身中国民营企业500强、中国机械工业500强、浙江百强企业前列，荣获了高新技术企业、省质量奖、省科技奖、AAA标准化良好行为企业、全国用户满意企业、全国用户满意产品等荣誉称号。</p>
+      
       <p style="margin-top:20px;">© 2014~2015 劲凯机电设备有限公司 版权所有　<a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备11056149号</a></p>    
     </div>
     <div class="fMenu">

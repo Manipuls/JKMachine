@@ -1,10 +1,12 @@
 package com.demo.action.reception;
 
 import java.util.Date;
+import java.util.List;
 
 import net.sf.json.JSONObject;
 
 import com.demo.action.BaseAction;
+import com.demo.backstage.doman.Menu;
 import com.demo.backstage.doman.util;
 import com.demo.backstage.service.menuService;
 import com.demo.backstage.service.newsServices;
@@ -22,8 +24,17 @@ public class indexAction extends BaseAction {
 	
 	public newsServices  newsservices = new newsServicesImpl();
 	private menuService menuservice = new menuServiceImpl();
-	
+	public List<Menu> onLoadIndex;
 
+	
+	
+	
+	public String onLoadIndex(){
+		onLoadIndex = menuservice.onLoadIndex();
+		
+		super.setParam("jsp", "重庆劲凯机电设备有限公司", "view/reception/index.jsp");
+		return "jsp";
+	}
 	/**查询首页菜单数据
 	 * @return
 	 */

@@ -1,5 +1,6 @@
 package com.demo.backstage.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -89,6 +90,19 @@ public class menuServiceImpl implements menuService {
 		}
 		System.out.println(""+json);
 		return json;
+	}
+	
+	
+	public List<Menu> onLoadIndex(){
+		SqlSession session = new CreateSession().getSession();
+		menudao = session.getMapper(menuDao.class);
+		List<Menu> findAll = menudao.findAll();
+		List<Menu> MenuList =new ArrayList<Menu>();
+		for (Menu menu : findAll) {
+			menu.setChildMenu(this.findListParentId(menu.getId()));
+			MenuList.add(menu);
+		}
+		return MenuList;
 	}
 
 }
