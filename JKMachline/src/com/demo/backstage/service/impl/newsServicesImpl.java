@@ -87,4 +87,46 @@ public class newsServicesImpl implements newsServices {
 		return json;
 	}
 
+	@Override
+	public News getNewsContentToJsp(News news) {
+		SqlSession session = new CreateSession().getSession();
+		newsdao = session.getMapper(newsDao.class);
+		News newsById = newsdao.getNewsById(news.getId());
+		return newsById;
+	}
+
+	/**
+	 *
+	 * @param news
+	 * @return
+	 * @see com.demo.backstage.service.newsServices#getPageForNewsToJsp(com.demo.backstage.doman.util)
+	 */
+	@Override
+	public List<News> getPageForNewsToJsp(util news) {
+		SqlSession session = new CreateSession().getSession();
+		newsdao = session.getMapper(newsDao.class);
+		//调用实现方法
+		List<News> pageForNews = newsdao.getPageForNews(news);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+		for (News n : pageForNews) {
+			n.setCreateStrTime(sdf.format(n.getCreateTime()));
+			n.setNewContent(n.getNewContent().length()>180?n.getNewContent().substring(0, 180):n.getNewContent()+"...");
+		}
+		return pageForNews;
+	}
+
+	/**
+	 *
+	 * @return
+	 * @see com.demo.backstage.service.newsServices#getCountNews()
+	 */
+	@Override
+	public Integer getCountNews() {
+		SqlSession session = new CreateSession().getSession();
+		newsdao = session.getMapper(newsDao.class);
+		//调用实现方法
+		Integer newsNum = newsdao.getCountNews();
+		return newsNum;
+	}
+
 }

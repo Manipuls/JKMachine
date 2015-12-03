@@ -1,5 +1,7 @@
 package com.demo.backstage.doman;
 
+import java.util.List;
+
 /**
  * ClassName: Product 
  * @Description: TODO
@@ -15,6 +17,16 @@ public class Product {
 	private Integer isShow;
 	private Integer isDelete;
 	private String produntThumbnail;  //缩略图
+	
+	private List<Product> productChild;
+	
+	
+	public List<Product> getProductChild() {
+		return productChild;
+	}
+	public void setProductChild(List<Product> productChild) {
+		this.productChild = productChild;
+	}
 	public Integer getId() {
 		return id;
 	}

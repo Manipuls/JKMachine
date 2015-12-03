@@ -2,6 +2,8 @@ package com.demo.backstage.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
+
 import com.demo.backstage.doman.Product;
 
 public interface productDao {
@@ -10,6 +12,7 @@ public interface productDao {
 	 * @param product
 	 * @return
 	 */
+	@Select("")
 	public Integer saveProduct(Product product);
 	
 	
@@ -25,5 +28,17 @@ public interface productDao {
 	 * @return
 	 */
 	public List<Product> getProduct();
+	
+	
+	/**
+	 * 获取子类产品
+	 * @param @return   
+	 * @return List<Product>  
+	 * @throws
+	 *
+	 * @author LIUFEI
+	 * @date 2015-11-28 下午8:34:34
+	 */
+	public List<Product> getProductChild(Integer id);
 
 }

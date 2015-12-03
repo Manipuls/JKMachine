@@ -1,8 +1,11 @@
 package com.demo.action.reception;
 
+import java.util.List;
+
 import net.sf.json.JSONObject;
 
 import com.demo.action.BaseAction;
+import com.demo.backstage.doman.Product;
 import com.demo.backstage.service.productService;
 import com.demo.backstage.service.impl.productServiceImpl;
 
@@ -14,25 +17,23 @@ public class productAction extends BaseAction {
 	private static final long serialVersionUID = 3681581436540417646L;
 	private productService  productservice = new productServiceImpl();
 	public JSONObject jsonObj;
+	public List<Product> product;
 	
 	
 	
-	/**
-	 *加载产品列表
-	 * @Description: TODO
-	 * @param @return   
-	 * @return String  
-	 * @throws
-	 *
-	 * @author LIUFEI
-	 * @date 2015-11-20 下午12:48:49
-	 */
-	public String onLoadProduct(){
-		String product = productservice.getProduct();
-		jsonObj = JSONObject.fromObject(product);
-		return "json";
+
+
+	public String onLoadProductToJsp(){
+		
+		product = productservice.getProduct();
+		
+		super.getSession().put("product", product);
+		super.setParam("jsp", "劲凯机电-产品中心", "view/reception/product.jsp");
+		return "jsp";
 		
 	}
+	
+	
 	
 	/**
 	 * 
@@ -46,7 +47,12 @@ public class productAction extends BaseAction {
 	 * @date 2015-11-20 下午12:49:35
 	 */
 	public String onLoadProductContent(){
-		return "json";
+		
+		
+		
+		
+		super.setParam("jsp", "劲凯机电-产品详情", "view/reception/productContent.jsp");
+		return "jsp";
 		
 	}
 
@@ -69,7 +75,14 @@ public class productAction extends BaseAction {
 	}
 	
 	
-	
+	public List<Product> getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(List<Product> product) {
+		this.product = product;
+	}
 	
 	
 

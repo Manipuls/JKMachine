@@ -14,12 +14,14 @@
 		<result column="produnt_thumbnail" property="produntThumbnail" />
 	</resultMap>
 	
-	<select id="pageFindNews" parameterType="util" resultMap="newsMap">
-		select * from backstage_news n where n.new_type=#{str1} and create_time &lt;#{date1} ORDER BY create_time desc limit #{integer1},#{integer2} 
-	</select>
+	
 	<!-- 产品中心加载产品 -->
 	<select id="getProduct" resultMap="productMap">
-		select * from backstage_product p where p 
+		select * from backstage_product where parent_id is null and is_delete='1'
+	</select>
+	<!-- 产品中心加载产品 -->
+	<select id="getProductChild" parameterType="Integer" resultMap="productMap">
+		select * from backstage_product where parent_id=#{0} and is_delete='1'
 	</select>
 	
 	

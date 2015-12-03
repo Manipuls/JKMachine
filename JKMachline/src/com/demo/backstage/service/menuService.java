@@ -14,5 +14,7 @@ public interface menuService {
 	public List<Menu> findListParentId(Integer id);
 	
 	public String menuToJson();
+	
+	public List<Menu> onLoadIndex();
 
 }

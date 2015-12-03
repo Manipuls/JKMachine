@@ -49,5 +49,16 @@ public interface newsDao {
 	 */
 	public News getNewsById(Integer id);
 	
+	
+	/**
+	 * 获取一共有多少条数据
+	 * @return Integer  
+	 * @throws
+	 *
+	 * @author LIUFEI
+	 * @date 2015-11-21 下午3:27:11
+	 */
+	public Integer getCountNews();
+	
 
 }

@@ -22,11 +22,14 @@ function onLoadAboutData(){
  */
 function onLoadNewsData(){
 	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
-	newsAction_onLoadNewsTitle();  //加载新闻资讯标题
+	newsAction_getCountNews();
+	//newsAction_onLoadNewsTitle();  //加载新闻资讯标题
+	
+	
 }
 function onLoadNewsContentData(){
 	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
-	newsAction_onLoadNewsContent(); //加载新闻资讯具体内容
+	//newsAction_onLoadNewsContent(); //加载新闻资讯具体内容
 }
 
 /**
@@ -42,6 +45,7 @@ function onLoadProductPlanData(){
  * 
  */
 function onLoadProductData(){
+	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	
 }
 
@@ -192,7 +196,7 @@ function newsAction_onLoadNewsTitle(){
 		success : function(root) {
 			var data = root.rows;
 			for ( var i = 0; i < data.length; i++) {
-				newsTitle += "<li> <a href='view/reception/newsContent.jsp?id="+data[i].id+"'> <div class='tim' style='background-color: rgb(238, 238, 238);'>";
+				newsTitle += "<li> <a href='newsAction_onLoadNewsContentToJsp?id="+data[i].id+"'> <div class='tim' style='background-color: rgb(238, 238, 238);'>";
 				newsTitle += "<p style='font-size: 46px; font-family: Arial; color: rgb(136, 136, 136);'>"+(data[i].createStrTime.substring(8,10))+"</p><p style='color: rgb(136, 136, 136);'>"+(data[i].createStrTime.substring(0,8))+"</p></div>";
 				newsTitle += "<div class='con'><p style='font-size: 14px; color: rgb(0, 102, 204);'>"+data[i].newTitle+"</p><p style='color:#999; margin-top:9px; line-height:180%;'>"+(data[i].newContent.length>168?data[i].newContent.substr(0,168):data[i].newContent)+"...</p></div>";
 				newsTitle += "</a></li><li class='clear'></li>";
@@ -235,6 +239,19 @@ function newsAction_onLoadNewsContent(){
 	
 }
 
+
+function newsAction_getCountNews(){
+	$.ajax({                                                                     
+		url : "newsAction_getCountNews",
+		dataType : "json",
+		async: true,
+		success : function(root) {
+			var pageNums = $("#pageNums");
+			pageNums.empty();
+			pageNums.append("共"+Math.ceil((root.rows)/4)+"页");
+		}
+	});
+}
 
 
 /*=======================================news.jsp================================end===========================================*/

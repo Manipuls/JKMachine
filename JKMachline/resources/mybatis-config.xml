@@ -31,6 +31,7 @@
 		<mapper resource="doman/backstage/role.xml" />
 		<mapper resource="doman/backstage/right.xml" />
 		<mapper resource="doman/backstage/news.xml" />
+		<mapper resource="doman/backstage/product.xml" />
 		<mapper resource="doman/reception/menu.xml" />
 	</mappers>
 </configuration>
