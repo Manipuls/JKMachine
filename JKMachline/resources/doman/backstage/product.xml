@@ -26,6 +26,15 @@
 	
 	
 	
+	<select id="getProductContent" parameterType="Integer" resultMap="productMap">
+		select * from backstage_product where parent_id=#{0} and is_delete='1'
+	</select>
+	
+	
+	
+	
+	
+	
 	
 	
 </mapper>

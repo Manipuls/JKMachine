@@ -22,5 +22,23 @@ public interface productService {
 	 * @date 2015-11-28 下午8:37:17
 	 */
 	public List<Product> getProductChild(Integer id);
+	
+	
+	
+	/**
+	 * 
+	 * <p>
+	 * 方法的主要说明，以。或.结束
+	 * <p>
+	 * <p>
+	 * 描述方法完成什么样的功能,方法的目标,用该方法的原因
+	 * <p>
+	 * liufei 2015-12-9
+	 * 
+	 * @param Id
+	 * @return
+	 */
+	 
+	public List<Product> getProductContent(Integer Id);
 
 }

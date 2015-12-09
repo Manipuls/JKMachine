@@ -30,7 +30,7 @@
 	<jsp:include page="indexHeader.jsp"></jsp:include>
 	<div id="banner">
 		<div id="bannerCon">
-			<img src="./productContent_files/banner_text.png" id="bannerText">
+			<img src="view/reception/images/banner_text.png" id="bannerText">
 			<p id="bannerTit">
 				<a href="http://XXXXX/" class="aGray">首页</a> - <a
 					href="http://XXXXX/product.php" class="aGray">产品中心</a> - <a
@@ -148,50 +148,16 @@ $("#menuSonList li").hover(function(){
 						
 						<li>
 							<span class="open"></span>
-							<a  href="http://XXXXX/product.php?partid=15&mpid=1" datavalue="1" class="A">${productList.productName}</a>
-							<ul class="prolist_side_son close">
+							<%--  <a   datavalue="1" >${productList.productName}</a>  --%>
+							 <a   datavalue="1" >${productList.productName}</a> 
+							<ul class="prolist_side_son open">
 								<c:forEach items="${productList.productChild}" var="productListC">
 									<li style="padding-left:10px;"><a href="" datavalue="71">${productListC.productName}</a> </li>
 								</c:forEach>
 							</ul>
 						</li>
 						</c:forEach>
-						<!-- <li>
-							<span class="close"></span>
-							<a href="http://XXXXX/product.php?partid=15&mpid=2" datavalue="2">新产品系列</a>
-							<ul class="prolist_side_son close">
-								<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=2&id=191" datavalue="191">CFM3LE自动重合闸剩余电流工作断路器</a> </li>
-								<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=2&id=192" datavalue="192">CFGQ1系列过欠压延时保护器</a> </li>
-								<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=2&id=193" datavalue="193">CFKJ1系列电子限荷自动控制器</a> </li>
-								<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=2&id=194" datavalue="194">CFB3Z系列小型断路器</a> </li>
-							</ul>
-						</li>
-						<li>
-							<span class="close"></span>
-							<a href="http://XXXXX/product.php?partid=15&mpid=3" datavalue="3">断路器</a>
-							<ul class="prolist_side_son close">
-									<li style="padding-left:10px;">
-										<span class="close"></span>
-										<a href="http://XXXXX/product.php?partid=15&mpid=17" datavalue="17">小型断路器</a>
-										<ul class="prolist_side_son close">
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=17&id=205" datavalue="205">DZ47系列小型断路器</a> </li>
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=17&id=208" datavalue="208">DZ47Z系列小型断路器</a> </li>
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=17&id=209" datavalue="209">CFB30-32系列小型断路器</a> </li>
-										</ul>
-									</li>
-									<li style="padding-left:10px;">
-										<span class="close"></span>
-										<a href="http://XXXXX/product.php?partid=15&mpid=18" datavalue="18">漏电断路器</a>
-										<ul class="prolist_side_son close">
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=18&id=206" datavalue="206">DZ47LE-63系列一体式漏电断路器</a> </li>
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=18&id=207" datavalue="207">DZ47-63附件</a> </li>
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=18&id=215" datavalue="215">DZ47LE系列漏电断路器</a> </li>
-											<li style="padding-left:10px;"><a href="http://XXXXX/product_view.php?partid=15&mpid=18&id=216" datavalue="216">CFB30LE系列漏电断路器</a> </li>
-										</ul>
-									</li>
-							</ul>
-					</li> -->
-				</ul>
+					</ul>
 					<script type="text/javascript">main_list_all("prolist_side");</script>
 				</div>
 			</div>
@@ -228,24 +194,24 @@ $("#menuSonList li").hover(function(){
 							<div id="pro_focus_img"
 								style="width:300px; height:300px; _overflow:hidden;">
 								<img onload="AutoResizeImage(300,300,this,true);"
-									src="./productContent_files/20140703111319-0735-19214.jpg"
+									src="view/reception/images/20140703111319-0735-19214.jpg"
 									style="border: 0px none;" height="300" width="300">
 							</div>
 							<div
-								style="width:300px; height:300px; margin-top:-300px; position:relative; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src=&#39;images/pro_mark.png&#39;); background:url(images/pro_mark.png) no-repeat !important; _background:none; zoom:1;"></div>
+								style="width:300px; height:300px; margin-top:-300px; position:relative; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src=&#39;view/reception/images/pro_mark.png&#39;); background:url(images/pro_mark.png) no-repeat !important; _background:none; zoom:1;"></div>
 							<div style="width:300px; height:300px; margin-top:-300px;">
 								<span
 									href="http://XXXXX/upload/image/2014-07/20140703111319-0735-19214.jpg"
 									class="zxx_image_zoom_list" style="cursor:move"
 									id="pro_img_zoom"><img
-									src="./productContent_files/null.gif" width="300" height="300"
+									src="view/reception/images/null.gif" width="300" height="300"
 									class="zxx_zoom_image" border="0">
 								</span>
 							</div>
 							<div
 								style="width: 300px; position: relative; margin-top: -17px; text-align: right; display: block;"
 								id="pro_zoomer">
-								<img src="./productContent_files/arr_zoom.gif" border="0">
+								<img src="view/reception/images/arr_zoom.gif" border="0">
 							</div>
 						</div>
 						<div id="pro_focus_list"
@@ -260,14 +226,14 @@ $("#menuSonList li").hover(function(){
 									<a href="javascript:void(0);"
 										style="width: 58px; height: 57px; border: 1px solid rgb(255, 204, 0); display: inline-block; text-align: center; margin-left: 3px; margin-right: 3px; padding-top: 1px; background-color: rgb(255, 255, 191);"
 										tab="0"><img onload="AutoResizeImage(56,56,this,true);"
-										src="./productContent_files/20140703111319-0735-19214.jpg"
+										src="view/reception/images/20140703111319-0735-19214.jpg"
 										alt="2-D1"
 										style="border:0px none; display:block; margin-left:auto; margin-right:auto;"
 										height="56" width="56">
 									</a><a href="javascript:void(0);"
 										style="width: 58px; height: 57px; border: 1px solid rgb(221, 221, 221); display: inline-block; text-align: center; margin-left: 3px; margin-right: 3px; padding-top: 1px;"
 										tab="1"><img onload="AutoResizeImage(56,56,this,true);"
-										src="./productContent_files/20140703111322-0747-99099.jpg"
+										src="view/reception/images/20140703111322-0747-99099.jpg"
 										alt="2-D2"
 										style="border:0px none; display:block; margin-left:auto; margin-right:auto;"
 										height="56" width="56">
@@ -286,46 +252,46 @@ $("#menuSonList li").hover(function(){
 						<div
 							style="padding:8px 8px 13px 10px; background:url(images/pro_class_bg.png) repeat-x left bottom; position:relative; color:#999; font-size:12px;">
 							所属：<a href="http://XXXXX/product.php?partid=15&mpid=1">CF3系列精品</a><img
-								src="./productContent_files/back_pro.png"
+								src="view/reception/images/back_pro.png"
 								style="position:absolute; right:0; top:-2px; margin-top:35px; cursor:pointer;"
 								onclick="history.go(-1);">
 						</div>
 						<div style="margin-top:22px; font-size:12px;">
 							<p>
-								<img src="./productContent_files/pro_arr_tel.gif"
+								<img src="view/reception/images/pro_arr_tel.gif"
 									style="vertical-align:middle; margin-right:4px; margin-left:1px; border:0px none;">服务热线：400-8263-733
 							</p>
 							<p style="margin-top:11px;">
 								<a href="javascript:void(0);"
 									onclick="DialogOpenWin(&#39;son&#39;,&#39;product_inquiry_basket.php?partid=15&#39;,&#39;800px&#39;,&#39;520px&#39;,&#39;Check out my single basket Inquiry&#39;);"><img
-									src="./productContent_files/pro_arr_inquiry-basket.gif"
+									src="view/reception/images/pro_arr_inquiry-basket.gif"
 									style="vertical-align:middle; margin-right:5px; border:0px none;">查看我的询单篮</a>
 							</p>
 							<p style="margin-top:11px;">
 								<a href="javascript:void(0);" onclick="inquiry(&#39;182&#39;);"><img
-									src="./productContent_files/pro_arr_inquiry-basket-add.gif"
+									src="view/reception/images/pro_arr_inquiry-basket-add.gif"
 									style="vertical-align:middle; margin-right:5px; border:0px none;">添加到询单篮</a>
 							</p>
 							<p style="margin-top:11px;">
 								<a href="javascript:self.print();"><img
-									src="./productContent_files/pro_arr_print.gif"
+									src="view/reception/images/pro_arr_print.gif"
 									style="vertical-align:middle; margin-right:5px; border:0px none;">打印当前页</a>
 							</p>
 							<p style="margin-top:11px;">
 								<a href="javascript:fav(document.title,location.href);"><img
-									src="./productContent_files/pro_arr_bookmark.gif"
+									src="view/reception/images/pro_arr_bookmark.gif"
 									style="vertical-align:middle; margin-right:5px; border:0px none;">加入收藏</a>
 							</p>
 							<p style="margin-top:11px;">
 								<a
 									href="mailto:fato@chinafato.com?subject=Message%20from%20website"><img
-									src="./productContent_files/pro_arr_email.gif"
+									src="view/reception/images/pro_arr_email.gif"
 									style="vertical-align:middle; margin-right:4px; margin-left:1px; border:0px none;">发邮件给我们</a>
 							</p>
 						</div>
 						<div
 							style="margin-top:22px; border-bottom:1px solid #E0E0E0; padding-bottom:8px; font-weight:bold; color:#D90000;">
-							<img src="./productContent_files/pro_arr_pdf.gif"
+							<img src="view/reception/images/pro_arr_pdf.gif"
 								style="vertical-align:middle; margin-right:5px; border:0px none;"><span
 								style="font-size:14px;">此产品包含以下详细资料</span>
 						</div>
@@ -401,13 +367,13 @@ $("#menuSonList li").hover(function(){
 					<ul>
 						<li><a
 							href="http://XXXXX/product_view.php?partid=15&mpid=1&id=71"><img
-								src="./productContent_files/20140625141051-0400-88601.jpg"><span
+								src="view/reception/images/20140625141051-0400-88601.jpg"><span
 								class="span">上一个：CFW3系列万能式断路器</span>
 						</a>
 						</li>
 						<li><a
 							href="http://XXXXX/product_view.php?partid=15&mpid=1&id=183"><img
-								src="./productContent_files/20140703113151-0829-40882.jpg"><span
+								src="view/reception/images/20140703113151-0829-40882.jpg"><span
 								class="span">下一个：CFM3E系列电子式塑壳断路器</span>
 						</a>
 						</li>

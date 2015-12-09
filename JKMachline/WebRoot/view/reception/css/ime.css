@@ -35,7 +35,7 @@ a:hover,a:active{color:#0066CC;}
 #headmenuSon a:hover,#headmenuSon a:active{color:#FFF; background:#005791;}
 
 #top{width:1000px; height:100px; margin:auto;}
-#logo{margin-top:33px; width:150px; height:35px; float:left;}
+#logo{margin-top:19px; width:150px; height:35px; float:left;}
 #menu{width:600px; height:80px; margin-top:20px; float:left; margin-left:30px;}
 #menu li{float:left; display:block; position:relative; z-index:9;}
 #menu li.split{float:left; display:block; width:1px; height:20px; padding-top:28px;}

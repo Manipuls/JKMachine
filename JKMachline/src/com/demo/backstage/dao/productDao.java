@@ -40,5 +40,15 @@ public interface productDao {
 	 * @date 2015-11-28 下午8:34:34
 	 */
 	public List<Product> getProductChild(Integer id);
+	
+	/**
+	 * 获取产品具体信息
+	 * liufei 2015-12-9
+	 * @param id
+	 * @return
+	 */
+	public Product getProductContent(Integer id);
+	
+	
 
 }

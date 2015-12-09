@@ -30,9 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  <div id="headmenu"><a href="">首页</a><a href="###">联系我们</a><a href="####http://www.chinafato.net/chinafato/en/">English</a>
 		  </div>
 		</div>
-		
 		<div id="top">
-		  <div id="logo"><a href="./images/index.html"><img src="view/reception/images/logo.png"></a></div>
+		  <div id="logo"><a href="view/reception/index.jsp"><img src="view/reception/images/logo.png"></a></div>
 		  <ul id="menu"> </ul>   <!-- 菜单栏加载 --> 
 		  <div id="search">
 		  <form id="formsearch" name="formsearch" method="get" action="###">    
