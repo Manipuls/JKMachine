@@ -19,7 +19,9 @@
    
    
   <welcome-file-list>
-    <!-- <welcome-file>view/reception/index.jsp</welcome-file> -->
+    <!-- 
     <welcome-file>view/backstage/login.jsp</welcome-file>
+    -->
+    <welcome-file>view/reception/index.jsp</welcome-file> 
   </welcome-file-list>
 </web-app>

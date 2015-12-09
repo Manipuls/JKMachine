@@ -3,7 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="mysqlConnection.properties" />
+	<properties resource="id789mysqlConnection.properties" />
+	<!-- <properties resource="mysqlConnection.properties" /> -->
 	<!-- 可以设置性能 让性能更佳-->
 	
 	<typeAliases>

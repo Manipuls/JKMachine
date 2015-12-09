@@ -23,6 +23,9 @@ public class productAction extends BaseAction {
 	
 
 
+	/**
+	 * @return
+	 */
 	public String onLoadProductToJsp(){
 		
 		product = productservice.getProduct();
@@ -47,10 +50,6 @@ public class productAction extends BaseAction {
 	 * @date 2015-11-20 下午12:49:35
 	 */
 	public String onLoadProductContent(){
-		
-		
-		
-		
 		super.setParam("jsp", "劲凯机电-产品详情", "view/reception/productContent.jsp");
 		return "jsp";
 		
