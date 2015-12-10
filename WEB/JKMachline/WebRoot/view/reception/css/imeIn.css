@@ -191,17 +191,14 @@
 .prolist_side li {
 	border-bottom: 1px solid #E6E6E6;
 }
-
-.prolist_side li a {
-	background: url(images/list_arr.gif) no-repeat 3px 13px !important;
+ .prolist_side li a {
 	padding: 9px 0px 9px 13px !important;
 	font-size: 12px;
 }
 
 .prolist_side li a:hover,.prolist_side li a:active {
-	background: url(images/list_arr.gif) no-repeat 3px -79px !important;
 	color: #F60;
-}
+} 
 
 .prolist_side_son {
 	padding-bottom: 10px !important;
@@ -221,21 +218,21 @@
 	padding: 5px 0px 5px 8px !important;
 }
 
-.prolist_side li span.close {
-	background: url(images/plus_minus.gif) no-repeat right 13px !important;
+/* .prolist_side li span.close {
+	background: url(view/reception/images/plus_minus.gif) no-repeat right 13px !important;
 }
 
 .prolist_side li span.open {
-	background: url(images/plus_minus.gif) no-repeat right -180px !important;
+	background: url(view/reception/images/plus_minus.gif) no-repeat right -180px !important;
 }
 
 .prolist_side_son li span.close {
-	background: url(images/plus_minus.gif) no-repeat right 9px !important;
+	background: url(view/reception/images/plus_minus.gif) no-repeat right 9px !important;
 }
 
 .prolist_side_son li span.open {
-	background: url(images/plus_minus.gif) no-repeat right -183px !important;
-}
+	background: url(view/reception/images/plus_minus.gif) no-repeat right -183px !important;
+}  */
 
 .searHeight {
 	font-style: normal;

@@ -24,6 +24,32 @@
 <script type="text/javascript" src="view/reception/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="view/reception/js/diy_index/public-all.js"></script>
 <script type="text/javascript" src="view/reception/js/public.js"></script>
+
+
+<script type="text/javascript">
+var i =0 ;
+function test(s){
+	if(i%2==0){
+		if($("#"+s).attr("class")=="prolist_side_son open"){
+			$("#"+s).attr("class","prolist_side_son close");
+		}else{
+			$("#"+s).attr("class","prolist_side_son open");
+		}
+		
+		i++;
+	}else{
+		if($("#"+s).attr("class")=="prolist_side_son close"){
+			$("#"+s).attr("class","prolist_side_son open");
+		}else{
+			$("#"+s).attr("class","prolist_side_son close");
+		}
+		i++;
+	}
+	
+}
+
+
+</script>
 </head>
 
 <body onload="onLoadProductContentData()">
@@ -87,7 +113,7 @@ $("#menuSonList li").hover(function(){
 .prolist_side li span.close {
 	display: block;
 	padding: 5px 0px 5px 10px;
-	background: url(images/plus_minus.gif) no-repeat right 9px;
+	background: url(view/reception/images/plus_minus.gif) no-repeat right 9px;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -100,7 +126,7 @@ $("#menuSonList li").hover(function(){
 .prolist_side li span.open {
 	display: block;
 	padding: 5px 0px 5px 10px;
-	background: url(images/plus_minus.gif) no-repeat right -183px;
+	background: url(view/reception/images/plus_minus.gif) no-repeat right -183px;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -115,12 +141,12 @@ $("#menuSonList li").hover(function(){
 	zoom: 1;
 	position: relative;
 	padding: 5px 0px 5px 10px;
-	background: url(images/list_arr.gif) no-repeat left 9px;
+	background: url(view/reception/images/list_arr.gif) no-repeat left 9px;
 }
 
 .prolist_side li a:hover,.prolist_side li a:active,.prolist_side li a.A
 	{
-	background: url(images/list_arr.gif) no-repeat left -83px;
+	background: url(view/reception/images/list_arr.gif) no-repeat left -83px;
 }
 
 .prolist_side li a.A {
@@ -147,10 +173,11 @@ $("#menuSonList li").hover(function(){
 						<c:forEach items="${sessionScope.product}" var="productList">
 						
 						<li>
-							<span class="open"></span>
+							<span class="${productList.id==pro.parentId?'open':'close'}" name='${productList.id}' > <!-- onclick="test(this.name);" --> </span>
 							<%--  <a   datavalue="1" >${productList.productName}</a>  --%>
-							 <a   datavalue="1" >${productList.productName}</a> 
-							<ul class="prolist_side_son open">
+							 <a   datavalue="1"  class="${productList.id==pro.parentId?'A':'2'}" >${productList.productName}</a> 
+							<ul  id='${productList.id}' class="prolist_side_son ${productList.id==pro.parentId?'open':'close'}">
+								
 								<c:forEach items="${productList.productChild}" var="productListC">
 									<li style="padding-left:10px;"><a href="" datavalue="71">${productListC.productName}</a> </li>
 								</c:forEach>
@@ -162,7 +189,8 @@ $("#menuSonList li").hover(function(){
 				</div>
 			</div>
 			<div id="mainC_r">
-				<div style="width:750px; margin-top:28px;">
+			<span style="">asdfsadfs</span>
+				<div style="width:750px; ">
 					<div style="width:300px; float:left; text-align:center;">
 						<style type="text/css">
 .zxx_image_zoom_list img.zxx_zoom_image {
@@ -298,7 +326,7 @@ $("#menuSonList li").hover(function(){
 						<div style="margin-top:5px; height:80px; overflow-y:scroll;">
 							<style type="text/css">
 .bigfiles_list {
-	background: url(images/arr_file.gif) no-repeat left 1px;
+	background: url(view/reception/images/arr_file.gif) no-repeat left 1px;
 	line-height: 19px;
 	display: inline-block;
 	padding-left: 20px;

@@ -15,6 +15,17 @@ public class productServiceImpl implements productService {
 	
 	private productDao  productdao;
 	Logger log = Logger.getLogger(productServiceImpl.class);
+	/**
+	 * <p>
+	 * 方法的主要说明，以。或.结束
+	 * <p>
+	 * <p>
+	 * 描述方法完成什么样的功能,方法的目标,用该方法的原因
+	 * <p>
+	 *
+	 * @return
+	 * @see com.demo.backstage.service.productService#getProduct()
+	 */
 	@Override
 	public List<Product> getProduct() {
 		List<Product> product = new ArrayList<Product>();
@@ -33,6 +44,14 @@ public class productServiceImpl implements productService {
 	@Override
 	public List<Product> getProductChild(Integer id) {
 		return productdao.getProductChild(id);
+	}
+	@Override
+	public Product getProductContent(Integer id) {
+		SqlSession session = new CreateSession().getSession();
+		productdao = session.getMapper(productDao.class);
+		Product productContent = productdao.getProductContent(id);
+		session.close();
+		return productContent;
 	}
 
 }
