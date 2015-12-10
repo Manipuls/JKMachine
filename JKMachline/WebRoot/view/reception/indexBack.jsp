@@ -53,24 +53,25 @@ $("#bottom_r").hover(function(){
       <p style="margin-top:20px;">© 2014~2015 劲凯机电设备有限公司 版权所有　<a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备11056149号</a></p>    
     </div>
     <div class="fMenu">
-      <a href="./images/index.html">首页</a>
-      <a href="####/about.php">关于劲凯</a>
-      <a href="####/news.php">新闻资讯</a>
-      <a href="####/product.php">产品设计</a>
+      <a href="view/reception/index.jsp">首页</a>
+      <a href="view/reception/about.jsp">关于劲凯</a>
+      <a href="newsAction_onLoadNewsTitleToJsp">新闻资讯</a>
+      <a href="view/reception/plan.jsp">产品设计</a>
     </div>
     <div class="fMenu">
-      <a href="####/network.php">产品中心</a>
+      <a href="productAction_onLoadProductToJsp">产品中心</a>
       <a href="####/service.php">服务支持</a>
       <a href="####/contact.php">联系我们</a>
       <a href="http://www.eshion.cn/" target="_blank" style="color:#999;">劲凯科技 技术支持</a>
     </div>
   </div>
-</div><div id="qr">
+</div>
+<!-- <div id="qr">
   <a href="javascript:$('#qr').slideUp(450);void(0);" id="qr_close"></a>
   <p><img src="view/reception/images/qr.png"></p>
   <p style="padding-left:6px; padding-top:3px; color:#333;">在这里，了解华通</p>
   <p style="padding-left:6px; padding-top:5px; color:#999; font-size:11px;">扫描二维码添加华通微信订阅号<br>及时获取更多华通资讯</p>
-</div>
+</div> -->
 <div style="background:#EEEEEE; text-align:center;">
 </div>
   </body>

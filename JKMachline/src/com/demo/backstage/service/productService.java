@@ -39,6 +39,6 @@ public interface productService {
 	 * @return
 	 */
 	 
-	public List<Product> getProductContent(Integer Id);
+	public Product getProductContent(Integer Id);
 
 }

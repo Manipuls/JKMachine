@@ -3,8 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="id789mysqlConnection.properties" />
-	<!-- <properties resource="mysqlConnection.properties" /> -->
+	<!--Mopass 	MopassMySqlConnection.properties  -->
+	<!--IDC789  id789mysqlConnection.properties -->
+	<!--localhost   mysqlConnection.properties     --> 
+	<properties resource="mysqlConnection.properties" />
 	<!-- 可以设置性能 让性能更佳-->
 	
 	<typeAliases>
@@ -15,6 +17,7 @@
 		<typeAlias type="com.demo.backstage.doman.Menu" alias="menu" />
 		<typeAlias type="com.demo.backstage.doman.Product" alias="product" />
 		<typeAlias type="com.demo.backstage.doman.News" alias="news" />
+		<typeAlias type="com.demo.backstage.doman.ProductInfo" alias="productInfo" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -34,5 +37,7 @@
 		<mapper resource="doman/backstage/news.xml" />
 		<mapper resource="doman/backstage/product.xml" />
 		<mapper resource="doman/reception/menu.xml" />
+		<mapper resource="doman/backstage/productInfo.xml" />
+		
 	</mappers>
 </configuration>

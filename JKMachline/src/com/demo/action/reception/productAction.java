@@ -18,6 +18,8 @@ public class productAction extends BaseAction {
 	private productService  productservice = new productServiceImpl();
 	public JSONObject jsonObj;
 	public List<Product> product;
+	public Product  pro ;
+	public Integer id;
 	
 	
 	
@@ -50,6 +52,7 @@ public class productAction extends BaseAction {
 	 * @date 2015-11-20 下午12:49:35
 	 */
 	public String onLoadProductContent(){
+		pro = productservice.getProductContent(id);
 		super.setParam("jsp", "劲凯机电-产品详情", "view/reception/productContent.jsp");
 		return "jsp";
 		
@@ -68,21 +71,27 @@ public class productAction extends BaseAction {
 	public JSONObject getJsonObj() {
 		return jsonObj;
 	}
-
 	public void setJsonObj(JSONObject jsonObj) {
 		this.jsonObj = jsonObj;
 	}
-	
-	
 	public List<Product> getProduct() {
 		return product;
 	}
-
-
 	public void setProduct(List<Product> product) {
 		this.product = product;
 	}
-	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Product getPro() {
+		return pro;
+	}
+	public void setPro(Product pro) {
+		this.pro = pro;
+	}
 	
 
 }
