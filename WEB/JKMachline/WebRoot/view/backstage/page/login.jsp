@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
+String path = request.getContextPath()+"/view/backstage/";
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
@@ -15,10 +15,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css" />   
-	<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />   
-	<script type="text/javascript" src="easyui/jquery-1.8.3.min.js"></script>   
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>  
+	<link rel="stylesheet" type="text/css" href="<%=path%>easyui/themes/default/easyui.css" />   
+	<link rel="stylesheet" type="text/css" href="<%=path%>easyui/themes/icon.css" />   
+	<script type="text/javascript" src="<%=path%>easyui/jquery-1.8.3.min.js"></script>   
+	<script type="text/javascript" src="<%=path%>easyui/jquery.easyui.min.js"></script>  
 
   </head>
   
@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <li> 密码：<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:150px">  </li> 
 		    
 		    <div style="margin-left: 65px;" >
-		    <a id="btn" href="page/menu.jsp" class="easyui-linkbutton" data-options="iconCls:'icon-man'">登录</a>  
+		    <a id="btn" href="<%=path%>page/menu.jsp" class="easyui-linkbutton" data-options="iconCls:'icon-man'">登录</a>  
 		    <a style="margin-left: 10px;" id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">重置</a>  
 		    </div>
         </ul> 
