@@ -28,8 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul style="margin-left: 120px;margin-top: 30px;line-height: 45px; list-style-type: none">
 		    <li> 帐号：<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:150px">  </li>
 		    <li> 密码：<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:150px">  </li> 
-		    
 		    <div style="margin-left: 65px;" >
+		    <form id="loginFrom" method="post"><input id="name" type="text"><input id="pwd" type="text"></form>
 		    <a id="btn" href="<%=path%>page/menu.jsp" class="easyui-linkbutton" data-options="iconCls:'icon-man'">登录</a>  
 		    <a style="margin-left: 10px;" id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">重置</a>  
 		    </div>
