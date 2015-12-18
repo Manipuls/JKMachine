@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
+String path = request.getContextPath()+"/view/backstage/";
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
@@ -16,10 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css" />   
-	<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" />   
-	<script type="text/javascript" src="easyui/jquery-1.8.3.min.js"></script>   
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<%=path%>easyui/themes/default/easyui.css" />   
+	<link rel="stylesheet" type="text/css" href="<%=path%>easyui/themes/icon.css" />   
+	<script type="text/javascript" src="<%=path%>easyui/jquery-1.8.3.min.js"></script>   
+	<script type="text/javascript" src="<%=path%>easyui/jquery.easyui.min.js"></script> 
 	<style type="text/css">
 		html,body,div{margin: 0;padding: 0}
 	</style> 
@@ -43,7 +43,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
  <body class="easyui-layout" data-options="fit:true"	>
-	    <div data-options="region:'north',title:'',split:true" style="height:100px;"></div>   
+	    <div data-options="region:'north',title:'',split:true" style="height:100px;">
+	    <%=path%>
+	    <%=basePath%>
+	    </div>   
 	    <div data-options="region:'south',title:'',split:true" style="height:20px;"></div>   
 	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:250px;">
 
