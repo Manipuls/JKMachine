@@ -16,5 +16,12 @@ public interface menuService {
 	public String menuToJson();
 	
 	public List<Menu> onLoadIndex();
+	
+	/**
+	 *获取产品分类
+	 * liufei 2015-12-26
+	 * @return
+	 */
+	public String getProductCataLog();
 
 }

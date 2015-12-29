@@ -7,11 +7,14 @@ import net.sf.json.JSONObject;
 
 import com.demo.action.BaseAction;
 import com.demo.backstage.doman.Menu;
+import com.demo.backstage.doman.Product;
 import com.demo.backstage.doman.util;
 import com.demo.backstage.service.menuService;
 import com.demo.backstage.service.newsServices;
+import com.demo.backstage.service.productService;
 import com.demo.backstage.service.impl.menuServiceImpl;
 import com.demo.backstage.service.impl.newsServicesImpl;
+import com.demo.backstage.service.impl.productServiceImpl;
 
 public class indexAction extends BaseAction {
 	
@@ -24,6 +27,7 @@ public class indexAction extends BaseAction {
 	
 	public newsServices  newsservices = new newsServicesImpl();
 	private menuService menuservice = new menuServiceImpl();
+	
 	public List<Menu> onLoadIndex;
 
 	
@@ -96,10 +100,15 @@ public class indexAction extends BaseAction {
 	/**首页加产品列表
 	 * @return
 	 */
-	public String onLoadproducts(){
-		
+	public String onLoadProductCataLogs(){
+		String productCataLog = menuservice.getProductCataLog();
+		jsonObj = JSONObject.fromObject(productCataLog);
 		return "json";
 	}
+	
+	
+	
+	
 	
 	
 	

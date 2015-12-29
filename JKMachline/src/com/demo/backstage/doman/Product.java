@@ -18,7 +18,9 @@ public class Product {
 	private Integer isDelete;
 	private String produntThumbnail;  //缩略图
 	
-	private List<Product> productChild;
+	private List<Product> productChild;//子类
+	
+	private List<ProductInfo> productInfoList;//子类产品集合
 	
 	
 	public List<Product> getProductChild() {
@@ -68,6 +70,12 @@ public class Product {
 	}
 	public void setProduntThumbnail(String produntThumbnail) {
 		this.produntThumbnail = produntThumbnail;
+	}
+	public List<ProductInfo> getProductInfoList() {
+		return productInfoList;
+	}
+	public void setProductInfoList(List<ProductInfo> productInfoList) {
+		this.productInfoList = productInfoList;
 	}
 	
 

@@ -59,15 +59,6 @@ public class productAction extends BaseAction {
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public JSONObject getJsonObj() {
 		return jsonObj;
 	}
