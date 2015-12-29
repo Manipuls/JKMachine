@@ -10,5 +10,9 @@
 		<result column="product_id" property="productId" />
 		<result column="is_delete" property="isDelete" />
 	</resultMap>
+	
+	<select id="getProductInfo" parameterType="Integer" resultMap="productInfoMap">
+		select * from backstage_product_info where product_id=#{0}
+	</select>
 </mapper>
 	
