@@ -345,6 +345,10 @@ $(function(){
 		pageNum = parseInt(pageNum)+1;
 		window.location.href="newsAction_onLoadNewsTitleToJsp?page="+pageNum;
 	});
+	
+	$(".aboutTit").click( function () { 
+		window.location.href="view/reception/about.jsp?num="+$(this).attr('name');
+	});
 });
 
 

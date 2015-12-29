@@ -35,13 +35,12 @@
 <div id="banner">
   <div id="bannerCon">
     <img src="view/reception/images/banner_text.png" id="bannerText">
-    <p id="bannerTit"><a href="http://#####/" class="aGray">首页</a> - <a href="./news_files/news.html" class="aGray">资讯动态</a> - <a href="http://#####/news.php?partid=12" class="aGray">企业新闻</a><span>资讯动态</span></p>
+    <p id="bannerTit"><a  class="aGray">首页</a> - <a  class="aGray">资讯动态</a> - <a class="aGray">企业新闻</a><span>资讯动态</span></p>
   </div>
 </div>
 <div id="menuSon">
   <ul id="menuSonList">   
-    <!-- <li><a href="http://#####/video.php">视频中心</a></li>
-    <li><a href="http://#####/news.php?partid=13">行业动态</a></li> -->
+    <!-- <li><a href="####">产品中心</a></li> -->
     <li class="A" style="background-color: rgb(204, 0, 0);"><a href="./news_files/news.html">企业新闻</a></li>
   </ul>
 </div>
