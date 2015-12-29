@@ -40,8 +40,8 @@
 </div>
 <div id="menuSon">
   <ul id="menuSonList">   
-    <li><a href="http://#####/video.php">视频中心</a></li>
-    <li><a href="http://#####/news.php?partid=13">行业动态</a></li>
+    <!-- <li><a href="http://#####/video.php">视频中心</a></li>
+    <li><a href="http://#####/news.php?partid=13">行业动态</a></li> -->
     <li class="A" style="background-color: rgb(204, 0, 0);"><a href="./news_files/news.html">企业新闻</a></li>
   </ul>
 </div>
@@ -170,25 +170,44 @@ $("#menuSonList li").hover(function(){
 }
 </style>
 			<div class="pageshow">
-				<div class="pageleft">
-					<a href="newsAction_onLoadNewsTitleToJsp?page=1" class="pagebtnA">1</a>
-					<a href="newsAction_onLoadNewsTitleToJsp?page=2" class="pagebtn">2</a>
-					<a href="newsAction_onLoadNewsTitleToJsp?page=3" class="pagebtn">3</a>
-					<span class="pageell">……</span>
-					<a href="newsAction_onLoadNewsTitleToJsp?page=9" class="pagebtn">9</a>
-					<a href="newsAction_onLoadNewsTitleToJsp?page=10" class="pagebtn">10</a>
-					<a href="newsAction_onLoadNewsTitleToJsp?page=2" class="pagenext"></a>
-				</div>
-				<div class="pageright">
-					<span class="pageinfo" id="pageNums"></span>跳转：<input name="page" type="text" class="trunpage" value="1" size="2">
-					 <a href="javascript:gotoPage('0','');" class="pagebtn" style="margin:0;">GO</a>
-				</div>
+				<p style="margin-top:30px;">
+					<a id="pageToUp" class="back" >上一页</a>
+					<div style="width: 100px;float: left;height: 25px;color: rgb(102, 102, 102);margin-top: 10px; ">
+						<span style="margin-left: 25px;">
+							<span   id="currentPage" style="line-height: 25px;color: #666;">${page}</span>
+							<span   id="pageNums" style="line-height: 25px;"></span>
+						</span>
+					</div>
+					<a id="pageToNext" class="back" >下一页</a>
+				
+				</p>
+				
+				<p style="clear:both; height:30px;"></p>
+<style type="text/css">
+.back{
+color: rgb(102, 102, 102); 
+background-color: rgb(238, 238, 238);
+width: 450px;
+float: left;
+cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+	$(".back").hover(function(){
+		$(this).stop().animate({'backgroundColor':'#F80','color':'#FFF'},350);
+	},function(){
+		$(this).stop().animate({'backgroundColor':'#EEE','color':'#666'},300);
+	});
+</script>
+				<!-- <div class="pageright">
+					跳转：<input name="page" type="text" class="trunpage" value="1" size="2"> <a href="javascript:gotoPage('0','');" class="pagebtn" style="margin:0;">GO</a> 
+				</div> -->
 				<div style="clear:both; height:1px; font-size:1px;"></div>
 			</div>
 		</div>
 		<p style="clear:both; height:30px;"></p>
 </div>
-<script type="text/javascript">
+<script type="text/javascript">	
 $(".newslist a").hover(function(){
 	$(this).find(".tim").stop().animate({'backgroundColor':'#F80'},450);
 	$(this).find(".tim p").stop().animate({'color':'#FFF'},450);

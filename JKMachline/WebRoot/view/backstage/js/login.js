@@ -1,0 +1,3 @@
+function onClickLogin(){
+	$("#loginFrom").submit();
+}

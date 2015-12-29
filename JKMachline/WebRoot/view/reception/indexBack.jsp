@@ -24,9 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="bottom">
   <div style="width:1000px; margin:auto; height:50px;">
   <div id="bottom_l">
-    <img src="view/reception/images/icon_tel.png" style="position:absolute; left:10px; top:10px;">总机：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">0577-62733333</span>　　
-    传真：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">0577-62726666</span>　　
-    服务热线：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">400-8263-733</span>　　
+    <img src="view/reception/images/icon_tel.png" style="position:absolute; left:10px; top:10px;">总机：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">023-47633233</span>　　
+    传真：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">023-47633233-803</span>　　
+  <!--   服务热线：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">400-8263-733</span> -->　　
    <!--  销售热线：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">0577-62729666</span> -->
   </div>
   <div id="bottom_r" ><!-- onclick="location.href=&#39;bossmail.php&#39;;"   -->
