@@ -37,8 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="menuSon">
 		  <ul id="menuSonList">
-		    <li><a href="http://###/product_cer.php">资质证书</a></li>
-		    <li><a href="http://###/product_360.php">360°产品展示</a></li>
+		    <li><a href="http://###/product_360.php">产品历史</a></li>
 		    <li class="A"><a href="./product_files/product.html">产品总汇</a></li>
 		  </ul>
 		</div>
@@ -60,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <span class="title"><a href="http://###/product.php?partid=15&mpid=14">${p.productName}</a></span>
 		        <ul class="prolist">
 		        			<c:forEach items="${p.productChild}" var ="pc">
-		                    <li><a href="productAction_onLoadProductContent?id=${pc.id}" title="开关柜">${pc.productName}</a></li>
+		                    <li><a href="productAction_onLoadProductContent?id=${pc.id}" >${pc.productName}</a></li>
 		        			</c:forEach>
                 </ul>
 		      </li>

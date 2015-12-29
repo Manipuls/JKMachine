@@ -6,6 +6,7 @@ function onLoadIndexData(){
 	indexAction_onLoadMenu();  //加载首页最新动态
 	indexAction_onLoadNewsInfos();  //加载新闻动态
 	onLoadFirstProduct(); //加载创新产品  首页展示
+	onLoadFirstProductCataLog(); //产品目录
 }
 
 /**
@@ -20,7 +21,7 @@ function onLoadAboutData(){
  * news.jsp 新闻资讯数据加载
  * 
  */
-function onLoadNewsData(){
+function onLoadNewsData(){//news.jsp
 	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	newsAction_getCountNews();
 	//newsAction_onLoadNewsTitle();  //加载新闻资讯标题
@@ -180,6 +181,29 @@ function onLoadFirstProduct(){
 	});*/
 	
 }
+
+
+/**
+ * 首页产品目录
+ * 
+ */
+function onLoadFirstProductCataLog(){
+	var news = '';
+	$.ajax({                                                                     
+		url : "indexAction_onLoadProductCataLogs",
+		dataType : "json",
+		async: false,
+		success : function(root) {
+			var data = root.rows;
+			for ( var i = 0; i < (data.length); i++) {
+				news += "<li><a href='####'>"+(data[i].productName)+"</a></li>";
+			}
+			var newst = $("#procatalog");
+			newst.empty();
+			newst.append(news);
+		}
+	});
+}
 /*=======================================index.jsp===============================end===========================================*/
 /*=======================================news.jsp===============================start===========================================*/
 /**
@@ -248,7 +272,7 @@ function newsAction_getCountNews(){
 		success : function(root) {
 			var pageNums = $("#pageNums");
 			pageNums.empty();
-			pageNums.append("共"+Math.ceil((root.rows)/4)+"页");
+			pageNums.append("/共"+Math.ceil((root.rows)/4)+"页");
 		}
 	});
 }
@@ -300,7 +324,28 @@ function onloadMenuData(){
 		$(this).find("div").stop().slideUp(200);
 	});
 }
+function ss(){alert('0');}
 
+$(function(){
+	
+	//上一页  翻页数据
+	$("#pageToUp").click( function () { 
+		var pageNum = $("#currentPage").text();
+		if(pageNum>1){
+			pageNum = parseInt(pageNum)-1;
+			window.location.href="newsAction_onLoadNewsTitleToJsp?page="+pageNum;
+		}else{
+			alert("已经是首页！")
+		}
+	});
+	
+	//下一页  翻页数据
+	$("#pageToNext").click( function () { 
+		var pageNum = $("#currentPage").text();
+		pageNum = parseInt(pageNum)+1;
+		window.location.href="newsAction_onLoadNewsTitleToJsp?page="+pageNum;
+	});
+});
 
 
 

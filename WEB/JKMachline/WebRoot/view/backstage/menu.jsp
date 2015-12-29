@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath()+"/view/backstage/";
+String path = request.getContextPath();
+String paths = request.getContextPath()+"/view/backstage/";
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
@@ -16,10 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="<%=path%>easyui/themes/default/easyui.css" />   
-	<link rel="stylesheet" type="text/css" href="<%=path%>easyui/themes/icon.css" />   
-	<script type="text/javascript" src="<%=path%>easyui/jquery-1.8.3.min.js"></script>   
-	<script type="text/javascript" src="<%=path%>easyui/jquery.easyui.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/default/easyui.css" />   
+	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/icon.css" />   
+	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
+	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
 	<style type="text/css">
 		html,body,div{margin: 0;padding: 0}
 	</style> 
