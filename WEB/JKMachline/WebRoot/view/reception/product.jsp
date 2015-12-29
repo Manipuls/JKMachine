@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="banner">
 		  <div id="bannerCon">
 		    <img src="view/reception/images/banner_text.png" id="bannerText">
-		    <p id="bannerTit"><a href="http://###/" class="aGray">首页</a> - <a href="./product_files/product.html" class="aGray">产品中心</a> - <a href="./product_files/product.html" class="aGray">产品总汇</a><span>产品中心</span></p>
+		    <p id="bannerTit"><a  class="aGray">首页</a> - <a class="aGray">产品中心</a> - <a  class="aGray">产品总汇</a><span>产品中心</span></p>
 		  </div>
 		</div>
 		<div id="menuSon">
