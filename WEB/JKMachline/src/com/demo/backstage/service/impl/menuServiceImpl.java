@@ -7,12 +7,16 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.demo.backstage.dao.menuDao;
 import com.demo.backstage.doman.Menu;
+import com.demo.backstage.doman.Product;
 import com.demo.backstage.service.menuService;
+import com.demo.backstage.service.productService;
 import com.demo.util.CreateSession;
 import com.google.gson.Gson;
 
 public class menuServiceImpl implements menuService {
 	private menuDao menudao;
+	public productService productservice = new productServiceImpl();
+	
 	@Override
 	public String findAll() {
 		// TODO Auto-generated method stub
@@ -32,10 +36,6 @@ public class menuServiceImpl implements menuService {
 			*/
 				Menu menu = findAll.get(i);
 				menu.setChildMenu(this.findListParentId(menu.getId())) ;
-				
-				
-				
-				
 			}
 			json+="]}";
 			//json+="]";
@@ -103,6 +103,20 @@ public class menuServiceImpl implements menuService {
 			MenuList.add(menu);
 		}
 		return MenuList;
+	}
+	@Override
+	public String getProductCataLog() {
+		List<Product> products = productservice.getProducts();
+		String json ="{\"total\":\"1\",\"rows\":[";
+		boolean flag = false;
+		for (Product p : products) {
+			if(flag)json+=",";
+			flag = true;
+			json += new Gson().toJson(p);
+		}
+		json+="]}";
+		System.out.println(json);
+		return json;
 	}
 
 }

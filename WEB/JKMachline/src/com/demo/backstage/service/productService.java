@@ -40,5 +40,13 @@ public interface productService {
 	 */
 	 
 	public Product getProductContent(Integer Id);
+	
+	/**
+	 * 获取产品分类
+	 * liufei 2015-12-26
+	 * 
+	 * @return
+	 */
+	public List<Product> getProducts();
 
 }

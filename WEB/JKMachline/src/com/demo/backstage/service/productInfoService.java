@@ -1,10 +1,11 @@
-package com.demo.backstage.dao;
+package com.demo.backstage.service;
 
 import java.util.List;
 
 import com.demo.backstage.doman.ProductInfo;
+import com.demo.backstage.doman.User;
 
-public interface productInfoDao {
+public interface productInfoService {
 	
 	/**
 	 * 查询产品列表
@@ -14,5 +15,6 @@ public interface productInfoDao {
 	 * @return
 	 */
 	public List<ProductInfo> getProductInfo(Integer productId);
+		
 
 }

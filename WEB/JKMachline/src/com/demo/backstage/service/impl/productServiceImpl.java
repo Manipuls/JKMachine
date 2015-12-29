@@ -8,12 +8,16 @@ import org.apache.log4j.Logger;
 
 import com.demo.backstage.dao.productDao;
 import com.demo.backstage.doman.Product;
+import com.demo.backstage.doman.ProductInfo;
+import com.demo.backstage.service.productInfoService;
 import com.demo.backstage.service.productService;
 import com.demo.util.CreateSession;
 
 public class productServiceImpl implements productService {
 	
 	private productDao  productdao;
+	
+	productInfoService proInfo = new productInfoServiceImpl();
 	Logger log = Logger.getLogger(productServiceImpl.class);
 	/**
 	 * <p>
@@ -49,9 +53,20 @@ public class productServiceImpl implements productService {
 	public Product getProductContent(Integer id) {
 		SqlSession session = new CreateSession().getSession();
 		productdao = session.getMapper(productDao.class);
+		
 		Product productContent = productdao.getProductContent(id);
+		//查询一类产品集合
+		List<ProductInfo> productInfo = proInfo.getProductInfo(id);
+		productContent.setProductInfoList(productInfo);
 		session.close();
 		return productContent;
+	}
+	@Override
+	public List<Product> getProducts() {
+		SqlSession session = new CreateSession().getSession();
+		productdao = session.getMapper(productDao.class);
+		List<Product> productPri = productdao.getProduct();
+		return productPri;
 	}
 
 }
