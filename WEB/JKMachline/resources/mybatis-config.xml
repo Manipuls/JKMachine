@@ -4,6 +4,7 @@
   "dtd/mybatis-3-config.dtd">
 <configuration>
 	<!--Mopass 	MopassMySqlConnection.properties  -->
+	<!--Mopass_docker MopassMySqlDockerConnection.properties -->
 	<!--IDC789  id789mysqlConnection.properties -->
 	<!--localhost   mysqlConnection.properties     --> 
 	<properties resource="mysqlConnection.properties" />
