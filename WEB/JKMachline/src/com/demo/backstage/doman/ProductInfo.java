@@ -5,6 +5,7 @@ public class ProductInfo {
 	private Integer id;
 	private String productName;
 	private Integer productId;
+	private String productInfoImg;
 	private Integer isDelete;
 	
 	public Integer getId() {
@@ -31,5 +32,12 @@ public class ProductInfo {
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
+	public String getProductInfoImg() {
+		return productInfoImg;
+	}
+	public void setProductInfoImg(String productInfoImg) {
+		this.productInfoImg = productInfoImg;
+	}
+	
 
 }
