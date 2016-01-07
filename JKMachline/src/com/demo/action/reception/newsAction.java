@@ -28,6 +28,8 @@ public class newsAction extends BaseAction {
 	public String id;
 	public News newsEntity;
 	public Integer newsNum;//新闻资讯一共数据
+	//页面显示新闻信息的条数
+	public Integer showPageNums;
 	
 	public List<News> newsList;
 	
@@ -91,20 +93,20 @@ public class newsAction extends BaseAction {
 	public String onLoadNewsTitleToJsp(){
 		log.info("===获取news.jsp页面的新闻数据翻页===START===");
 		util utils = new util();
-		Integer a ;
-		if(page !=null){
-			a = page; //当前页数
-		}else{
-			a=1;
+		//设置显示页数
+		if(page ==null){
+			page = 1; //当前页数
 		}
-		Integer b = 4; //每页显示几条数据
-		if(a==1 ){
+		//每页显示几条数据
+		if(showPageNums==null){
+			showPageNums = 5;
+		}
+		if(page==1 ){
 			utils.setInteger1(0);
 		}else{
-			utils.setInteger1((a*b)-(b-1));
+			utils.setInteger1((page*showPageNums)-(showPageNums-1));
 		}
-		utils.setInteger2(b);
-		News news = new News();
+		utils.setInteger2(showPageNums);
 		//调用实现方法
 		newsList = newsservices.getPageForNewsToJsp(utils);
 		log.info("===查看详细的新闻内容===END===");
@@ -214,6 +216,14 @@ public class newsAction extends BaseAction {
 
 	public void setNewsNum(Integer newsNum) {
 		this.newsNum = newsNum;
+	}
+
+	public Integer getShowPageNums() {
+		return showPageNums;
+	}
+
+	public void setShowPageNums(Integer showPageNums) {
+		this.showPageNums = showPageNums;
 	}
 	
 	
