@@ -67,19 +67,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			</p>
 			<div style="display: ${param.num==4?'block':'none'}">
-			<div style="float: right;">
-			<div id="l-map"></div>
-			</div>
-			<script type="text/javascript">
+				<div style="float: left;">
+					<p style="color:#0066CC; font-size:16px;">
+						新闻动态 &nbsp;<span style="color:#999; font-size:11px; font-family:Arial;">What's New</span>
+					</p>
+				</div>
+				<div style="float: right;">
+					<div id="l-map"></div>
+				</div>
+				<script type="text/javascript">
 	// 百度地图API功能
 	var map = new BMap.Map("l-map");            // 创建Map实例
-	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+	map.centerAndZoom(new BMap.Point(), 11);
 	var local = new BMap.LocalSearch(map, {
 		renderOptions: {map: map, panel: "r-result"}
 	});
 	local.search("珞璜工业园B区");
 </script>
-			
+
 			</div>
 		</div>
 	</div>

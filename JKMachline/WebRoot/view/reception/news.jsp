@@ -40,8 +40,8 @@
 </div>
 <div id="menuSon">
   <ul id="menuSonList">   
-    <!-- <li><a href="####">产品中心</a></li> -->
-    <li class="A" style="background-color: rgb(204, 0, 0);"><a href="./news_files/news.html">企业新闻</a></li>
+    <li><a href="####">行业新闻</a></li> 
+    <li class="A" style="background-color: rgb(204, 0, 0);"><a href="">企业新闻</a></li>
   </ul>
 </div>
 <script type="text/javascript">

@@ -29,8 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!--   服务热线：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">400-8263-733</span> -->　　
    <!--  销售热线：<span style="font-family:Arial, Tahoma; font-size:16px; font-weight:bold;">0577-62729666</span> -->
   </div>
-  <div id="bottom_r" ><!-- onclick="location.href=&#39;bossmail.php&#39;;"   -->
-    <img src="view/reception/images/icon_mail.png" style="margin-right:8px;">董事长信箱
+  <div id="bottom_r" onclick="location.href='view/reception/sendEmail.jsp'" ><!-- onclick="location.href=&#39;bossmail.php&#39;;"   -->
+    <img src="view/reception/images/icon_mail.png"  style="margin-right:8px;">董事长信箱
   </div>
   </div>
 </div>
@@ -66,12 +66,6 @@ $("#bottom_r").hover(function(){
     </div>
   </div>
 </div>
-<!-- <div id="qr">
-  <a href="javascript:$('#qr').slideUp(450);void(0);" id="qr_close"></a>
-  <p><img src="view/reception/images/qr.png"></p>
-  <p style="padding-left:6px; padding-top:3px; color:#333;">在这里，了解华通</p>
-  <p style="padding-left:6px; padding-top:5px; color:#999; font-size:11px;">扫描二维码添加华通微信订阅号<br>及时获取更多华通资讯</p>
-</div> -->
 <div style="background:#EEEEEE; text-align:center;">
 </div>
   </body>

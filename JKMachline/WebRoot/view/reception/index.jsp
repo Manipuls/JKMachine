@@ -106,13 +106,13 @@ $(".solution").hover(function(){
     <p style="border-top:1px dotted #CCC;">
       </p>
 	 <div id="newslist"></div>
-    <p style="padding-top:8px; padding-left:10px;"><a href="####/news.php" class="more">More…</a></p>
+    <p style="padding-top:8px; padding-left:10px;"><a href="newsAction_onLoadNewsTitleToJsp" class="more">More…</a></p>
   </div>
   <div style="float:left; width:260px; margin-left:30px;">
     <div style="width:260px; height:130px; background:#0066AC; position:relative; z-index:1; cursor:pointer;" id="videoblcok"> <!--onclick="location.href=&#39;video.php&#39;;   -->
       <img src="view/reception/images/icon_play.png" height="80" style="position:absolute; right:22px; top:24px;">
       <p style="padding-top:40px; padding-left:22px; color:#FFF; font-size:16px;">视频中心</p>
-      <p style="padding-top:4px; padding-left:22px; color:#A8CBE3; font-size:11px;">FATO Video Center</p>
+      <p style="padding-top:4px; padding-left:22px; color:#A8CBE3; font-size:11px;">JK Video Center</p>
     </div>
     <div style="width:260px; height:130px; margin-top:10px; background:#DDD; position:relative; z-index:1; cursor:pointer;" id="showblock" onclick="location.href='productAction_onLoadProductToJsp'" ><!--onclick="location.href=&#39;product_360.php&#39;;"   -->
       <img src="view/reception/images/icon_rotation.png" height="76" style="position:absolute; right:22px; top:25px;">

@@ -55,6 +55,14 @@ function onLoadProductContentData(){
 	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 }
 
+/**
+ * Resource.jsp 
+ * 
+ */
+function onLoadResourceData(){
+	//加载新闻资讯页面菜单栏
+	indexAction_onLoadMenu();  
+}
 /*=======================================index.jsp===============================start=========================================*/
 function indexAction_onLoadMenu(){
 	/*加载首页最新动态*/
