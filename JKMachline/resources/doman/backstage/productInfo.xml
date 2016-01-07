@@ -8,6 +8,7 @@
 	<id column="id" property="id"/>
 		<result column="product_name" property="productName" />
 		<result column="product_id" property="productId" />
+		<result column="product_info_img" property="productInfoImg" />
 		<result column="is_delete" property="isDelete" />
 	</resultMap>
 	
