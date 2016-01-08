@@ -17,5 +17,7 @@ public interface rightService {
 	 * @return
 	 */
 	public List<Right> findAllRights(Integer id);
+	
+	public List<Right> findAllRights(Integer id , Integer rightId);
 
 }
