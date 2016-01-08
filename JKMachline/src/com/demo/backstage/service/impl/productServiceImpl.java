@@ -12,6 +12,7 @@ import com.demo.backstage.doman.ProductInfo;
 import com.demo.backstage.service.productInfoService;
 import com.demo.backstage.service.productService;
 import com.demo.util.CreateSession;
+import com.google.gson.Gson;
 
 public class productServiceImpl implements productService {
 	
@@ -67,6 +68,25 @@ public class productServiceImpl implements productService {
 		productdao = session.getMapper(productDao.class);
 		List<Product> productPri = productdao.getProduct();
 		return productPri;
+	}
+	/**
+	 * 后台查询产品类别
+	 * @return
+	 * @see com.demo.backstage.service.productService#getProductToJson()
+	 */
+	@Override
+	public String getProductToJson() {
+		List<Product> products = this.getProducts();
+		String json ="{\"total\":\"1\",\"rows\":[";
+		boolean flag = false;
+		for (Product p : products) {
+			if(flag)json+=",";
+			flag = true;
+			json += new Gson().toJson(p);
+		}
+		json+="]}";
+		System.out.println(json);
+		return json;
 	}
 
 }

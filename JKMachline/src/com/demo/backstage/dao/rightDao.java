@@ -13,9 +13,13 @@ public interface rightDao {
 	public List<Right> findZtreeMenu(util u);
 	
 	/**获取用户当前权限
-	 * @param id
+	 * @param Integer1 userid   Integer2 rightId  Integer3 parentId
+	 * 
 	 * @return
 	 */
-	public List<Right> findAllRights(Integer id);
+	public List<Right> findAllRights(util u);
+	
+	
+	
 
 }

@@ -48,5 +48,17 @@ public interface productService {
 	 * @return
 	 */
 	public List<Product> getProducts();
+	
+	
+	
+	/*-----------------------------------------back---------------------------------------------*/
+	
+	/**
+	 * 后台查询产品类别
+	 * liufei 2016-1-8
+	 * 
+	 * @return
+	 */
+	public String getProductToJson();
 
 }

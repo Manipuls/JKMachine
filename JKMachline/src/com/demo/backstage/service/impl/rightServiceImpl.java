@@ -34,7 +34,7 @@ public class rightServiceImpl implements rightService {
 				if(flag)json+=",";
 				flag = true;
 				json+="{\"accessPath\":\""+((findZtreeMenu.get(i).getLocation())==null?"":findZtreeMenu.get(i).getLocation())+"\",\"checked\":\"fasle\",\"delFlag\":\"0\",\"parentID\":\""+(findZtreeMenu.get(i).getParentId()==null?"":findZtreeMenu.get(i).getParentId())+"\"," +
-						" \"resourceCode\":\"0\",\"resourceDesc\":\"0\",\"resourceGrade\":\"3\",\"resourceID\":\""+findZtreeMenu.get(i).getId()+"\",\"resourceName\":\""+findZtreeMenu.get(i).getName()+"\",\"resourceOrder\":\"0\",\"resourceType\":\""+findZtreeMenu.get(i).getType()+"\"}";
+						" \"resourceCode\":\"0\",\"resourceDesc\":\"0\",\"resourceGrade\":\"3\",\"resourceID\":\""+findZtreeMenu.get(i).getId()+"\",\"resourceName\":\""+findZtreeMenu.get(i).getRightName()+"\",\"resourceOrder\":\"0\",\"resourceType\":\""+findZtreeMenu.get(i).getRightType()+"\"}";
 			}
 			json+="]";
 			//json+="]}";
@@ -49,10 +49,33 @@ public class rightServiceImpl implements rightService {
 	 */
 	@Override
 	public List<Right> findAllRights(Integer id) {
-		// TODO Auto-generated method stub
 		SqlSession session = new CreateSession().getSession();
 		rightdao = session.getMapper(rightDao.class);
-		List<Right> findAllRights = rightdao.findAllRights(id);
+		util u = new util();
+		u.setInteger1(id);
+		u.setInteger2(0);
+		List<Right> findAllRights = rightdao.findAllRights(u);
+		session.close();
+		return findAllRights;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param id
+	 * @param rightId
+	 * @return
+	 * @see com.demo.backstage.service.rightService#findAllRights(java.lang.Integer, java.lang.Integer)
+	 */
+	@Override
+	public List<Right> findAllRights(Integer id, Integer rightId) {
+		SqlSession session = new CreateSession().getSession();
+		rightdao = session.getMapper(rightDao.class);
+		util u = new util();
+		u.setInteger1(id);
+		u.setInteger3(rightId);
+		List<Right> findAllRights = rightdao.findAllRights(u);
+		session.close();
 		return findAllRights;
 	}
 
