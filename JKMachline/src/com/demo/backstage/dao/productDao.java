@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import com.demo.backstage.doman.Product;
+import com.demo.backstage.doman.util;
 
 public interface productDao {
 	
@@ -48,6 +49,21 @@ public interface productDao {
 	 * @return
 	 */
 	public Product getProductContent(Integer id);
+	
+/*	----------------------------------------------BACK-------------------------------------------------------
+*/	
+	
+	/**
+	 * 产品中心加载产品
+	 * @return
+	 */
+	public List<Product> getProductToPage(util utils);
+	/**
+	 * 获取所有子类产品信息 list
+	 * liufei 2016-1-9
+	 * @return
+	 */
+	public List<Product> getProductChildList();
 	
 	
 
