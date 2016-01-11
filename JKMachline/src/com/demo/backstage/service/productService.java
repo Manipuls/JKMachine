@@ -3,6 +3,7 @@ package com.demo.backstage.service;
 import java.util.List;
 
 import com.demo.backstage.doman.Product;
+import com.demo.backstage.doman.util;
 
 
 public interface productService {
@@ -47,7 +48,7 @@ public interface productService {
 	 * 
 	 * @return
 	 */
-	public List<Product> getProducts();
+	public List<Product> getProducts(util utils);
 	
 	
 	
@@ -67,6 +68,6 @@ public interface productService {
 	 * liufei 2016-1-9
 	 * @return
 	 */
-	public String getProductChildList();
+	public String getProductChildList(Integer page,Integer rows);
 
 }

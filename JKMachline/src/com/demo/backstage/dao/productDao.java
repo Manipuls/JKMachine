@@ -26,9 +26,10 @@ public interface productDao {
 	
 	/**
 	 * 产品中心加载产品
+	 * @param Integer1  1:parentId is null , 2 parentId is not null
 	 * @return
 	 */
-	public List<Product> getProduct();
+	public List<Product> getProduct(util utils);
 	
 	
 	/**
@@ -54,7 +55,7 @@ public interface productDao {
 */	
 	
 	/**
-	 * 产品中心加载产品
+	 * 产品中心加载产品  Integer1  1:parentId is null , 2 parentId is not null
 	 * @return
 	 */
 	public List<Product> getProductToPage(util utils);
@@ -63,7 +64,7 @@ public interface productDao {
 	 * liufei 2016-1-9
 	 * @return
 	 */
-	public List<Product> getProductChildList();
+	public List<Product> getProductChildList(util utils);
 	
 	
 
