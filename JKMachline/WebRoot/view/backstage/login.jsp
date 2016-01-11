@@ -22,21 +22,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script>  
 	<script type="text/javascript" src="<%=paths%>js/login.js"></script> 
+  	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
+
   </head>
   
   <body>
-  <div id="win" class="easyui-window" title="登录" style="width:400px;height:250px"   
-        data-options="minimizable:false,maximizable:false,closable:false,collapsible:false,draggable:false">  
-        <ul style="margin-left: 120px;margin-top: 30px;line-height: 45px; list-style-type: none">
-		    <form id="loginFrom" action="userLoginAction" method="post">
-		    <li> 帐号：<input id="eName" class="easyui-textbox" name='user.name' data-options="iconCls:'icon-man'" style="width:150px">  </li>
-		    <li> 密码：<input id="ePwd"class="easyui-textbox" name="user.password" data-options="iconCls:'icon-lock',type:'password'" style="width:150px">  </li> 
-		    <div style="margin-left: 65px;" >
-		    <a class="easyui-linkbutton" onclick="onClickLogin()" data-options="iconCls:'icon-man'">登录</a>  
-		    <a style="margin-left: 10px;" id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">重置</a>  
-		    </form>
-		    </div>
-        </ul> 
-</div>  
-  </body>
+	<div id="win" class="easyui-window" title="登录" style="width:400px;height:250px" data-options="minimizable:false,maximizable:false,closable:false,collapsible:false,draggable:false">
+		<ul style="margin-left: 120px;margin-top: 30px;line-height: 45px; list-style-type: none">
+			<form id="loginFrom" action="userLoginAction" method="post">
+				<li>帐号：<input id="eName" class="easyui-textbox" name='user.name' id='eName' data-options="iconCls:'icon-man',iconAlign:'left'" style="width:150px"></li>
+				<li>密码：<input id="ePwd" class="easyui-textbox" name="user.password" data-options="iconCls:'icon-lock',type:'password',iconAlign:'left'" style="width:150px"></li>
+				<div style="height: 30px;color: red;margin-top: -10px;">${retuenMsg}</div>
+				<div style="margin-left: 65px;">
+					<a class="easyui-linkbutton" id='login_sub' data-options="iconCls:'icon-man'">登录</a>
+					<a style="margin-left: 10px;" id="login_res" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">重置</a>
+				</div>
+			</form>
+	</ul>
+	</div>
+</body>
 </html>

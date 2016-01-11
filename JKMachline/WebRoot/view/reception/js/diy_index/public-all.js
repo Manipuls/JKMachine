@@ -34,10 +34,11 @@ function onLoadNewsContentData(){
 }
 
 /**
- * plan.jsp--产品设计数据加载
+ * plan.jsp--产品案例数据加载
  * 
  */
-function onLoadProductPlanData(){
+function onLoadProductCaseData(){
+	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	
 }
 /**

@@ -4,7 +4,7 @@
 	width: 100%;
 	height: 160px;
 	background: #EEE;
-	background-image: url(images/banner_top.png);
+	background-image: url(../images/banner_top.png);
 	background-repeat: repeat-x;
 	background-position: left top;
 } 
@@ -130,7 +130,7 @@
 .prolist li a {
 	display: block;
 	padding: 3px 0px 3px 10px;
-	background: url(images/arr1.gif) no-repeat left 8px;
+	background: url(../images/arr1.gif) no-repeat left 8px;
 	color: #459FD3;
 	line-height: 130%;
 }
@@ -303,7 +303,7 @@
 	color: #0066CC;
 	font-size: 26px;
 	padding-top: 10px;
-	background: url(images/history_cir.png) no-repeat 200px 19px;
+	background: url(../images/history_cir.png) no-repeat 200px 19px;
 }
 
 .his_r {
@@ -541,7 +541,7 @@ div.clear {
 
 .netlist .tit {
 	padding: 8px;
-	background: url(images/net_tit_bg.png) repeat-x left bottom;
+	background: url(../images/net_tit_bg.png) repeat-x left bottom;
 	font-weight: bold;
 	color: #0066CC;
 	border-bottom: 1px solid #DDD;
@@ -614,7 +614,7 @@ div.clear {
 .faq_list a {
 	display: block;
 	padding: 5px 0px 5px 20px;
-	background: url(images/arr_file.gif) no-repeat left 5px;
+	background: url(../images/arr_file.gif) no-repeat left 5px;
 }
 
 .faq_more {
@@ -645,7 +645,7 @@ div.clear {
 .faq_listl a {
 	display: block;
 	padding: 5px 0px 5px 20px;
-	background: url(images/arr_file.gif) no-repeat left 5px;
+	background: url(../images/arr_file.gif) no-repeat left 5px;
 }
 
 .newscon {
