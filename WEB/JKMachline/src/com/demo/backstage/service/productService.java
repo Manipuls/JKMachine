@@ -59,6 +59,14 @@ public interface productService {
 	 * 
 	 * @return
 	 */
-	public String getProductToJson();
+	public String getProductToJson(Integer pageNum,Integer contentNum);
+	
+	
+	/**
+	 * 获取所有子类产品信息
+	 * liufei 2016-1-9
+	 * @return
+	 */
+	public String getProductChildList();
 
 }

@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import com.demo.backstage.dao.productDao;
 import com.demo.backstage.doman.Product;
 import com.demo.backstage.doman.ProductInfo;
+import com.demo.backstage.doman.util;
 import com.demo.backstage.service.productInfoService;
 import com.demo.backstage.service.productService;
 import com.demo.util.CreateSession;
@@ -17,7 +18,7 @@ import com.google.gson.Gson;
 public class productServiceImpl implements productService {
 	
 	private productDao  productdao;
-	
+
 	productInfoService proInfo = new productInfoServiceImpl();
 	Logger log = Logger.getLogger(productServiceImpl.class);
 	/**
@@ -67,6 +68,7 @@ public class productServiceImpl implements productService {
 		SqlSession session = new CreateSession().getSession();
 		productdao = session.getMapper(productDao.class);
 		List<Product> productPri = productdao.getProduct();
+		session.close();
 		return productPri;
 	}
 	/**
@@ -75,9 +77,17 @@ public class productServiceImpl implements productService {
 	 * @see com.demo.backstage.service.productService#getProductToJson()
 	 */
 	@Override
-	public String getProductToJson() {
-		List<Product> products = this.getProducts();
-		String json ="{\"total\":\"1\",\"rows\":[";
+	public String getProductToJson(Integer page,Integer rows) {
+		util utils = new util();
+		log.info("[====设置页码："+page+"====================================================]");
+		utils.setPage(page);  //设置页码
+		log.info("[====设置页码："+rows+"====================================================]");
+		utils.setRows(rows);      //页面大小  显示内容条数
+		SqlSession session = new CreateSession().getSession();
+		productdao = session.getMapper(productDao.class);
+		List<Product> products = productdao.getProductToPage(utils);
+		session.close();
+		String json ="{\"total\":\""+this.getProducts().size()+"\",\"rows\":[";
 		boolean flag = false;
 		for (Product p : products) {
 			if(flag)json+=",";
@@ -85,7 +95,27 @@ public class productServiceImpl implements productService {
 			json += new Gson().toJson(p);
 		}
 		json+="]}";
-		System.out.println(json);
+		return json;
+	}
+	/**
+	 * 获取所有子类产品信息
+	 * @return
+	 * @see com.demo.backstage.service.productService#getProductChildList()
+	 */
+	@Override
+	public String getProductChildList() {
+		SqlSession session = new CreateSession().getSession();
+		productdao = session.getMapper(productDao.class);
+		List<Product> products = productdao.getProductChildList();
+		session.close();
+		String json ="{\"total\":\""+products.size()+"\",\"rows\":[";
+		boolean flag = false;
+		for (Product p : products) {
+			if(flag)json+=",";
+			flag = true;
+			json += new Gson().toJson(p);
+		}
+		json+="]}";
 		return json;
 	}
 

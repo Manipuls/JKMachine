@@ -8,6 +8,9 @@ public class util {
 	private Integer integer2;
 	private Integer integer3;
 	private Integer integer4;
+	
+	private Integer page;
+	private Integer rows;
 	private String  str1;
 	private String  str2;
 	private String  str3;
@@ -94,5 +97,19 @@ public class util {
 	public void setDate4(Date date4) {
 		this.date4 = date4;
 	}
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
+	
 
+	
 }
