@@ -5,11 +5,13 @@
   
 <mapper namespace="com.demo.backstage.dao.rightDao">
 	<resultMap type="right" id="rightMap">
-	<id column="right_id" property="id"/>
-	<result column="right_name" property="newType" />
-	<result column="right_parent_id" property="newTitle" />
-	<result column="right_is_show" property="newContent" />
-	<result column="right_type" property="createTime" />
+		<id column="right_id" property="id"/>
+		<result column="right_name" property="rightName" />
+		<result column="right_parent_id" property="parentId" />
+		<result column="right_is_show" property="isShow" />
+		<result column="right_type" property="rightType" />
+		<result column="right_location" property="location" />
+		<result column="right_is_delete" property="isDelete" />
 	</resultMap>
 	
 	
@@ -29,8 +31,8 @@
 		AND ul.user_id = #{integer1}
 	</select>
 	
-	<!-- 查询用户所有权限 -->
-	<select id="findAllRights" parameterType="Integer" resultMap="rightMap">
+	<!-- 查询用户所有权限  Integer1 userid   Integer2 parent_id is null      Integer3 parentId-->
+	<select id="findAllRights" parameterType="util" resultMap="rightMap">
 		SELECT
 			r.*
 		FROM
@@ -40,7 +42,12 @@
 		WHERE
 			ul.role_id = rg.role_id
 		AND rg.right_id = r.right_id
-		AND ul.user_id = #{0}
+		AND r.right_is_delete = 1
+		AND ul.user_id = #{integer1}
+		<if test="integer2!=null">AND r.right_parent_id is null</if>
+		<if test="integer3!=null">AND r.right_parent_id = #{integer3}</if>
+		
+		 <!-- ORDER BY create_time  asc  limit #{pageNum},#{contentNum}  -->
 	</select>
 	
 	

@@ -6,25 +6,15 @@
 <struts>
     <package name="default" namespace="/" extends="json-default">
     	 <action name="indexAction_*" method="{1}" class="com.demo.action.reception.indexAction">
-        	<result name="jsp" type="dispatcher">
-        		${result}
-        	</result>
-        	<result name="login" type="redirect">
-        		${result}
-        	</result>
+        	<result name="jsp" type="dispatcher"> ${result} </result>
+        	<result name="login" type="redirect"> ${result} </result>
         	<result name="action" type="redirectAction"> 
         		<param name="actionName">${result}</param>
-        		<!-- 
-	        	<param name="bbb">参数可用EL表达式进行接值</param>
-	        	<param name="aaa">参数可用EL表达式进行接值</param>
-        		 -->
         	</result>
         	<result name="json" type="json" >
         		 <param name="root">jsonObj</param>
         	</result>
-        	<result name="input" type="dispatcher">
-        		${result}
-        	</result>
+        	<result name="input" type="dispatcher"> ${result} </result>
         </action>
         
         <action name="newsAction_*" method="{1}" class="com.demo.action.reception.newsAction">
@@ -93,27 +83,17 @@
         </action>
     
     
-        <!-- <action name="*_*" class="com.demo.action.{1}.{2}Action">
-        	<result name="jsp" type="dispatcher">
-        		${result}
-        	</result>
-        	<result name="login" type="redirect">
-        		${result}
-        	</result>
+       <action name="back*_*" method="{2}" class="com.demo.action.backstage.back{1}">
+        	<result name="jsp" type="dispatcher"> ${result} </result>
+        	<result name="login" type="redirect"> ${result} </result>
         	<result name="action" type="redirectAction"> 
         		<param name="actionName">${result}</param>
-        		
-	        	<param name="bbb">参数可用EL表达式进行接值</param>
-	        	<param name="aaa">参数可用EL表达式进行接值</param>
-        		
         	</result>
         	<result name="json" type="json" >
         		 <param name="root">jsonObj</param>
         	</result>
-        	<result name="input" type="dispatcher">
-        		${result}
-        	</result>
-        </action> -->
+        	<result name="input" type="dispatcher"> ${result} </result>
+        </action>
        
     </package>
 

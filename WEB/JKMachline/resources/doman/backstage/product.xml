@@ -17,24 +17,23 @@
 	
 	<!-- 产品中心加载产品 -->
 	<select id="getProduct" resultMap="productMap">
-		select * from backstage_product where parent_id is null and is_delete='1'
+		select * from backstage_product where parent_id is null and is_delete='1' 
 	</select>
+	<select id="getProductToPage" parameterType="util" resultMap="productMap">
+		select * from backstage_product where parent_id is null and is_delete='1'
+		 limit #{page},#{rows}
+	</select>
+	
 	<!-- 产品中心加载产品 -->
 	<select id="getProductChild" parameterType="Integer" resultMap="productMap">
 		select * from backstage_product where parent_id=#{0} and is_delete='1'
 	</select>
-	
-	
-	
 	<select id="getProductContent" parameterType="Integer" resultMap="productMap">
 		select * from backstage_product where id=#{0} and is_delete=1
 	</select>
-	
-	
-	
-	
-	
-	
-	
+	<!-- 获取所有子类产品信息  -->
+	<select id="getProductChildList" parameterType="Integer" resultMap="productMap">
+		select * from backstage_product where parent_id is not null and is_delete='1'
+	</select>
 	
 </mapper>
