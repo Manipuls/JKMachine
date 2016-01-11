@@ -47,7 +47,7 @@ public class backProduct extends BaseAction {
 	 * @return
 	 */
 	public String getProductChildList(){
-		String productToJson = productservice.getProductChildList();
+		String productToJson = productservice.getProductChildList(page-1,rows);
 		jsonObj = JSONObject.fromObject(productToJson);
 		System.out.println(jsonObj);
 		log.info("=====================查询产品类型结束======================");

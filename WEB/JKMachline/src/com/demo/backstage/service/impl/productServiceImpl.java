@@ -38,8 +38,10 @@ public class productServiceImpl implements productService {
 		
 		SqlSession session = new CreateSession().getSession();
 		productdao = session.getMapper(productDao.class);
-		List<Product> productPri = productdao.getProduct();
-		
+		//Integer1  1:parentId is null , 2 parentId is not null
+		util utils = new util();
+		utils.setInteger1(1);
+		List<Product> productPri = productdao.getProduct(utils);
 		for (Product p : productPri) {
 			p.setProductChild(this.getProductChild(p.getId()));
 			product.add(p);
@@ -64,10 +66,10 @@ public class productServiceImpl implements productService {
 		return productContent;
 	}
 	@Override
-	public List<Product> getProducts() {
+	public List<Product> getProducts(util utils) {
 		SqlSession session = new CreateSession().getSession();
 		productdao = session.getMapper(productDao.class);
-		List<Product> productPri = productdao.getProduct();
+		List<Product> productPri = productdao.getProduct(utils);
 		session.close();
 		return productPri;
 	}
@@ -79,15 +81,17 @@ public class productServiceImpl implements productService {
 	@Override
 	public String getProductToJson(Integer page,Integer rows) {
 		util utils = new util();
-		log.info("[====设置页码："+page+"====================================================]");
+		log.info("[    设置页码："+page+"    ]");
 		utils.setPage(page);  //设置页码
-		log.info("[====设置页码："+rows+"====================================================]");
+		log.info("[    设置页码："+rows+"    ]");
 		utils.setRows(rows);      //页面大小  显示内容条数
 		SqlSession session = new CreateSession().getSession();
 		productdao = session.getMapper(productDao.class);
+		//@param Integer1  1:parentId is null , 2 parentId is not null
+		utils.setInteger1(1);
 		List<Product> products = productdao.getProductToPage(utils);
 		session.close();
-		String json ="{\"total\":\""+this.getProducts().size()+"\",\"rows\":[";
+		String json ="{\"total\":\""+this.getProducts(utils).size()+"\",\"rows\":[";
 		boolean flag = false;
 		for (Product p : products) {
 			if(flag)json+=",";
@@ -99,16 +103,24 @@ public class productServiceImpl implements productService {
 	}
 	/**
 	 * 获取所有子类产品信息
-	 * @return
+	 * 
+	 * @return   
 	 * @see com.demo.backstage.service.productService#getProductChildList()
 	 */
 	@Override
-	public String getProductChildList() {
+	public String getProductChildList(Integer page,Integer rows) {
+		
+		util utils = new util();
+		utils.setPage(page);
+		utils.setRows(rows);
 		SqlSession session = new CreateSession().getSession();
 		productdao = session.getMapper(productDao.class);
-		List<Product> products = productdao.getProductChildList();
+		//@param Integer1  1:parentId is null , 2 parentId is not null
+		utils.setInteger1(2);
+		log.info("[  页码："+page+",数量："+rows+"  ]");
+		List<Product> products = productdao.getProductToPage(utils);
 		session.close();
-		String json ="{\"total\":\""+products.size()+"\",\"rows\":[";
+		String json ="{\"total\":\""+this.getProducts(utils).size()+"\",\"rows\":[";
 		boolean flag = false;
 		for (Product p : products) {
 			if(flag)json+=",";
