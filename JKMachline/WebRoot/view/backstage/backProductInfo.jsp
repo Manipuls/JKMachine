@@ -35,7 +35,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<div style="clear: both;"></div>
   		</div>
   		<div style="margin-top: 10px;">
-  				<table id="dg_info" width="100%" data-options=""></table> 
+			<div id="tb">
+				<a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-search',width:70,plain:false">查询 </a>
+				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:false">新增</a>
+			</div>
+			<table id="dg_info" width="100%" data-options=""></table> 
   		</div>
   	
   	
