@@ -23,6 +23,8 @@ $(function(){
 		
 		scrollbarSize: 0,   //滚动条的宽度
 		
+		toolbar: '#tb',
+		
 		
 		
 	    columns:[[    
@@ -36,6 +38,12 @@ $(function(){
 			title : '产品名称',
 			width : 100,
 			align : 'center'
+		}, {
+			field : 'parentId',
+			title : '产品类型',
+			width : 100,
+			align : 'center',
+			text  : '123'
 		}, {
 			field : 'isShow',
 			title : '是否显示',
@@ -67,7 +75,7 @@ $(function(){
 	    	$('.editclsE').linkbutton({text:'编辑',plain:true,iconCls:'icon-edit'});
 	    	$('.editclsD').linkbutton({text:'删除',plain:true,iconCls:'icon-edit'});
 	    },
-	    toolbar: [{
+	    /*toolbar: [{
 			iconCls: 'icon-search',
 			text: '查询',
 			width:100,
@@ -75,9 +83,13 @@ $(function(){
 				
 			}
 		},'-',{
-			iconCls: 'icon-help',
-			handler: function(){alert('帮助按钮')}
-		}],
+			iconCls: 'icon-search',
+			text: '查询',
+			width:100,
+			handler: function(){
+				
+			}
+		}],*/
 	});
 	page();   //翻页汉化
 })
