@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String paths = request.getContextPath()+"/view/backstage/";
@@ -10,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'menu.jsp' starting page</title>
+    <title>后台管理主页</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -27,16 +28,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 	
 		
-		function add(){
-			$('#tt').tabs("add" , { 
-				title:'New Tab',    
-   				content:'Tab Body',
-   				closable:true, 
-			    border:true,    
-			    onSelect:function(title){    
-			        alert(title+' is selected');    
-			    }    
-			}); 
+		function add(inParm,url){
+			var tit = $("#"+inParm).text();
+			var tab = $('#tt').tabs('exists',tit);
+			var url = 'view/backstage/'+url;
+			if(tab){
+				/* var Ntab = $('#tt').tabs('getSelected',tit);
+				$('#tt').tabs('update', {
+					tab: Ntab,
+					options: {
+						title: tit,
+						selected : true,
+						href: url  // 新内容的URL
+					}
+				}); */
+				$('#tt').tabs('select', tit);   
+				var tab = $('#tt').tabs('getSelected');  // 获取选择的面板
+				tab.panel('refresh', url);
+
+			}else{
+				$('#tt').tabs("add" , { 
+					title:tit,    
+	   				closable:true, 
+				    border:true,  
+				    selected : true,
+				    href:url
+				}); 
+			}
+			
+			
 		}
 	</script>
 
@@ -45,42 +65,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
  <body class="easyui-layout" data-options="fit:true"	>
 	    <div data-options="region:'north',title:'',split:true" style="height:100px;">
-	    <%=path%>
-	    <%=basePath%>
 	    </div>   
 	    <div data-options="region:'south',title:'',split:true" style="height:20px;"></div>   
 	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:250px;">
+	    <div>
+		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">后台管理</a> 
+		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> 
+	    </div>
+		<div style="border-bottom: 1px red solid;"></div>
+	    	<ul id="menu" class="easyui-tree">  
+	    		<c:forEach items="${sessionScope.user.rights}" var='right'> 
+				    <li>   
+		                <c:if test="${right.parentId==null}"> <span>${right.rightName}</span></c:if>
+		                <ul> 
+		                  	<c:forEach items="${right.chRights}" var='ch'>
+		                    <li>   
+		                        <span><a id="${ch.id}" onclick="add(this.id,'${ch.location}')">${ch.rightName}</a></span>   
+		                    </li>   
+		                  	</c:forEach>
+		                </ul>   
+	            	</li> 
+            	</c:forEach>  
+        </ul>   
 
-	    	<ul id="menu" class="easyui-tree">   
-			    <li>   
-			        <span>Folder</span>   
-			        <ul>   
-			            <li>   
-			                <span>Sub Folder 1</span>   
-			                <ul>   
-			                    <li>   
-			                        <span><a  onclick="add();">File 11</a></span>   
-			                    </li>   
-			                    <li>   
-			                        <span>File 12</span>   
-			                    </li>   
-			                    <li>   
-			                        <span>File 13</span>   
-			                    </li>   
-			                </ul>   
-			            </li>   
-			            <li>   
-			                <span>File 2</span>   
-			            </li>   
-			            <li>   
-			                <span>File 3</span>   
-			            </li>   
-			        </ul>   
-			    </li>   
-			    <li>   
-			        <span>File21</span>   
-			    </li>   
-			</ul>  
 	    
 	    </div>   
 	    <div id="cen" data-options="region:'center',title:'操作区'" style="padding:0px;background:#eee;">
