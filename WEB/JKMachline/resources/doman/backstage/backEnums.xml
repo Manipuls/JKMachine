@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "../../dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.demo.backstage.dao.backEnumsDao">
+	<resultMap type="backEnums" id="backEnumsMap">
+	<id column="id" property="id"/>
+		<result column="key" property="key" />
+		<result column="value" property="value" />
+		<result column="query_id" property="queryId" />
+		<result column="sequ" property="sequ" />
+		<result column="create_user" property="createUser" />
+		<result column="create_time" property="createTime" />
+		<result column="update_user" property="updateUser" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+	
+	
+	<select id='findBackEnumsByQueryId' parameterType="String" resultMap="backEnumsMap">
+		select * from back_enums where query_id = #{0}
+	</select>
+</mapper>

@@ -44,6 +44,7 @@
 		AND rg.right_id = r.right_id
 		AND r.right_is_delete = 1
 		AND ul.user_id = #{integer1}
+		AND r.right_is_show = 1
 		<if test="integer2!=null">AND r.right_parent_id is null</if>
 		<if test="integer3!=null">AND r.right_parent_id = #{integer3}</if>
 		
