@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<ul style="margin-left: 120px;margin-top: 30px;line-height: 45px; list-style-type: none">
 			<form id="loginFrom" action="userLoginAction" method="post">
 				<li>帐号：<input id="eName" class="easyui-textbox" name='user.name' id='eName' data-options="iconCls:'icon-man',iconAlign:'left'" style="width:150px"></li>
-				<li>密码：<input id="ePwd" class="easyui-textbox" name="user.password" data-options="iconCls:'icon-lock',type:'password',iconAlign:'left'" style="width:150px"></li>
+				<li>密码：<input id="ePwd"  class="easyui-textbox" name="user.password" data-options="iconCls:'icon-lock',type:'password',iconAlign:'left'" style="width:150px"></li>
 				<div style="height: 30px;color: red;margin-top: -10px;">${retuenMsg}</div>
 				<div style="margin-left: 65px;">
 					<a class="easyui-linkbutton" id='login_sub' data-options="iconCls:'icon-man'">登录</a>

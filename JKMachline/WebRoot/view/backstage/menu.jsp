@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
 	<style type="text/css">
-		html,body,div{margin: 0;padding: 0}
+		html,body,div{margin: 0;padding: 0;font-family:"Microsoft YaHei";font-size: 12px; }
 	</style> 
 	<script type="text/javascript">
 	
@@ -33,19 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var tab = $('#tt').tabs('exists',tit);
 			var url = 'view/backstage/'+url;
 			if(tab){
-				/* var Ntab = $('#tt').tabs('getSelected',tit);
-				$('#tt').tabs('update', {
-					tab: Ntab,
-					options: {
-						title: tit,
-						selected : true,
-						href: url  // 新内容的URL
-					}
-				}); */
 				$('#tt').tabs('select', tit);   
 				var tab = $('#tt').tabs('getSelected');  // 获取选择的面板
 				tab.panel('refresh', url);
-
 			}else{
 				$('#tt').tabs("add" , { 
 					title:tit,    
@@ -59,15 +49,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 		}
 	</script>
-
+	<style type="text/css">
+	#menu li{line-height: 20px;	}
+	</style>
   </head>
   
   
  <body class="easyui-layout" data-options="fit:true"	>
-	    <div data-options="region:'north',title:'',split:true" style="height:100px;">
+	    <div data-options="region:'north',title:'',split:true" style="height:100px;">  </div>   
+	    <div data-options="region:'south',title:'',split:true" style="height:30px;">
+	    	<div>您好，[${sessionScope.user.name}]</div>
 	    </div>   
-	    <div data-options="region:'south',title:'',split:true" style="height:20px;"></div>   
-	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:250px;">
+	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:200px;">
 	    <div>
 		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">后台管理</a> 
 		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> 
