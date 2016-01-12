@@ -1,11 +1,10 @@
-function alertMsgBox(msg){
-	//$.messager.alert('警告',msg);   
-
-	/*$.messager.show({
-		title:'警告',
-		msg:'消息将在5秒后关闭。',
-		timeout:3000,
-		showType:'slide'
-	});*/
-
+function alertMsgBox(title,msg){
+	$.messager.alert(title,msg);   
 }
+function page(type){
+	$('#dg_'+type).datagrid("getPager").pagination({
+		beforePageText:'当前第',
+		afterPageText:'页/共{pages}页',
+		displayMsg:'当前第 {from} - {to} 条数据   共 {total} 条数据',
+	});
+};
