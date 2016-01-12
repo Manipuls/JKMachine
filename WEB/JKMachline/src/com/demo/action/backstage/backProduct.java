@@ -18,8 +18,8 @@ public class backProduct extends BaseAction {
 	 */
 	private static final long serialVersionUID = 3681581436540417646L;
 	Logger log = Logger.getLogger(productServiceImpl.class);
-	private productService  productservice = new productServiceImpl();
 	public JSONObject jsonObj;
+	private productService  productservice = new productServiceImpl();
 	public List<Product> product;
 	
 	private Integer page;
@@ -34,7 +34,7 @@ public class backProduct extends BaseAction {
 			rows = 5;
 		}*/
 		log.info("[==========传入参数page："+page+",rows:"+rows+"=========查询产品类型开始==============]");
-		String productToJson = productservice.getProductToJson(page-1,rows);
+		String productToJson = productservice.getProductToJson((page-1)*rows,rows);
 		jsonObj = JSONObject.fromObject(productToJson);
 		log.info("[=====================查询产品类型结束======================]");
 		return "json";
@@ -47,10 +47,10 @@ public class backProduct extends BaseAction {
 	 * @return
 	 */
 	public String getProductChildList(){
-		String productToJson = productservice.getProductChildList(page-1,rows);
+		String productToJson = productservice.getProductChildList((page-1)*rows,rows);
 		jsonObj = JSONObject.fromObject(productToJson);
 		System.out.println(jsonObj);
-		log.info("=====================查询产品类型结束======================");
+		log.info("[ =====================查询产品类型结束====================== ] ");
 		return "json";
 		
 	}
