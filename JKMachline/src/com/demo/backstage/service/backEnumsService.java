@@ -1,0 +1,29 @@
+package com.demo.backstage.service;
+
+import java.util.List;
+
+import com.demo.backstage.doman.backEnums;
+import com.demo.backstage.doman.util;
+
+public interface backEnumsService {
+
+	
+	/**
+	 * 查询所有枚举值  翻页显示
+	 * liufei 2016-1-12
+	 * @return
+	 */
+	public String findAllBackEnums(util utils);
+	
+	/**
+	 * 查询具体枚举值
+	 * liufei 2016-1-12
+	 * @param queryId
+	 * @return
+	 */
+	public List<backEnums> findBackEnumsByQueryId(String queryId);
+	
+	public String findBackEnumsByQueryIdToJson(String queryId);
+	
+	
+}

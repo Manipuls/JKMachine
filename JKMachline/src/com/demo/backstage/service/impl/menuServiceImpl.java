@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.demo.backstage.dao.menuDao;
 import com.demo.backstage.doman.Menu;
 import com.demo.backstage.doman.Product;
+import com.demo.backstage.doman.util;
 import com.demo.backstage.service.menuService;
 import com.demo.backstage.service.productService;
 import com.demo.util.CreateSession;
@@ -106,7 +107,9 @@ public class menuServiceImpl implements menuService {
 	}
 	@Override
 	public String getProductCataLog() {
-		List<Product> products = productservice.getProducts();
+		util utils = new util();
+		utils.setInteger1(1);
+		List<Product> products = productservice.getProducts(utils);
 		String json ="{\"total\":\"1\",\"rows\":[";
 		boolean flag = false;
 		for (Product p : products) {
