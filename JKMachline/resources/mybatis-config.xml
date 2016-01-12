@@ -19,6 +19,8 @@
 		<typeAlias type="com.demo.backstage.doman.Product" alias="product" />
 		<typeAlias type="com.demo.backstage.doman.News" alias="news" />
 		<typeAlias type="com.demo.backstage.doman.ProductInfo" alias="productInfo" />
+		<typeAlias type="com.demo.backstage.doman.backEnums" alias="backEnums" />
+		<typeAlias type="com.demo.backstage.doman.backEnumsParent" alias="backEnumsParent" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -39,6 +41,7 @@
 		<mapper resource="doman/backstage/product.xml" />
 		<mapper resource="doman/reception/menu.xml" />
 		<mapper resource="doman/backstage/productInfo.xml" />
-		
+		<mapper resource="doman/backstage/backEnumsParent.xml" />
+		<mapper resource="doman/backstage/backEnums.xml" />
 	</mappers>
 </configuration>
