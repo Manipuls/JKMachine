@@ -1,10 +1,16 @@
 package com.demo.action.backstage;
 
+
+import java.util.Date;
+
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
 
 import com.demo.action.BaseAction;
+import com.demo.backstage.doman.User;
+import com.demo.backstage.doman.backEnums;
+import com.demo.backstage.doman.backEnumsParent;
 import com.demo.backstage.doman.util;
 import com.demo.backstage.service.backEnumsService;
 import com.demo.backstage.service.impl.backEnumsServiceImpl;
@@ -16,6 +22,8 @@ public class backEnumsAction extends BaseAction {
 	private Integer page;
 	private Integer rows;
 	private String queryId;
+	private backEnumsParent enumsParent;
+	private backEnums backenums;
 	
 	private backEnumsService backenumsservice = new backEnumsServiceImpl();
 	/**
@@ -38,6 +46,42 @@ public class backEnumsAction extends BaseAction {
 		log.info(" [ =====方法：getBackEnmusByQueryId，传入参数：queryId:"+queryId+"============ ] ");
 		String findAllBackEnums = backenumsservice.findBackEnumsByQueryIdToJson(queryId);
 		jsonObj = JSONObject.fromObject(findAllBackEnums);
+		return "json";
+	}
+	
+	
+	
+	public String saveEnumsParent(){
+		//获取当前登陆人
+		User user = (User)super.getSession().get("user");
+		Date date = new Date();
+		//拼装保存对象
+		enumsParent.setCreateUser(user.getName());
+		enumsParent.setUpdateUser(user.getName());
+		enumsParent.setIsDelete(1);
+		enumsParent.setEdesc("无");
+		enumsParent.setCreateTime(new java.sql.Date(date.getTime()));
+		enumsParent.setUpdateTime(new java.sql.Date(date.getTime()));
+		//调用保存对象的方法
+		String saveBackEnumsParent = backenumsservice.saveBackEnumsParent(enumsParent);
+		jsonObj = JSONObject.fromObject(saveBackEnumsParent);
+		return "json";
+	}
+	
+	public String saveBackEnums(){
+		//获取当前登陆人
+		User user = (User)super.getSession().get("user");
+		Date date = new Date();
+		//拼装保存对象
+		enumsParent.setCreateUser(user.getName());
+		enumsParent.setUpdateUser(user.getName());
+		enumsParent.setIsDelete(1);
+		enumsParent.setEdesc("无");
+		enumsParent.setCreateTime(new java.sql.Date(date.getTime()));
+		enumsParent.setUpdateTime(new java.sql.Date(date.getTime()));
+		//调用保存对象的方法
+		String saveBackEnumsParent = backenumsservice.saveBackEnumsParent(enumsParent);
+		jsonObj = JSONObject.fromObject(saveBackEnumsParent);
 		return "json";
 	}
 	
@@ -72,6 +116,18 @@ public class backEnumsAction extends BaseAction {
 	}
 	public void setQueryId(String queryId) {
 		this.queryId = queryId;
+	}
+	public backEnumsParent getEnumsParent() {
+		return enumsParent;
+	}
+	public void setEnumsParent(backEnumsParent enumsParent) {
+		this.enumsParent = enumsParent;
+	}
+	public backEnums getBackenums() {
+		return backenums;
+	}
+	public void setBackenums(backEnums backenums) {
+		this.backenums = backenums;
 	}
 	
 

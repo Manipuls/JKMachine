@@ -20,5 +20,12 @@ public interface backEnumsDao {
 	 * @return
 	 */
 	public List<backEnums> findAllBackEnums();
+	
+	/**
+	 * 新增枚举值
+	 * @param backenums
+	 * @return
+	 */
+	public Integer saveBackEnums(backEnums backenums);
 
 }
