@@ -23,4 +23,16 @@
 			limit #{page},#{rows}
 		</if>
 	</select>
+	
+	<insert id="saveBackEnumsParent" parameterType="backEnumsParent">
+	insert into back_enum_parentdesc(evalue,ename,edesc,is_delete,create_user,create_time,update_user,update_time) values(
+	#{evalue},#{ename},#{edesc},#{isDelete},#{createUser},#{createTime},#{updateUser},#{updateTime}
+	)
+		<!-- <if test="evalue!=null">#{evalue},</if>
+		<if test="ename!=null">#{ename},</if>
+		<if test="edesc!=null">#{edesc},</if>
+		<if test="isDelete!=null">#{isDelete},</if>
+		<if test="createUser!=null">#{createUser},</if>
+		<if test="createTime!=null">#{createTime},</if> -->
+	</insert>
 </mapper>

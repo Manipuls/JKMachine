@@ -20,4 +20,9 @@
 	<select id='findBackEnumsByQueryId' parameterType="String" resultMap="backEnumsMap">
 		select * from back_enums where query_id = #{0}
 	</select>
+	
+	<insert id="saveBackEnums" parameterType="backEnums">
+		insert into back_enums(key,value,query_id,sequ,create_user,create_time,update_user,update_time) 
+		values(#{key},#{value},#{queryId},#{sequ},#{createUser},#{createTime},#{updateUser},#{updateTime})
+	</insert>
 </mapper>
