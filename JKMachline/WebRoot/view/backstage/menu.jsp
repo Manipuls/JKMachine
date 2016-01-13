@@ -29,20 +29,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		
 		function add(inParm,url){
+			var hei = ($('#sys').panel('options').height);
 			var tit = $("#"+inParm).text();
 			var tab = $('#tt').tabs('exists',tit);
 			var url = 'view/backstage/'+url;
 			if(tab){
 				$('#tt').tabs('select', tit);   
 				var tab = $('#tt').tabs('getSelected');  // 获取选择的面板
-				tab.panel('refresh', url);
+				tab.panel('refresh', url+"?hei="+hei);
 			}else{
 				$('#tt').tabs("add" , { 
 					title:tit,    
 	   				closable:true, 
 				    border:true,  
 				    selected : true,
-				    href:url
+				    href:url+"?hei="+hei
 				}); 
 			}
 			
@@ -56,8 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
  <body class="easyui-layout" data-options="fit:true"	>
-	    <div data-options="region:'north',title:'',split:true" style="height:100px;">  </div>   
-	    <div data-options="region:'south',title:'',split:true" style="height:30px;">
+	    <div  data-options="region:'north',title:''" style="height:100px;">  </div>   
+	    <div data-options="region:'south',title:''" style="height:30px;">
 	    	<div>您好，[${sessionScope.user.name}]</div>
 	    </div>   
 	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:200px;">
