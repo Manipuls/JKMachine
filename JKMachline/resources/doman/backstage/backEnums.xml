@@ -6,8 +6,8 @@
 <mapper namespace="com.demo.backstage.dao.backEnumsDao">
 	<resultMap type="backEnums" id="backEnumsMap">
 	<id column="id" property="id"/>
-		<result column="key" property="key" />
-		<result column="value" property="value" />
+		<result column="ekey" property="ekey" />
+		<result column="evalue" property="evalue" />
 		<result column="query_id" property="queryId" />
 		<result column="sequ" property="sequ" />
 		<result column="create_user" property="createUser" />
@@ -22,7 +22,6 @@
 	</select>
 	
 	<insert id="saveBackEnums" parameterType="backEnums">
-		insert into back_enums(key,value,query_id,sequ,create_user,create_time,update_user,update_time) 
-		values(#{key},#{value},#{queryId},#{sequ},#{createUser},#{createTime},#{updateUser},#{updateTime})
+		insert into back_enums(ekey,evalue,query_id,sequ,create_user,create_time,update_user,update_time) values(#{ekey},#{evalue},#{queryId},#{sequ},#{createUser},#{createTime},#{updateUser},#{updateTime})
 	</insert>
 </mapper>
