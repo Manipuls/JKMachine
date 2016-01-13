@@ -50,7 +50,11 @@ public class backEnumsAction extends BaseAction {
 	}
 	
 	
-	
+	/**
+	 * 新增枚举类型
+	 * liufei 2016-1-12
+	 * @return
+	 */
 	public String saveEnumsParent(){
 		//获取当前登陆人
 		User user = (User)super.getSession().get("user");
@@ -68,19 +72,23 @@ public class backEnumsAction extends BaseAction {
 		return "json";
 	}
 	
+	/**
+	 * 给枚举类型新增枚举值
+	 * liufei 2016-1-12
+	 * @return
+	 */
 	public String saveBackEnums(){
 		//获取当前登陆人
 		User user = (User)super.getSession().get("user");
 		Date date = new Date();
 		//拼装保存对象
-		enumsParent.setCreateUser(user.getName());
-		enumsParent.setUpdateUser(user.getName());
-		enumsParent.setIsDelete(1);
-		enumsParent.setEdesc("无");
-		enumsParent.setCreateTime(new java.sql.Date(date.getTime()));
-		enumsParent.setUpdateTime(new java.sql.Date(date.getTime()));
+		backenums.setCreateUser(user.getName());
+		backenums.setUpdateUser(user.getName());
+		backenums.setSequ(0);
+		backenums.setCreateTime(new java.sql.Date(date.getTime()));
+		backenums.setUpdateTime(new java.sql.Date(date.getTime()));
 		//调用保存对象的方法
-		String saveBackEnumsParent = backenumsservice.saveBackEnumsParent(enumsParent);
+		String saveBackEnumsParent = backenumsservice.saveBackEnums(backenums);
 		jsonObj = JSONObject.fromObject(saveBackEnumsParent);
 		return "json";
 	}
