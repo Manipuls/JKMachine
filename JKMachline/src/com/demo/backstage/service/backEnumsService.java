@@ -3,6 +3,7 @@ package com.demo.backstage.service;
 import java.util.List;
 
 import com.demo.backstage.doman.backEnums;
+import com.demo.backstage.doman.backEnumsParent;
 import com.demo.backstage.doman.util;
 
 public interface backEnumsService {
@@ -24,6 +25,21 @@ public interface backEnumsService {
 	public List<backEnums> findBackEnumsByQueryId(String queryId);
 	
 	public String findBackEnumsByQueryIdToJson(String queryId);
+	
+	
+	/**
+	 * 新增枚举值类型
+	 * @param enumsParent
+	 * @return
+	 */
+	public String saveBackEnumsParent(backEnumsParent enumsParent);
+	
+	/**
+	 * 新增枚举值
+	 * @param enums
+	 * @return
+	 */
+	public String saveBackEnums(backEnums enums);
 	
 	
 }

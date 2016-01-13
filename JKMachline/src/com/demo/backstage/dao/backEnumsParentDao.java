@@ -13,4 +13,12 @@ public interface backEnumsParentDao {
 	 * @return
 	 */
 	public List<backEnumsParent> findAllBackEnums(util utils);
+	
+	/**
+	 * 
+	 * 新增枚举值类型
+	 * @param enumsParent
+	 * @return
+	 */
+	public Integer saveBackEnumsParent(backEnumsParent enumsParent);
 }

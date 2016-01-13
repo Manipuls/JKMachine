@@ -33,7 +33,9 @@ public class backEnumsServiceImpl implements backEnumsService {
 		SqlSession session = new CreateSession().getSession();
 		backenumsparentdao = session.getMapper(backEnumsParentDao.class);
 		List<backEnumsParent> findAllBackEnums = backenumsparentdao.findAllBackEnums(utils);
+		//查询总条数
 		List<backEnumsParent> backEnumsList = backenumsparentdao.findAllBackEnums(new util());
+		List<backEnums> findBackEnumsByQueryId = this.findBackEnumsByQueryId("useAble");
 		session.close();
 		String json ="{\"total\":\""+backEnumsList.size()+"\",\"rows\":[";
 		boolean flag = false;
@@ -45,6 +47,12 @@ public class backEnumsServiceImpl implements backEnumsService {
 			backEnumsParent.setCreateTime(null);
 			backEnumsParent.setUpdateTimeStr(sdf.format(backEnumsParent.getUpdateTime()));
 			backEnumsParent.setUpdateTime(null);
+			for (backEnums e : findBackEnumsByQueryId) {
+				if(e.getKey().equals(backEnumsParent.getIsDelete()+"")){
+					backEnumsParent.setIsDeleteStr(e.getValue());
+					backEnumsParent.setIsDelete(null);
+				}
+			}
 			json += new Gson().toJson(backEnumsParent);
 		}
 		json+="]}";
@@ -85,6 +93,40 @@ public class backEnumsServiceImpl implements backEnumsService {
 			json += new Gson().toJson(backenums);
 		}
 		json+="]}";
+		return json;
+	}
+	@Override
+	public String saveBackEnumsParent(backEnumsParent enumsParent) {
+		log.info(" [ ========START:开始新增枚举值 参数backEnumsParent对象："+enumsParent+"===========START========= ] ");
+		SqlSession session = new CreateSession().getSession();
+		backenumsparentdao = session.getMapper(backEnumsParentDao.class);
+		Integer saveBackEnumsParent = 0;
+		try{
+			saveBackEnumsParent = backenumsparentdao.saveBackEnumsParent(enumsParent);
+		}catch(Exception e){
+			log.info(" [ ============错误信息："+e.getMessage()+"========= ] ");
+			saveBackEnumsParent = 0;
+		}
+		session.close();
+		log.info(" [ ========END:新增枚举类型结果："+(saveBackEnumsParent==1?"成功":"失败")+"!===========END========= ] ");
+		String json ="{\"total\":\""+saveBackEnumsParent+"\",\"rows\":\""+saveBackEnumsParent+"\"}";
+		return json;
+	}
+	@Override
+	public String saveBackEnums(backEnums enums) {
+		log.info(" [ ========START:开始新增枚举值 参数backEnums对象："+enums+"===========START========= ] ");
+		SqlSession session = new CreateSession().getSession();
+		backenumsdao = session.getMapper(backEnumsDao.class);
+		Integer saveBackEnums = 0;
+		try{
+			saveBackEnums = backenumsdao.saveBackEnums(enums);
+		}catch(Exception e){
+			log.error(" [ ============错误信息："+e.getMessage()+"========= ] ");
+			saveBackEnums = 0;
+		}
+		session.close();
+		log.info(" [ ========END:新增枚举值结果："+(saveBackEnums==1?"成功":"失败")+"!===========END========= ] ");
+		String json ="{\"total\":\""+saveBackEnums+"\",\"rows\":\""+saveBackEnums+"\"}";
 		return json;
 	}
 
