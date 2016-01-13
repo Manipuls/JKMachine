@@ -1,6 +1,16 @@
 function alertMsgBox(title,msg){
 	$.messager.alert(title,msg);   
 }
+function showMsgBox(tit,content,time){
+	$.messager.show({
+		width:350,
+		height:150,
+		title:tit,
+		msg:content,
+		timeout:time*1000,
+		showType:'slide'
+	});
+}
 function page(type){
 	$('#dg_'+type).datagrid("getPager").pagination({
 		beforePageText:'当前第',
