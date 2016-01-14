@@ -28,38 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <body >   
     	<script type="text/javascript" src="<%=paths%>js/backRight.js"></script>
 	    <div id="cc" class="easyui-layout" style="height:${param.hei-65}px;width:${param.wid-5}px;">   
-			    <div data-options="region:'west',title:'角色列表',split:true" style="width:250px;"></div>   
+			    <div data-options="region:'west',title:'角色列表',split:true" style="width:250px;">
+			    	<table id="dg_right_role"></table> 
+			    </div>   
 			    <div data-options="region:'center'," style="padding:0px;">
 			    	<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',checkbox:true">easyui</a> 
-			    	<ul id="tt" class="easyui-tree" data-options="checkbox:true">   
-					    <li>   
-					        <span>Folder</span>   
-					        <ul>   
-					            <li>   
-					                <span>Sub Folder 1</span>   
-					                <ul>   
-					                    <li>   
-					                        <span><a href="#">File 11</a></span>   
-					                    </li>   
-					                    <li>   
-					                        <span>File 12</span>   
-					                    </li>   
-					                    <li>   
-					                        <span>File 13</span>   
-					                    </li>   
-					                </ul>   
-					            </li>   
-					            <li>   
-					                <span>File 2</span>   
-					            </li>   
-					            <li>   
-					                <span>File 3</span>   
-					            </li>   
-					        </ul>   
-					    </li>   
-					    <li>   
-					        <span>File21</span>   
-					    </li>   
+			    	<ul id="tt_tree" class="easyui-tree" data-options="checkbox:true">   
+					      
 					</ul> 
 			    </div>   
 		</div>  

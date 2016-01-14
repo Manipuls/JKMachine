@@ -25,24 +25,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
 	<style type="text/css">
 	</style>
+	<script type="text/javascript">
+		$(function(){
+			$('#dg_right_role').datagrid({   
+		
+			    url:'backRoleAction_getAllRoles',    
+			    
+				loadMsg : '正在玩命的为您加载。。。', //加载数据是显示的提示 
+				
+			    pagination : false, //是否显示分页工具栏
+				
+				fitColumns : true,  //真正的自动展开/收缩列的大小，以适应网格的宽度，防止水平滚动。
+				
+				rownumbers : false,  //是否显示行号
+				
+				singleSelect : true,  //只允许选择一行
+				
+				//fit:true, //自动适应高度和宽度
+				
+				striped : true,  //表格显示条纹
+				
+		//		pageSize:5,  //初始页面显示数据条数
+				
+		//		pageNumber:1, //当前页码
+				
+		//		pageList:[1,5,10,15], // 选择当页显示数据显示条数
+				
+				scrollbarSize: 0,   //滚动条的宽度
+				
+				width : 240,
+				
+				height : 400,
+			    columns : [{
+					field : 'id',
+					title : '角色编号',
+					width : 100,
+					align : 'center',
+				},{
+					field : 'name',
+					title : '角色名称',
+					width : 100,
+					align : 'center',
+				}]   
+			});
+		})
+	</script>
 	
   </head>
   
   <body>
   
-  	<div id="tt" class="easyui-tabs" style="width:500px;height:250px;">   
-    <div title="Tab1" style="padding:20px;display:none;">   
-        tab1    
-    </div>   
-    <div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">   
-        tab2    
-    </div>   
-    <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="padding:20px;display:none;">   
-       <pre>
-       
-       </pre> 
-       tab3    adfasdfasdfadsfadsfad
-    </div>   
+  	<table id="dg_right_role"></table> 
 </div> 
 
   </body>
