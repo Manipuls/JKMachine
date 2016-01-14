@@ -24,27 +24,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=paths%>js/login.js"></script> 
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
 	<style type="text/css">
-	.s{border:1px #D3D3D3 solid;border-radius:5px;height: 15px; text-align: center;
-	}
 	</style>
+	
   </head>
   
   <body>
-	<input  class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px">  
-	<script type="text/javascript">
-	
-	$(function(){
-		$.messager.show({
-			width:350,
-			height:150,
-			title:'我的消息',
-			msg:'消息将在5秒后关闭。',
-			timeout:5000,
-			showType:'slide'
-		});
-	})
-	</script>
-
+  
+  	<div id="tt" class="easyui-tabs" style="width:500px;height:250px;">   
+    <div title="Tab1" style="padding:20px;display:none;">   
+        tab1    
+    </div>   
+    <div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">   
+        tab2    
+    </div>   
+    <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="padding:20px;display:none;">   
+       <pre>
+       
+       </pre> 
+       tab3    adfasdfasdfadsfadsfad
+    </div>   
+</div> 
 
   </body>
 </html>

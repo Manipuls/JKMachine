@@ -29,6 +29,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		
 		function add(inParm,url){
+			var topWid = ($('#top').panel('options').width);
+			var leftWid = ($('#sys').panel('options').width);
+			var cWid = topWid-leftWid;
 			var hei = ($('#sys').panel('options').height);
 			var tit = $("#"+inParm).text();
 			var tab = $('#tt').tabs('exists',tit);
@@ -36,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(tab){
 				$('#tt').tabs('select', tit);   
 				var tab = $('#tt').tabs('getSelected');  // 获取选择的面板
-				tab.panel('refresh', url+"?hei="+hei);
+				tab.panel('refresh', url+"?hei="+hei+"&wid="+cWid);
 			}else{
 				$('#tt').tabs("add" , { 
 					title:tit,    
@@ -57,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
  <body class="easyui-layout" data-options="fit:true"	>
-	    <div  data-options="region:'north',title:''" style="height:100px;">  </div>   
+	    <div id='top'  data-options="region:'north',title:''" style="height:100px;">  </div>   
 	    <div data-options="region:'south',title:''" style="height:30px;">
 	    	<div>您好，[${sessionScope.user.name}]</div>
 	    </div>   
