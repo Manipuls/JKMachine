@@ -23,6 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script>  
 	<script type="text/javascript" src="<%=paths%>js/login.js"></script> 
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
+  	<script type="text/javascript">
+  	</script>
 
   </head>
   
@@ -30,12 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="win" class="easyui-window" title="登录" style="width:400px;height:250px" data-options="minimizable:false,maximizable:false,closable:false,collapsible:false,draggable:false">
 		<ul style="margin-left: 120px;margin-top: 30px;line-height: 45px; list-style-type: none">
 			<form id="loginFrom" action="userLoginAction" method="post">
-				<li>帐号：<input id="eName" class="easyui-textbox" name='user.name' id='eName' data-options="iconAlign:'left'" style="width:150px"></li>   <!-- iconCls:'icon-man', iconCls:'icon-lock', -->
-				<li>密码：<input id="ePwd"  class="easyui-textbox" name="user.password" data-options="type:'password',iconAlign:'left'" style="width:150px"></li>
+				<li>帐号：<input id="eName" onkeypress="test('3')" class="easyui-textbox" name='user.name' id='eName' data-options="iconAlign:'left'" style="width:150px"></li>   <!-- iconCls:'icon-man', iconCls:'icon-lock', -->
+				<li>密码：<input id="ePwd" onkeypress="EnterPress(event)"   class="easyui-textbox" name="user.password" data-options="type:'password',iconAlign:'left'" style="width:150px"></li>
 				<div style="height: 30px;color: red;margin-top: -10px;">${retuenMsg}</div>
 				<div style="margin-left: 65px;">
-					<a href class="easyui-linkbutton" id='login_sub' data-options="iconCls:'icon-man'">登录</a>
-					<a style="margin-left: 10px;" id="login_res" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">重置</a>
+					<a  class="easyui-linkbutton" id='login_sub' data-options="iconCls:'icon-man'">登录</a>
+					<a style="margin-left: 10px;" id="login_res" class="easyui-linkbutton" data-options="iconCls:'icon-search'">重置</a>
 				</div>
 			</form>
 	</ul>

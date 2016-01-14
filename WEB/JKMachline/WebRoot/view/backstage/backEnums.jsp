@@ -46,6 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="tb_enumsParent">
 				<a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-search',width:70,plain:true">查询 </a>
 				<a id='add_enumsParent' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
+				<a id='edit_enumsParent'class="easyui-linkbutton" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
 			</div>
 			<table id="dg_enumsParent" width="100%" data-options=""></table> 
 			 
@@ -55,58 +56,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div>
   		<div style="margin-top: 10px;">
 			<div id="tb_enums">
-				<a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-search',width:70,plain:true">查询 </a>
 				<a id='add_backEnums' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
+				<a id='edit_backEnums' class="easyui-linkbutton" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
 			</div>
 			<table id="dg_enums" width="100%" data-options=""></table> 
   		</div>
 
   	</div>
+  	<!-- ------------------------------------------------------------------------------- -->
 	<!-- ----------------------------新增枚举类型dialog --------------------------------------->
-	<div id="dd_dlg_parent" class="easyui-dialog" title="新增枚举值"    
-        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,
-        buttons:[{
-				text:'确定',
-				iconCls:'icon-save',
-				onClick:function(){
-					saveEnumsParent();
-				}
-				
-			},{
-				text:'取消',
-				iconCls:'icon-cancel',
-				onClick:function(){
-					$('#dd_dlg_parent').dialog('close');
-				}
+	<div id="dd_dlg_parent" class="easyui-dialog" title="新增枚举类型"    
+        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
+        buttons:[{ 
+        			text:'确定', iconCls:'icon-save', onClick:function(){ saveEnumsParent(); } 
+        		},{
+					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_parent').dialog('close');}
 			}]">   
 	   <div class='s1'>
 		  		<p id='s1' >枚举码值：<input id='s1_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 		  		<p id='s2' >枚举名称：<input id='s2_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
-		  		<p id='s3' >枚举名称：<input id='s3_text' class="easyui-textbox" data-options="iconCls:''," style="width:300px"> </p>
+		  		<p id='s3' ><span style="vertical-align: top;">枚举描述：</span><textarea id='s3_text' style="width: 295px;border: 1px #e3e3e3 solid; border-radius:5px"></textarea> </p>
+		</div>      
+	</div> 
+	<!-- ----------------------------修改枚举类型dialog --------------------------------------->
+	<div id="dd_dlg_parent_edit" class="easyui-dialog" title="修改枚举类型"    
+        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
+        buttons:[{ 
+        			text:'确定', iconCls:'icon-save', onClick:function(){ updateEnumsParent(); } 
+        		},{
+					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_parent_edit').dialog('close');}
+			}]">   
+	   <div class='s1'>
+		  		<p id='s1_editParent' >枚举码值：<input id='s1_editParent_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
+		  		<p id='s2_editParent' >枚举名称：<input id='s2_editParent_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
+		  		<p id='s3_editParent' ><span style="vertical-align: top;">枚举描述：</span><textarea id='s3_editParent_text' style="width: 295px;border: 1px #e3e3e3 solid; border-radius:5px;font-size: 12px;font-family:Microsoft YaHei"></textarea> </p>
 		</div>      
 	</div> 
 	<!-- --------------------------------新增枚举值 ---------------------------------------->
 	<div id="dd_dlg_enums" class="easyui-dialog" title="新增枚举值"    
-        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,
+        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
         buttons:[{
-				text:'确定',
-				iconCls:'icon-save',
-				onClick:function(){
-					saveEnumsParent();
-				}
-				
-			},{
-				text:'取消',
-				iconCls:'icon-cancel',
-				onClick:function(){
-					$('#dd_dlg_enums').dialog('close');
-				}
+					text:'确定', iconCls:'icon-save', onClick:function(){ saveBackEnums(); }
+				},{
+					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_enums').dialog('close'); }
 			}]"> 
 		<div class='s1'>
 		  		<p id='s1_enums' >枚举码值：<input id='s1_enums_text' class="easyui-textbox"  style="width:300px"> </p>
 		  		<p id='s2_enums' >枚举名称：<input id='s2_enums_text' class="easyui-textbox"  style="width:300px"> </p>
-		  		<p id='s3_enums' >枚举名称：<input id='s3_enums_text' class="easyui-textbox"  style="width:300px"> </p>
 		</div>    
+	</div> 
+	<!-- ----------------------------修改枚举值dialog --------------------------------------->
+	<div id="dd_dlg_enums_edit" class="easyui-dialog" title="修改枚举值"  style="display: none;overflow: hidden;"  
+        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
+        buttons:[{ 
+        			text:'确定', iconCls:'icon-save', onClick:function(){ updateEnums(); } 
+        		},{
+					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_enums_edit').dialog('close');}
+			}]">   
+	   <div class='s1'>
+		  		<p id='s1_editEnums' >枚举码值：<input id='s1_editEnums_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
+		  		<p id='s2_editEnums' >枚举名称：<input id='s2_editEnums_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
+		</div>      
 	</div> 
 	
 	<input id='hei' type="hidden" value='${param.hei}'>
