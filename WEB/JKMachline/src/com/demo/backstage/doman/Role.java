@@ -5,6 +5,7 @@ public class Role {
 	private String name;
 	private Integer userId;
 	private Integer isDelete;
+	private String text;
 	public Integer getId() {
 		return id;
 	}
@@ -29,5 +30,12 @@ public class Role {
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	
 	
 }

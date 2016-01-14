@@ -21,5 +21,34 @@ public interface rightDao {
 	
 	
 	
+	
+	/*************************************backstage*************************************/
+	
+	
+	
+	/**
+	 * 查询所有权限
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public  List<Right>  getAllRights();
+	/**
+	 * 查询所有父级权限
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public List<Right> getParentRights();
+	
+	
+	/**
+	 * 查询父级权限下的子权限
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public List<Right> getChildRights(Integer id);
+	
+	
+	public List<Right> getRightByRoleId(Integer id);
+	
 
 }

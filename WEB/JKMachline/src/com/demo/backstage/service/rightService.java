@@ -19,5 +19,18 @@ public interface rightService {
 	public List<Right> findAllRights(Integer id);
 	
 	public List<Right> findAllRights(Integer id , Integer rightId);
+	
+	/***************************************backstage***************************************/
+	
+	/**
+	 * 获取所有权限
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public String getRights(Integer id);
+	
+	
+	
+	
 
 }

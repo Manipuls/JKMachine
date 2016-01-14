@@ -1,5 +1,7 @@
 package com.demo.backstage.dao;
 
+import java.util.List;
+
 import com.demo.backstage.doman.Role;
 
 public interface roleDao {
@@ -9,4 +11,8 @@ public interface roleDao {
 	 * @return
 	 */
 	public Role findAllRole(Integer userid);
+	
+	
+	
+	public List<Role> getAllRole(); 
 }
