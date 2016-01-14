@@ -52,5 +52,23 @@
 	</select>
 	
 	
+	<!-- **************************backstage********************************* -->
+	
+	<select id="getAllRights" resultMap="rightMap">
+		select * from backstage_rights
+	</select>
+	
+	<!-- 查询所有父级权限 -->
+	<select id="getParentRights" resultMap="rightMap">
+		select * from backstage_rights r where r.right_parent_id is null
+	</select>
+	<!-- 查询父级权限下的子权限 -->
+	<select id="getChildRights" parameterType="Integer" resultMap="rightMap">
+		select * from backstage_rights r where r.right_parent_id=#{0}
+	</select>
+	<select id="getRightByRoleId" parameterType="Integer" resultMap="rightMap">
+		select * from backstage_role_rights rr LEFT JOIN backstage_rights ri on rr.right_id=ri.right_id where rr.role_id=#{0}
+	</select>
+	
 	
 </mapper>
