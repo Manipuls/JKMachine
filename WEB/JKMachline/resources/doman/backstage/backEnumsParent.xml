@@ -18,16 +18,18 @@
 	
 	
 	<select id='findAllBackEnums' parameterType="util" resultMap="backEnumsParentMap">
-		select * from back_enum_parentdesc 
+		select * from back_enum_parentdesc order by update_time asc
 		<if test="page!=null and rows!=null ">
 			limit #{page},#{rows}
 		</if>
 	</select>
 	
+	
+	<!-- 新增枚举类型 -->
 	<insert id="saveBackEnumsParent" parameterType="backEnumsParent">
-	insert into back_enum_parentdesc(evalue,ename,edesc,is_delete,create_user,create_time,update_user,update_time) values(
-	#{evalue},#{ename},#{edesc},#{isDelete},#{createUser},#{createTime},#{updateUser},#{updateTime}
-	)
+		insert into back_enum_parentdesc(evalue,ename,edesc,is_delete,create_user,create_time,update_user,update_time) values(
+		#{evalue},#{ename},#{edesc},#{isDelete},#{createUser},#{createTime},#{updateUser},#{updateTime}
+		)
 		<!-- <if test="evalue!=null">#{evalue},</if>
 		<if test="ename!=null">#{ename},</if>
 		<if test="edesc!=null">#{edesc},</if>
@@ -35,4 +37,21 @@
 		<if test="createUser!=null">#{createUser},</if>
 		<if test="createTime!=null">#{createTime},</if> -->
 	</insert>
+	
+	<!-- 修改枚举类型 -->
+	<update id="updateBackEnumsParent" parameterType="backEnumsParent">
+		update back_enum_parentdesc 
+		<set>
+			<if test="evalue!=null"> evalue= #{evalue} ,</if>
+			<if test="ename!=null"> ename= #{ename} ,</if>
+			<if test="edesc!=null"> edesc= #{edesc} ,</if>
+			<if test="updateUser!=null"> update_user= #{updateUser} ,</if>
+			<if test="updateTime!=null"> update_time= #{updateTime} ,</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+	
+	
+	
 </mapper>
