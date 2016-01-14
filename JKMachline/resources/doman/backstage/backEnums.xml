@@ -21,7 +21,20 @@
 		select * from back_enums where query_id = #{0}
 	</select>
 	
+	<!-- 新增枚举值 -->
 	<insert id="saveBackEnums" parameterType="backEnums">
-		insert into back_enums(ekey,evalue,query_id,sequ,create_user,create_time,update_user,update_time) values(#{ekey},#{evalue},#{queryId},#{sequ},#{createUser},#{createTime},#{updateUser},#{updateTime})
+		insert into back_enums(ekey,evalue,query_id,create_user,create_time,update_user,update_time) values(#{ekey},#{evalue},#{queryId},#{createUser},#{createTime},#{updateUser},#{updateTime})
 	</insert>
+	
+	<!-- 修改枚举值 -->
+	<update id="updateBackEnums" parameterType="backEnums">
+		update back_enums
+		<set>
+			<if test="ekey!=null"> ekey=#{ekey} , </if>
+			<if test="evalue!=null"> evalue=#{evalue} , </if>
+			<if test="updateUser!=null"> update_user= #{updateUser} ,</if>
+			<if test="updateTime!=null"> update_time= #{updateTime} ,</if>
+		</set>
+		where id=#{id}
+	</update>
 </mapper>
