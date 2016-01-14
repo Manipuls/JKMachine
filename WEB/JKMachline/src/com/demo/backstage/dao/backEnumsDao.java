@@ -3,6 +3,7 @@ package com.demo.backstage.dao;
 import java.util.List;
 
 import com.demo.backstage.doman.backEnums;
+import com.demo.backstage.doman.backEnumsParent;
 
 public interface backEnumsDao {
 	
@@ -27,5 +28,13 @@ public interface backEnumsDao {
 	 * @return
 	 */
 	public Integer saveBackEnums(backEnums backenums);
+	
+	/**
+	 * 修改枚举值
+	 * liufei 2016-1-14
+	 * @param enums
+	 * @return
+	 */
+	public Integer updateBackEnums(backEnums enums);
 
 }

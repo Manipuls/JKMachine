@@ -42,4 +42,20 @@ public interface backEnumsService {
 	public String saveBackEnums(backEnums enums);
 	
 	
+	/**
+	 * 修改枚举类型
+	 * liufei 2016-1-14
+	 * @param enumsParent
+	 * @return
+	 */
+	public String updateBackEnumsParent(backEnumsParent enumsParent);
+	/**
+	 * 修改具体枚举值
+	 * liufei 2016-1-14
+	 * @param enums
+	 * @return
+	 */
+	public String updateBackEnums(backEnums enums);
+	
+	
 }

@@ -1,5 +1,6 @@
 package com.demo.backstage.service.impl;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class backEnumsServiceImpl implements backEnumsService {
 		session.close();
 		String json ="{\"total\":\""+backEnumsList.size()+"\",\"rows\":[";
 		boolean flag = false;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		for (backEnumsParent backEnumsParent : findAllBackEnums) {
 			if(flag)json+=",";
 			flag = true;
@@ -48,8 +49,8 @@ public class backEnumsServiceImpl implements backEnumsService {
 			backEnumsParent.setUpdateTimeStr(sdf.format(backEnumsParent.getUpdateTime()));
 			backEnumsParent.setUpdateTime(null);
 			for (backEnums e : findBackEnumsByQueryId) {
-				if(e.getKey().equals(backEnumsParent.getIsDelete()+"")){
-					backEnumsParent.setIsDeleteStr(e.getValue());
+				if(e.getEkey().equals(backEnumsParent.getIsDelete()+"")){
+					backEnumsParent.setIsDeleteStr(e.getEvalue());
 					backEnumsParent.setIsDelete(null);
 				}
 			}
@@ -87,14 +88,25 @@ public class backEnumsServiceImpl implements backEnumsService {
 		List<backEnums> findBackEnumsByQueryIdList = this.findBackEnumsByQueryId(queryId);
 		String json ="{\"total\":\""+findBackEnumsByQueryIdList.size()+"\",\"rows\":[";
 		boolean flag = false;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		for (backEnums backenums : findBackEnumsByQueryIdList) {
 			if(flag)json+=",";
 			flag = true;
+			backenums.setCreateTimeStr(sdf.format(backenums.getCreateTime()));
+			backenums.setUpdateTimeStr(sdf.format(backenums.getUpdateTime()));
+			backenums.setCreateTime(null);
+			backenums.setUpdateTime(null);
 			json += new Gson().toJson(backenums);
 		}
 		json+="]}";
 		return json;
 	}
+	/**
+	 * 新增枚举类型
+	 * @param enumsParent
+	 * @return
+	 * @see com.demo.backstage.service.backEnumsService#saveBackEnumsParent(com.demo.backstage.doman.backEnumsParent)
+	 */
 	@Override
 	public String saveBackEnumsParent(backEnumsParent enumsParent) {
 		log.info(" [ ========START:开始新增枚举值 参数backEnumsParent对象："+enumsParent+"===========START========= ] ");
@@ -112,6 +124,12 @@ public class backEnumsServiceImpl implements backEnumsService {
 		String json ="{\"total\":\""+saveBackEnumsParent+"\",\"rows\":\""+saveBackEnumsParent+"\"}";
 		return json;
 	}
+	/**
+	 * 新增枚举值
+	 * @param enums
+	 * @return
+	 * @see com.demo.backstage.service.backEnumsService#saveBackEnums(com.demo.backstage.doman.backEnums)
+	 */
 	@Override
 	public String saveBackEnums(backEnums enums) {
 		log.info(" [ ========START:开始新增枚举值 参数backEnums对象："+enums+"===========START========= ] ");
@@ -127,6 +145,46 @@ public class backEnumsServiceImpl implements backEnumsService {
 		session.close();
 		log.info(" [ ========END:新增枚举值结果："+(saveBackEnums==1?"成功":"失败")+"!===========END========= ] ");
 		String json ="{\"total\":\""+saveBackEnums+"\",\"rows\":\""+saveBackEnums+"\"}";
+		return json;
+	}
+	/**
+	 * 修改枚举类型
+	 * @param enumsParent
+	 * @return
+	 * @see com.demo.backstage.service.backEnumsService#updateBackEnumsParent(com.demo.backstage.doman.backEnumsParent)
+	 */
+	@Override
+	public String updateBackEnumsParent(backEnumsParent enumsParent) {
+		log.info(" [ ========START:开始修改枚举值 参数backEnumsParent对象："+enumsParent+"===========START========= ] ");
+		SqlSession session = new CreateSession().getSession();
+		backenumsparentdao = session.getMapper(backEnumsParentDao.class);
+		Integer updateBackEnumsParent = 0;
+		try{
+			updateBackEnumsParent = backenumsparentdao.updateBackEnumsParent(enumsParent);
+		}catch(Exception e){
+			log.info(" [ ============错误信息："+e.getMessage()+"========= ] ");
+			updateBackEnumsParent = 0;
+		}
+		session.close();
+		log.info(" [ ========END:修改枚举类型结果："+(updateBackEnumsParent==1?"成功":"失败")+"!===========END========= ] ");
+		String json ="{\"total\":\""+updateBackEnumsParent+"\",\"rows\":\""+updateBackEnumsParent+"\"}";
+		return json;
+	}
+	@Override
+	public String updateBackEnums(backEnums enums) {
+		log.info(" [ ========START:开始修改枚举值 参数backEnums对象："+enums+"===========START========= ] ");
+		SqlSession session = new CreateSession().getSession();
+		backenumsdao = session.getMapper(backEnumsDao.class);
+		Integer updateBackEnums = 0;
+		try{
+			updateBackEnums = backenumsdao.updateBackEnums(enums);
+		}catch(Exception e){
+			log.error(" [ ============错误信息："+e.getMessage()+"========= ] ");
+			updateBackEnums = 0;
+		}
+		session.close();
+		log.info(" [ ========END:修改枚举值结果："+(updateBackEnums==1?"成功":"失败")+"!===========END========= ] ");
+		String json ="{\"total\":\""+updateBackEnums+"\",\"rows\":\""+updateBackEnums+"\"}";
 		return json;
 	}
 

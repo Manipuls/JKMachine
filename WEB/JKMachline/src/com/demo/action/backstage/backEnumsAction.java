@@ -42,6 +42,11 @@ public class backEnumsAction extends BaseAction {
 		return "json";
 	}
 	
+	/**
+	 * 查询具体枚举值List
+	 * liufei 2016-1-14
+	 * @return
+	 */
 	public String getBackEnmusByQueryId(){
 		log.info(" [ =====方法：getBackEnmusByQueryId，传入参数：queryId:"+queryId+"============ ] ");
 		String findAllBackEnums = backenumsservice.findBackEnumsByQueryIdToJson(queryId);
@@ -64,8 +69,8 @@ public class backEnumsAction extends BaseAction {
 		enumsParent.setUpdateUser(user.getName());
 		enumsParent.setIsDelete(1);
 		enumsParent.setEdesc("无");
-		enumsParent.setCreateTime(new java.sql.Date(date.getTime()));
-		enumsParent.setUpdateTime(new java.sql.Date(date.getTime()));
+		enumsParent.setCreateTime(new java.sql.Timestamp(date.getTime()));
+		enumsParent.setUpdateTime(new java.sql.Timestamp(date.getTime()));
 		//调用保存对象的方法
 		String saveBackEnumsParent = backenumsservice.saveBackEnumsParent(enumsParent);
 		jsonObj = JSONObject.fromObject(saveBackEnumsParent);
@@ -84,12 +89,47 @@ public class backEnumsAction extends BaseAction {
 		//拼装保存对象
 		backenums.setCreateUser(user.getName());
 		backenums.setUpdateUser(user.getName());
-		backenums.setSequ(0);
-		backenums.setCreateTime(new java.sql.Date(date.getTime()));
-		backenums.setUpdateTime(new java.sql.Date(date.getTime()));
+		backenums.setCreateTime(new java.sql.Timestamp(date.getTime()));
+		backenums.setUpdateTime(new java.sql.Timestamp(date.getTime()));
 		//调用保存对象的方法
 		String saveBackEnumsParent = backenumsservice.saveBackEnums(backenums);
 		jsonObj = JSONObject.fromObject(saveBackEnumsParent);
+		return "json";
+	}
+	
+	
+	/**
+	 * 修改枚举类型
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public String updateEnumsParent(){
+		//获取当前登陆人
+		User user = (User)super.getSession().get("user");
+		Date date = new Date();
+		//拼装保存对象
+		enumsParent.setUpdateUser(user.getName());
+		enumsParent.setUpdateTime(new java.sql.Timestamp(date.getTime()));
+		//调用保存对象的方法
+		String updateBackEnumsParent = backenumsservice.updateBackEnumsParent(enumsParent);
+		jsonObj = JSONObject.fromObject(updateBackEnumsParent);
+		return "json";
+	}
+	/**
+	 * 修改枚举值
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public String updateEnums(){
+		//获取当前登陆人
+		User user = (User)super.getSession().get("user");
+		Date date = new Date();
+		//拼装保存对象
+		backenums.setUpdateUser(user.getName());
+		backenums.setUpdateTime(new java.sql.Timestamp(date.getTime()));
+		//调用保存对象的方法
+		String updateBackEnums = backenumsservice.updateBackEnums(backenums);
+		jsonObj = JSONObject.fromObject(updateBackEnums);
 		return "json";
 	}
 	
