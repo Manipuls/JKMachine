@@ -13,6 +13,11 @@ public class Right {
 	private Integer isDelete;
 	private List<Right> chRights;
 	
+	// tree 字段
+	private String text;
+	private Boolean checked;
+	private List<Right> children;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -61,9 +66,22 @@ public class Right {
 	public void setChRights(List<Right> chRights) {
 		this.chRights = chRights;
 	}
-	
-	
-	
-	
-
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public List<Right> getChildren() {
+		return children;
+	}
+	public void setChildren(List<Right> children) {
+		this.children = children;
+	}
+	public Boolean getChecked() {
+		return checked;
+	}
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
 }

@@ -8,5 +8,12 @@ public interface roleService {
 	 * @return
 	 */
 	public Role findAllRole(Integer userid);
+	
+	/**
+	 * 获取所有角色
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public String getAllRoles();
 
 }
