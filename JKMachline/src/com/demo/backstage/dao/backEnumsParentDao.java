@@ -21,4 +21,12 @@ public interface backEnumsParentDao {
 	 * @return
 	 */
 	public Integer saveBackEnumsParent(backEnumsParent enumsParent);
+	
+	/**
+	 * 修改枚举类型
+	 * liufei 2016-1-14
+	 * @param enumsParent
+	 * @return
+	 */
+	public Integer updateBackEnumsParent(backEnumsParent enumsParent);
 }

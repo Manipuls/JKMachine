@@ -1,6 +1,7 @@
 package com.demo.backstage.doman;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 枚举类
@@ -15,10 +16,10 @@ public class backEnums {
 	private String queryId;
 	private Integer sequ;
 	private String createUser;
-	private Date createTime;
+	private Timestamp createTime;
 	private String createTimeStr;
 	private String updateUser;
-	private Date updateTime;
+	private Timestamp updateTime;
 	private String updateTimeStr;
 	public Integer getId() {
 		return id;
@@ -26,7 +27,6 @@ public class backEnums {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
 	public String getEkey() {
 		return ekey;
 	}
@@ -57,10 +57,10 @@ public class backEnums {
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
 	}
-	public Date getCreateTime() {
+	public Timestamp getCreateTime() {
 		return createTime;
 	}
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
 	public String getCreateTimeStr() {
@@ -75,10 +75,10 @@ public class backEnums {
 	public void setUpdateUser(String updateUser) {
 		this.updateUser = updateUser;
 	}
-	public Date getUpdateTime() {
+	public Timestamp getUpdateTime() {
 		return updateTime;
 	}
-	public void setUpdateTime(Date updateTime) {
+	public void setUpdateTime(Timestamp updateTime) {
 		this.updateTime = updateTime;
 	}
 	public String getUpdateTimeStr() {
@@ -87,8 +87,6 @@ public class backEnums {
 	public void setUpdateTimeStr(String updateTimeStr) {
 		this.updateTimeStr = updateTimeStr;
 	}
-	
-	
 	
 
 }

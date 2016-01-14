@@ -1,6 +1,7 @@
 package com.demo.backstage.doman;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * 枚举表父表
@@ -16,10 +17,10 @@ public class backEnumsParent {
 	private Integer isDelete;
 	private String isDeleteStr;
 	private String createUser;
-	private Date createTime;
+	private Timestamp createTime;
 	private String createTimeStr;
 	private String updateUser;
-	private Date updateTime;
+	private Timestamp updateTime;
 	private String updateTimeStr;
 	public Integer getId() {
 		return id;
@@ -33,35 +34,17 @@ public class backEnumsParent {
 	public void setEvalue(String evalue) {
 		this.evalue = evalue;
 	}
+	public String getEname() {
+		return ename;
+	}
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
 	public String getEdesc() {
 		return edesc;
 	}
 	public void setEdesc(String edesc) {
 		this.edesc = edesc;
-	}
-	public String getCreateUser() {
-		return createUser;
-	}
-	public void setCreateUser(String createUser) {
-		this.createUser = createUser;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public String getUpdateUser() {
-		return updateUser;
-	}
-	public void setUpdateUser(String updateUser) {
-		this.updateUser = updateUser;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 	public Integer getIsDelete() {
 		return isDelete;
@@ -75,11 +58,35 @@ public class backEnumsParent {
 	public void setIsDeleteStr(String isDeleteStr) {
 		this.isDeleteStr = isDeleteStr;
 	}
+	public String getCreateUser() {
+		return createUser;
+	}
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
+	}
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
 	public String getCreateTimeStr() {
 		return createTimeStr;
 	}
 	public void setCreateTimeStr(String createTimeStr) {
 		this.createTimeStr = createTimeStr;
+	}
+	public String getUpdateUser() {
+		return updateUser;
+	}
+	public void setUpdateUser(String updateUser) {
+		this.updateUser = updateUser;
+	}
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
 	}
 	public String getUpdateTimeStr() {
 		return updateTimeStr;
@@ -87,12 +94,7 @@ public class backEnumsParent {
 	public void setUpdateTimeStr(String updateTimeStr) {
 		this.updateTimeStr = updateTimeStr;
 	}
-	public String getEname() {
-		return ename;
-	}
-	public void setEname(String ename) {
-		this.ename = ename;
-	}
+	
 	
 	
 }
