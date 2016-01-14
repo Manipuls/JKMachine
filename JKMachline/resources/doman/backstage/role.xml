@@ -5,9 +5,10 @@
   
 <mapper namespace="com.demo.backstage.dao.roleDao">
 	<resultMap type="role" id="roleMap">
-	<id column="role_id" property="id"/>
-	<result column="role_name" property="name" />
-	<result column="role_id_delete" property="isDelete" />
+		<id column="role_id" property="id"/>
+		<result column="role_name" property="name" />
+		<result column="role_user_id" property="userId" />
+		<result column="role_id_delete" property="isDelete" />
 	</resultMap>
 	
 	<!-- 查询用户角色 -->
@@ -17,4 +18,15 @@
 			ul.role_id = r.role_id
 		AND ul.user_id = #{0}
 	</select>
+	
+	
+	<!-- ******************************backstage********************************* -->
+	
+	<select id="getAllRole" resultMap="roleMap">
+		select * from backstage_role ro order by ro.role_id asc
+	</select>
+	
+	
+	
+	
 </mapper>
