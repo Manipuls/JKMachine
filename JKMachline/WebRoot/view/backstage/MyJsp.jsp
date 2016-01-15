@@ -26,57 +26,102 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<style type="text/css">
 	</style>
 	<script type="text/javascript">
-		$(function(){
-			$('#dg_right_role').datagrid({   
+
+
+   
+
+$(function(){
+    //此处是扩展tree的两个方法.
+    $.extend($.fn.tree.methods,{
+        getCheckedExt: function(jq){//扩展getChecked方法,使其能实心节点也一起返回
+            var checked = $(jq).tree("getChecked");
+            var checkbox2 = $(jq).find("span.tree-checkbox2").parent();
+            $.each(checkbox2,function(){
+                var node = $.extend({}, $.data(this, "tree-node"), {
+                    target : this
+                });
+                checked.push(node);
+            });
+            return checked;
+        },
+        getSolidExt:function(jq){//扩展一个能返回实心节点的方法
+            var checked =[];
+            var checkbox2 = $(jq).find("span.tree-checkbox2").parent();
+            $.each(checkbox2,function(){
+                var node = $.extend({}, $.data(this, "tree-node"), {
+                    target : this
+                });
+                checked.push(node);
+            });
+            return checked;
+        }
+    });
+});
+
+
+function getCheckedExt(){
+  var solids = $("#tt1").tree("getCheckedExt");
+  var nodes = [];
+  $.each(solids,function(){
+    nodes.push(this.text);
+  });
+  $("#logs").text("选择的节点是(包括实心):"+nodes.join(","));
+
+}
+
+function getSolidExt(){
+  var solids = $("#tt1").tree("getSolidExt");
+  var nodes = [];
+  $.each(solids,function(){
+    nodes.push(this.text);
+  });
+  $("#logs").text("选择的实心节点是:"+nodes);
+}
 		
-			    url:'backRoleAction_getAllRoles',    
-			    
-				loadMsg : '正在玩命的为您加载。。。', //加载数据是显示的提示 
-				
-			    pagination : false, //是否显示分页工具栏
-				
-				fitColumns : true,  //真正的自动展开/收缩列的大小，以适应网格的宽度，防止水平滚动。
-				
-				rownumbers : false,  //是否显示行号
-				
-				singleSelect : true,  //只允许选择一行
-				
-				//fit:true, //自动适应高度和宽度
-				
-				striped : true,  //表格显示条纹
-				
-		//		pageSize:5,  //初始页面显示数据条数
-				
-		//		pageNumber:1, //当前页码
-				
-		//		pageList:[1,5,10,15], // 选择当页显示数据显示条数
-				
-				scrollbarSize: 0,   //滚动条的宽度
-				
-				width : 240,
-				
-				height : 400,
-			    columns : [{
-					field : 'id',
-					title : '角色编号',
-					width : 100,
-					align : 'center',
-				},{
-					field : 'name',
-					title : '角色名称',
-					width : 100,
-					align : 'center',
-				}]   
-			});
-		})
 	</script>
 	
   </head>
   
   <body>
   
-  	<table id="dg_right_role"></table> 
-</div> 
+  	<div style="margin:10px;">
+      <a class="easyui-linkbutton" onclick="getCheckedExt()">获取checked节点(包括实心)</a>
+      <a class="easyui-linkbutton"  onclick="getSolidExt()">获取实心节点</a>
+  </div>
+ <ul id="tt1" class="easyui-tree" animate="true" checkbox="true">
+  <li>
+   <span>Folder</span>
+   <ul>
+    <li state="closed">
+     <span>Sub Folder 1</span>
+     <ul>
+      <li>
+       <span><a href="#">File 11</a></span>
+      </li>
+      <li>
+       <span>File 12</span>
+      </li>
+      <li>
+       <span>File 13</span>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <span>File 2</span>
+    </li>
+    <li>
+     <span>File 3</span>
+    </li>
+    <li>File 4</li>
+    <li>File 5</li>
+   </ul>
+  </li>
+  <li>
+   <span>File21</span>
+  </li>
+ </ul>
+ 
+  <div id="logs"></div>
 
   </body>
 </html>

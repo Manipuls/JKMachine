@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>    
 	</div> 
 	<!-- ----------------------------修改枚举值dialog --------------------------------------->
-	<div id="dd_dlg_enums_edit" class="easyui-dialog" title="修改枚举值"  style="display: none;overflow: hidden;"  
+	<div id="dd_dlg_enums_edit" class="easyui-dialog" title="修改枚举值"   
         data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
         buttons:[{ 
         			text:'确定', iconCls:'icon-save', onClick:function(){ updateEnums(); } 

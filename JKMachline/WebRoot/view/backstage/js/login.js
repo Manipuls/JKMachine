@@ -7,16 +7,21 @@ $(function() {
 	$("#login_sub").click(function(){
 		$("#loginFrom").submit();
 	});
-	
-	/*回车事件
-	$("#ePwd").keydown(function(event){
+	$('#ePwd').bind('keypress',function(event){
+        if(event.keyCode == "13")    
+        {
+            alert('你输入的内容为：' + $('#ePwd').val());
+        }
+    });
+	//回车事件
+	/*$(document).keydown(function(event){
 		var name = $("#eName").val();
 		var pwd = $("#ePwd").val();
-		if (event.keyCode == 13 && name!="" && pwd!=""  ) {
-			alert(name+"--"+pwd);
+		if (event.keyCode == 13) {
+			var name1 = $('#eName').textbox('getValue');
+			var pwd1 = $("#ePwd").textbox('getValue');
+			alert(name1+"--"+pwd1);
 			$("#loginFrom").submit();// 处理事件
-		}else if(event.keyCode==13){
-			alert("请输入帐号和密码！");
 		} 
 	})*/
 })

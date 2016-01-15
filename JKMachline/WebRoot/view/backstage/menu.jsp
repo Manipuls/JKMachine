@@ -26,8 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		html,body,div{margin: 0;padding: 0;font-family:"Microsoft YaHei";font-size: 12px; }
 	</style> 
 	<script type="text/javascript">
-	
-		
 		function add(inParm,url){
 			var topWid = ($('#top').panel('options').width);
 			var leftWid = ($('#sys').panel('options').width);
@@ -49,8 +47,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    href:url+"?hei="+hei
 				}); 
 			}
-			
-			
 		}
 	</script>
 	<style type="text/css">
@@ -66,11 +62,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </div>   
 	    <div id='sys' data-options="region:'west',title:'系统导航',split:true" style="width:200px;">
 	    <div>
-		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">后台管理</a> 
-		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> 
+			<!-- <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">后台管理</a> 
+			<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> --> 
 	    </div>
 		<div style="border-bottom: 1px red solid;"></div>
-	    	<ul id="menu" class="easyui-tree">  
+	    	<ul id="tree_menu" class="easyui-tree" data-options="animate:true">  
 	    		<c:forEach items="${sessionScope.user.rights}" var='right'> 
 				    <li>   
 		                <c:if test="${right.parentId==null}"> <span>${right.rightName}</span></c:if>
