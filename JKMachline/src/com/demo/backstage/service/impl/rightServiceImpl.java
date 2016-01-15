@@ -8,15 +8,17 @@ import org.apache.log4j.Logger;
 
 import com.demo.backstage.dao.rightDao;
 import com.demo.backstage.doman.Right;
-import com.demo.backstage.doman.Tree;
 import com.demo.backstage.doman.util;
 import com.demo.backstage.service.rightService;
 import com.demo.util.CreateSession;
+import com.demo.util.jdbcUtils;
 import com.google.gson.Gson;
 
 public class rightServiceImpl implements rightService {
 	
 	private rightDao rightdao;
+	jdbcUtils jdbcutils = new jdbcUtils();
+	
 	Logger log = Logger.getLogger(rightServiceImpl.class);
 	/* (non-Javadoc) 查询菜单栏数据
 	 * @see com.demo.backstage.service.rightService#findZtreeMenu(java.lang.Integer)
@@ -118,6 +120,25 @@ public class rightServiceImpl implements rightService {
 			json += new Gson().toJson(right);
 		}
 		json += "]";
+		return json;
+	}
+
+	/**
+	 * 保存修改权限
+	 * @param roleId
+	 * @param rights
+	 * @return
+	 * @see com.demo.backstage.service.rightService#saveRights(java.lang.Integer, java.util.List)
+	 */
+	@Override
+	public String saveRights(Integer roleId ,List<Integer>  rights) {
+		String delSql = "delete from backstage_role_rights where role_id="+roleId;
+		jdbcutils.execute(delSql);
+		for (int i = 0; i<rights.size() ; i++) {
+			String insertSql ="insert into backstage_role_rights(role_id,right_id) values("+roleId+","+rights.get(i)+")";
+			jdbcutils.execute(insertSql);
+		}
+		String json ="[{\"total\":\"1\",\"rows\":\"1\"}]";
 		return json;
 	}
 

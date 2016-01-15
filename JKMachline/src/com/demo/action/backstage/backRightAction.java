@@ -1,5 +1,8 @@
 package com.demo.action.backstage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.json.JSONArray;
 
 import org.apache.log4j.Logger;
@@ -7,6 +10,7 @@ import org.apache.log4j.Logger;
 import com.demo.action.BaseAction;
 import com.demo.backstage.service.rightService;
 import com.demo.backstage.service.impl.rightServiceImpl;
+import com.demo.util.utilMethod;
 
 public class backRightAction extends BaseAction {
 
@@ -15,8 +19,11 @@ public class backRightAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1914775578623349116L;
 	Logger log = Logger.getLogger(backRightAction.class);
+	utilMethod utilmedthod = new utilMethod();
 	
+	private String rightid;
 	public JSONArray jsonObj;
+	private String rights;
 	private Integer id;
 	
 	private rightService  rightservice = new rightServiceImpl();
@@ -28,6 +35,22 @@ public class backRightAction extends BaseAction {
 	}
 	
 	
+	/**
+	 * 保存修改的权限
+	 * liufei 2016-1-15
+	 * @return
+	 */
+	public String saveRights(){
+		List<Integer> rights = new ArrayList<Integer>();
+		String[] split = rightid.split(",");
+		for (String string : split) {
+			rights.add(Integer.valueOf(string));
+		}
+		String saveRights = rightservice.saveRights(id,rights);
+		jsonObj = JSONArray.fromObject(saveRights);
+		return "json";
+		
+	}
 	
 	
 	
@@ -43,6 +66,21 @@ public class backRightAction extends BaseAction {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public String getRights() {
+		return rights;
+	}
+	public void setRights(String rights) {
+		this.rights = rights;
+	}
+	public String getRightid() {
+		return rightid;
+	}
+	public void setRightid(String rightid) {
+		this.rightid = rightid;
+	}
+	
+	
+	
 	
 	
 	
