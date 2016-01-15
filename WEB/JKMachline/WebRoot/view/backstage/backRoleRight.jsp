@@ -26,17 +26,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
     	
  <body >   
+ 		<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
     	<script type="text/javascript" src="<%=paths%>js/backRight.js"></script>
 	    <div id="cc" class="easyui-layout" style="height:${param.hei-65}px;width:${param.wid-5}px;">   
 			    <div data-options="region:'west',title:'角色列表',split:true" style="width:250px;">
 			    	<table id="dg_right_role"></table> 
 			    </div>   
 			    <div data-options="region:'center'," style="padding:0px;">
-			    	<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',checkbox:true">easyui</a> 
-			    	<ul id="tt_tree" class="easyui-tree" data-options="checkbox:true">   
+			    	<a id="btn_saveRights"  class="easyui-linkbutton" data-options="iconCls:'icon-save',checkbox:true">保存设置</a> 
+			    	<ul id="tt_tree" class="easyui-tree" data-options="checkbox:true,animate:true">   
 					      
-					</ul> 
-			    </div>   
+					</ul>
+					<div id="mm_right" class="easyui-menu" style="width: 120px;">
+						<div onclick="append()" iconcls="icon-add">添加节点</div>
+						<div onclick="remove()" iconcls="icon-remove">删除节点</div>
+						<div onclick="update()" iconcls="icon-edit">修改节点</div>
+					</div>
+		</div>   
 		</div>  
 </body> 
 </html>
