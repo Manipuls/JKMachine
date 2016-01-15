@@ -30,6 +30,14 @@ public interface rightService {
 	public String getRights(Integer id);
 	
 	
+	/**
+	 * 保存修改的权限
+	 * liufei 2016-1-15
+	 * @return
+	 */
+	public String saveRights(Integer roleId ,List<Integer> rights);
+	
+	
 	
 	
 
