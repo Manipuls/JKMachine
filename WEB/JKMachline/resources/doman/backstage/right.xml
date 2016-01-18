@@ -47,6 +47,7 @@
 		AND r.right_is_show = 1
 		<if test="integer2!=null">AND r.right_parent_id is null</if>
 		<if test="integer3!=null">AND r.right_parent_id = #{integer3}</if>
+		order by r.right_id asc
 		
 		 <!-- ORDER BY create_time  asc  limit #{pageNum},#{contentNum}  -->
 	</select>
@@ -59,8 +60,11 @@
 	</select>
 	
 	<!-- 查询所有父级权限 -->
-	<select id="getParentRights" resultMap="rightMap">
+	<select id="getParentRights" parameterType="util" resultMap="rightMap">
 		select * from backstage_rights r where r.right_parent_id is null
+		<if test="page!=null and rows!=null ">
+			limit #{page},#{rows}
+		</if>
 	</select>
 	<!-- 查询父级权限下的子权限 -->
 	<select id="getChildRights" parameterType="Integer" resultMap="rightMap">
