@@ -37,7 +37,7 @@ public interface rightDao {
 	 * liufei 2016-1-14
 	 * @return
 	 */
-	public List<Right> getParentRights();
+	public List<Right> getParentRights(util utils);
 	
 	
 	/**

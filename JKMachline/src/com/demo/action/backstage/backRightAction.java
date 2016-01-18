@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
 
@@ -25,8 +26,28 @@ public class backRightAction extends BaseAction {
 	public JSONArray jsonObj;
 	private String rights;
 	private Integer id;
+	private Integer page;
+	private Integer rows;
 	
 	private rightService  rightservice = new rightServiceImpl();
+	private rightServiceImpl  rightserviceompl = new rightServiceImpl();
+	/**
+	 * 
+	 * 获取菜单导航tree
+	 * liufei 2016-1-15
+	 * @return
+	 */
+	public String getUserRights(){
+		
+		
+		return "";
+	}
+	/**
+	 * 
+	 * 展示权限树
+	 * liufei 2016-1-15
+	 * @return
+	 */
 	public String getAllRights(){
 		String rights = rightservice.getRights(id);
 		jsonObj = JSONArray.fromObject(rights);
@@ -78,10 +99,17 @@ public class backRightAction extends BaseAction {
 	public void setRightid(String rightid) {
 		this.rightid = rightid;
 	}
-	
-	
-	
-	
-	
-	
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
+
 }

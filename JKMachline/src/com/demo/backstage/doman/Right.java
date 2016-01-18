@@ -7,10 +7,12 @@ public class Right {
 	private Integer id;
 	private String rightName;
 	private Integer parentId;
+	private String parentIdStr;
 	private Integer isShow;
 	private String rightType;  //1系统设置 0业务模块
 	private String location;
 	private Integer isDelete;
+	private String isDeleteStr;
 	private List<Right> chRights;
 	
 	// tree 字段
@@ -84,4 +86,17 @@ public class Right {
 	public void setChecked(Boolean checked) {
 		this.checked = checked;
 	}
+	public String getParentIdStr() {
+		return parentIdStr;
+	}
+	public void setParentIdStr(String parentIdStr) {
+		this.parentIdStr = parentIdStr;
+	}
+	public String getIsDeleteStr() {
+		return isDeleteStr;
+	}
+	public void setIsDeleteStr(String isDeleteStr) {
+		this.isDeleteStr = isDeleteStr;
+	}
+	
 }
