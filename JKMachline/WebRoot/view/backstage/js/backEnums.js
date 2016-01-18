@@ -102,7 +102,7 @@ $(function(){
 			$('#dd_dlg_parent').panel('open');
 			$("#s1_text").textbox("setValue",null);
 			$("#s2_text").textbox("setValue",null);
-			$("#s3_text").textbox("setValue",null);
+			$("#s3_text").val(null);
 		}
 	});
 	//打开新增枚举值dialog
@@ -160,7 +160,7 @@ function onloadBackEnums(queryId){
 	    
 	    loadMsg : '正在玩命的为您加载。。。', //加载数据是显示的提示 
 		
-	    pagination : true, //是否显示分页工具栏
+//	    pagination : true, //是否显示分页工具栏
 		
 		fitColumns : true,  //真正的自动展开/收缩列的大小，以适应网格的宽度，防止水平滚动。
 		
@@ -172,11 +172,11 @@ function onloadBackEnums(queryId){
 		
 		striped : true,  //表格显示条纹
 		
-		pageSize:5,  //初始页面显示数据条数
+//		pageSize:5,  //初始页面显示数据条数
 		
-		pageNumber:1, //当前页码
+//		pageNumber:1, //当前页码
 		
-		pageList:[1,5,10,15], // 选择当页显示数据显示条数
+//		pageList:[1,5,10,15], // 选择当页显示数据显示条数
 		
 		scrollbarSize: 0,   //滚动条的宽度
 		

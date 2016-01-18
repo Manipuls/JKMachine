@@ -56,6 +56,10 @@ $(function(){
             return checked;
         }
     });
+    $('#pp').pagination({ 
+		total:2000, 
+		pageSize:10 
+		}); 
 });
 
 
@@ -83,45 +87,7 @@ function getSolidExt(){
   </head>
   
   <body>
-  
-  	<div style="margin:10px;">
-      <a class="easyui-linkbutton" onclick="getCheckedExt()">获取checked节点(包括实心)</a>
-      <a class="easyui-linkbutton"  onclick="getSolidExt()">获取实心节点</a>
-  </div>
- <ul id="tt1" class="easyui-tree" animate="true" checkbox="true">
-  <li>
-   <span>Folder</span>
-   <ul>
-    <li state="closed">
-     <span>Sub Folder 1</span>
-     <ul>
-      <li>
-       <span><a href="#">File 11</a></span>
-      </li>
-      <li>
-       <span>File 12</span>
-      </li>
-      <li>
-       <span>File 13</span>
-      </li>
-     </ul>
-    </li>
-    <li>
-     <span>File 2</span>
-    </li>
-    <li>
-     <span>File 3</span>
-    </li>
-    <li>File 4</li>
-    <li>File 5</li>
-   </ul>
-  </li>
-  <li>
-   <span>File21</span>
-  </li>
- </ul>
- 
-  <div id="logs"></div>
+  <div id="pp" style="background:#efefef;border:1px solid #ccc;"></div> 
 
   </body>
 </html>
