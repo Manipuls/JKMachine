@@ -23,6 +23,19 @@ public interface rightService {
 	/***************************************backstage***************************************/
 	
 	/**
+	 * 获取所有父类权限
+	 * liufei 2016-1-18
+	 * @return
+	 */
+	public List<Right> getParentRights(util utils);
+	/**
+	 * 获取用户所有权限
+	 * liufei 2016-1-14
+	 * @return
+	 */
+	public String getUserRights(Integer id);
+	
+	/**
 	 * 获取所有权限
 	 * liufei 2016-1-14
 	 * @return
