@@ -5,7 +5,32 @@
 
 <struts>
     <package name="default" namespace="/" extends="json-default">
-    	 <action name="indexAction_*" method="{1}" class="com.demo.action.reception.indexAction">
+	    <action name="userLoginAction" class="com.demo.action.backstage.userLoginAction">
+	        	<result name="jsp" type="dispatcher">
+	        		${result}
+	        	</result>
+	        	<result name="login" type="redirect">
+	        		${result}
+	        	</result>
+	        	<result name="action" type="redirectAction"> 
+	        		<param name="actionName">${result}</param>
+	        	</result>
+	        	<result name="json" type="json" >
+	        		 <param name="root">jsonObj</param>
+	        	</result>
+	        	<result name="input" type="dispatcher">
+	        		${result}
+	        	</result>
+	        </action>
+    	 <action name="uploadFileAction" method='uploadFile' class="com.demo.action.backstage.uploadFileAction">
+        	<result type="json" name="success">
+               	<param name="contentType">text/html</param>
+           	</result>
+            <result type="json" name="error">
+            	<param name="contentType">text/html</param>
+            </result>
+	        </action> 
+    	 <action name="indexAction_*" method="{1}" class="com.demo.action.reception.indexAction" >
         	<result name="jsp" type="dispatcher"> ${result} </result>
         	<result name="login" type="redirect"> ${result} </result>
         	<result name="action" type="redirectAction"> 
@@ -26,10 +51,6 @@
         	</result>
         	<result name="action" type="redirectAction"> 
         		<param name="actionName">${result}</param>
-        		<!-- 
-	        	<param name="bbb">参数可用EL表达式进行接值</param>
-	        	<param name="aaa">参数可用EL表达式进行接值</param>
-        		 -->
         	</result>
         	<result name="json" type="json" >
         		 <param name="root">jsonObj</param>
@@ -48,10 +69,6 @@
         	</result>
         	<result name="action" type="redirectAction"> 
         		<param name="actionName">${result}</param>
-        		<!-- 
-	        	<param name="bbb">参数可用EL表达式进行接值</param>
-	        	<param name="aaa">参数可用EL表达式进行接值</param>
-        		 -->
         	</result>
         	<result name="json" type="json" >
         		 <param name="root">jsonObj</param>
@@ -60,39 +77,12 @@
         		${result}
         	</result>
         </action>
-   <action name="userLoginAction" class="com.demo.action.backstage.userLoginAction">
-        	<result name="jsp" type="dispatcher">
-        		${result}
-        	</result>
-        	<result name="login" type="redirect">
-        		${result}
-        	</result>
-        	<result name="action" type="redirectAction"> 
-        		<param name="actionName">${result}</param>
-        		<!-- 
-	        	<param name="bbb">参数可用EL表达式进行接值</param>
-	        	<param name="aaa">参数可用EL表达式进行接值</param>
-        		 -->
-        	</result>
-        	<result name="json" type="json" >
-        		 <param name="root">jsonObj</param>
-        	</result>
-        	<result name="input" type="dispatcher">
-        		${result}
-        	</result>
-        </action>
-    
-    
        <action name="back*_*" method="{2}" class="com.demo.action.backstage.back{1}">
         	<result name="jsp" type="dispatcher"> ${result} </result>
         	<result name="login" type="redirect"> ${result} </result>
-        	<result name="action" type="redirectAction"> 
-        		<param name="actionName">${result}</param>
-        	</result>
         	<result name="json" type="json" >
         		 <param name="root">jsonObj</param>
         	</result>
-        	<result name="input" type="dispatcher"> ${result} </result>
         </action>
        
     </package>
