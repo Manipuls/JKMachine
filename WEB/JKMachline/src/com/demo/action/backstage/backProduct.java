@@ -50,7 +50,6 @@ public class backProduct extends BaseAction {
 		String productToJson = productservice.getProductChildList((page-1)*rows,rows);
 		jsonObj = JSONObject.fromObject(productToJson);
 		System.out.println(jsonObj);
-		log.info("[ =====================查询产品类型结束====================== ] ");
 		return "json";
 		
 	}
