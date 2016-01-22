@@ -55,8 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <ul id="clslist">
 		    <c:forEach items="${requestScope.product}" var="p" varStatus="i">
 			  <li>
-		        <span class="img"><a href="http://###/product.php?partid=15&mpid=14"><img src="${p.produntThumbnail}"></a></span>
-		        <span class="title"><a href="http://###/product.php?partid=15&mpid=14">${p.productName}</a></span>
+		        <span class="img"><a ><img src="${p.produntThumbnail}"></a></span>
+		        <span class="title"><a >${p.productName}</a></span>
 		        <ul class="prolist">
 		        			<c:forEach items="${p.productChild}" var ="pc">
 		                    <li><a href="productAction_onLoadProductContent?id=${pc.id}" >${pc.productName}</a></li>

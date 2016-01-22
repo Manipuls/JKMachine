@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    </div>   
 			    <div data-options="region:'center'," style="padding:0px;">
 			    	<a id="btn_saveRights"  class="easyui-linkbutton" data-options="iconCls:'icon-save',checkbox:true">保存设置</a> 
-			    	<ul id="tt_tree" class="easyui-tree" data-options="checkbox:true,animate:true">   
+			    	<ul id="tt_tree" class="easyui-tree" data-options="checkbox:true,animate:true,lines:true">   
 					      
 					</ul>
 					<div id="mm_right" class="easyui-menu" style="width: 120px;">
