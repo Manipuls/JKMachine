@@ -295,6 +295,7 @@ $("#menuSonList li").hover(function(){
 									<img src="view/reception/images/20140625141051-0400-88601.jpg" border="0">
 								</div> 
 							</div>
+							<div style="margin-top: 5px;">相关产品</div>
 							<div id="pro_focus_list" style="width:100%; margin-top:10px; margin-left:2px;">
 								<a href="javascript:void(0);" style="background:url(images/pro_focus_left.gif) no-repeat center center; background-color:#FFF; border:1px solid #DDD; width:13px; height:58px; float:left; display:block;" id="pro_img_list_l"></a>
 								<div id="pro_focus_imgs" style="width:95%; height:60px; overflow:hidden; margin-left:3px; float:left; white-space:nowrap;">

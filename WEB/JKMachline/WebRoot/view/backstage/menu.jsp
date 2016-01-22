@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		html,body,div{margin: 0;padding: 0;font-family:"Microsoft YaHei";font-size: 12px; }
 	</style> 
 	<script type="text/javascript">
+	
 		function add(inParm,url){
 			var topWid = ($('#top').panel('options').width);
 			var leftWid = ($('#sys').panel('options').width);
@@ -37,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(tab){
 				$('#tt').tabs('select', tit);   
 				var tab = $('#tt').tabs('getSelected');  // 获取选择的面板
-				tab.panel('refresh', url+"?hei="+hei+"&wid="+cWid);
+				tab.panel('refresh', url+"?hei="+(hei)+"&wid="+cWid);
 			}else{
 				$('#tt').tabs("add" , { 
 					title:tit,    
@@ -66,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> --> 
 	    </div>
 		<div style="border-bottom: 1px red solid;"></div>
-	    	<ul id="tree_menu" class="easyui-tree" data-options="animate:true">  
+	    	<ul id="tree_menu" class="easyui-tree" data-options="animate:true,lines:true">  
 	    		<c:forEach items="${sessionScope.user.rights}" var='right'> 
 				    <li>   
 		                <c:if test="${right.parentId==null}"> <span>${right.rightName}</span></c:if>
