@@ -302,7 +302,7 @@ $("#menuSonList li").hover(function(){
 									<div id="pro_focus_imgs_list" style="margin-left:0; text-align:left;">
 										<c:forEach items="${pro.productInfoList}" var='proList'>
 										<a href="javascript:void(0);" style="width: 58px; height: 57px; border: 1px solid rgb(255, 204, 0); display: inline-block; text-align: center; margin-left: 3px; margin-right: 3px; padding-top: 1px; background-color: rgb(255, 255, 191);" tab="1">
-										<img onload="AutoResizeImage(56,56,this,true);" src="${proList.productInfoImg}" alt="4-D2" style="border:0px none; display:block; margin-left:auto; margin-right:auto;" height="56" width="56">
+										<img onload="AutoResizeImage(56,56,this,true);" src="view/reception/upload/images/${proList.productInfoImg}" alt="4-D2" style="border:0px none; display:block; margin-left:auto; margin-right:auto;" height="56" width="56">
 										</a>
 										</c:forEach>
 									</div>
