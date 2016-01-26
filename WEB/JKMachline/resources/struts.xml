@@ -4,6 +4,7 @@
 	"dtd/struts-2.3.dtd">
 
 <struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
     <package name="default" namespace="/" extends="json-default">
 	    <action name="userLoginAction" class="com.demo.action.backstage.userLoginAction">
 	        	<result name="jsp" type="dispatcher">
