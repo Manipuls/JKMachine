@@ -1,9 +1,26 @@
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }
-.icon-add{
+/* .icon-add{
 	background:url('icons/edit_add.png') no-repeat center center;
+} */
+ .icon-add{
+	background:url('icons/icons.gif') repeat scroll -122px -2px;
+} 
+ .icon-other{
+	background:url('icons/other.png') no-repeat center center;
+} 
+ .icon-all{
+	background:url('icons/all.png') no-repeat center center;
+} 
+ .icon-check{
+	background:url('icons/icons.gif') repeat scroll -42px -102px;
 }
+ .icon-upload{
+	background:url('icons/icons.gif') repeat scroll -122px -282px;
+} 
+
+
 .icon-edit{
 	background:url('icons/pencil.png') no-repeat center center;
 }

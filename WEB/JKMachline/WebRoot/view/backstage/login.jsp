@@ -25,6 +25,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
   	<script type="text/javascript">
   	</script>
+  	<style type="text/css">
+  		.boxStyle{
+  			border-radius:5px;
+  			border: 1px #AAA solid;
+  			width: 140px;
+  			height: 19px;
+  		}
+  		.boxError{ border: 1px red solid;}
+  	</style>
 
   </head>
   
@@ -32,8 +41,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="win" class="easyui-window" title="登录" style="width:400px;height:250px" data-options="minimizable:false,maximizable:false,closable:false,collapsible:false,draggable:false">
 		<ul style="margin-left: 120px;margin-top: 30px;line-height: 45px; list-style-type: none">
 			<form id="loginFrom" action="userLoginAction" method="post">
-				<li>帐号：<input id="eName" onkeypress="test('3')" class="easyui-textbox" name='user.name' id='eName' data-options="iconAlign:'left'" style="width:150px"></li>   <!-- iconCls:'icon-man', iconCls:'icon-lock', -->
-				<li>密码：<input id="ePwd" onkeypress="EnterPress(event)"   class="easyui-textbox" name="user.password" data-options="type:'password',iconAlign:'left'" style="width:150px"></li>
+				<li>帐号：
+<!-- 				<input id="eName" onkeypress="test('3')" class="easyui-textbox" name='user.name' id='eName' data-options="iconAlign:'left'" style="width:150px">-->			  <!-- iconCls:'icon-man', iconCls:'icon-lock', -->
+					<input class='boxStyle' id="eName" type="text" name="user.name"  >
+				</li>
+				<li>密码：
+<!-- 				<input id="ePwd" onkeypress="EnterPress(event)"   class="easyui-textbox" name="user.password" data-options="type:'password',iconAlign:'left'" style="width:150px">-->				
+				<input class='boxStyle' id="ePwd" type="password" onkeypress="EnterPress(event)"   name="user.password" >
+ 				</li>
 				<div style="height: 30px;color: red;margin-top: -10px;">${retuenMsg}</div>
 				<div style="margin-left: 65px;">
 					<a  class="easyui-linkbutton" id='login_sub' data-options="iconCls:'icon-man'">登录</a>

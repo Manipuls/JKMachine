@@ -8,27 +8,27 @@ $(function() {
 		$("#loginFrom").submit();
 	});
 	$('#ePwd').bind('keypress',function(event){
-        if(event.keyCode == "13")    
-        {
-            alert('你输入的内容为：' + $('#ePwd').val());
-        }
-    });
-	//回车事件
-	/*$(document).keydown(function(event){
+		var event = event || window.event; 
 		var name = $("#eName").val();
 		var pwd = $("#ePwd").val();
-		if (event.keyCode == 13) {
-			var name1 = $('#eName').textbox('getValue');
-			var pwd1 = $("#ePwd").textbox('getValue');
-			alert(name1+"--"+pwd1);
+		if (event.keyCode == 13 && name !="" && pwd !="") {
 			$("#loginFrom").submit();// 处理事件
-		} 
-	})*/
+		} else{
+			alertMsgBox("提示","码值和名称不能为空!");
+			$("#eName").addClass("boxError");
+			$("#ePwd").addClass("boxError");
+		}
+    });
 })
 
 /*function EnterPress(e){ //传入 event 
 		var e = e || window.event; 
-		if(e.keyCode == 13){ 
-			alert("yes!");
-		} 
-	} */
+		var name = $("#eName").val();
+		var pwd = $("#ePwd").val();
+		if (event.keyCode == 13 && name !="" && pwd !="") {
+			$("#loginFrom").submit();// 处理事件
+		} else{
+			alert("00");
+			$("#eName").addClass(".boxError");
+		}
+} */
