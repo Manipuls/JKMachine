@@ -2,16 +2,15 @@ package com.demo.action.backstage;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.demo.action.BaseAction;
+import com.demo.backstage.service.impl.uploadServicImpl;
 
 public class uploadFileAction extends BaseAction {
 
@@ -24,6 +23,7 @@ public class uploadFileAction extends BaseAction {
 		private File file;  //注意file名与表单name对应
 	    private String fileFileName;  //file+FileName为固定写法,否则取不到
 	    private String fileContentType;  //file+ContentType为固定写法
+	    private String name;
 		public JSONObject jsonObj;
 		
 		public String uploadFile() {
@@ -41,7 +41,7 @@ public class uploadFileAction extends BaseAction {
 					FileOutputStream fos;
 					FileInputStream fis;
 					try {
-						fos = new FileOutputStream(realPath + "\\" + fileFileName);
+						fos = new FileOutputStream(realPath + "\\" + name);
 						fis = new FileInputStream(file);
 						byte[] buffer = new byte[1024];  
 						int len = 0;  
@@ -49,6 +49,9 @@ public class uploadFileAction extends BaseAction {
 							while((len = fis.read(buffer)) > 0){  
 								fos.write(buffer, 0, len);  
 							}  
+							String id = name.substring(0, name.indexOf("."));
+							
+							Boolean uploadProductInfo = new uploadServicImpl().uploadProductInfo(Integer.parseInt(id), name);
 							json ="{\"total\":\"1\",\"rows\":\"1\"}";
 						} catch (IOException e) {  
 							e.printStackTrace();  
@@ -56,7 +59,6 @@ public class uploadFileAction extends BaseAction {
 						} finally{
 							fis.close();
 							fos.close();
-							
 						}
 						break;
 					} catch (Exception e1) {
@@ -91,6 +93,12 @@ public class uploadFileAction extends BaseAction {
 	}
 	public void setFileContentType(String fileContentType) {
 		this.fileContentType = fileContentType;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }
