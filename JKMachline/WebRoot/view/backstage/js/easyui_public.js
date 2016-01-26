@@ -1,5 +1,5 @@
-function alertMsgBox(title,msg){
-	$.messager.alert(title,msg);   
+function alertMsgBox(title,msg, icon){
+	$.messager.alert(title,msg, icon); 
 }
 function showMsgBox(tit,content,time){
 	$.messager.show({

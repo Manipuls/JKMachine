@@ -22,6 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/icon.css" />   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
+	<script type="text/javascript" src="<%=paths%>js/menu.js"></script> 
+	
 	<style type="text/css">
 		html,body,div{margin: 0;padding: 0;font-family:"Microsoft YaHei";font-size: 12px; }
 	</style> 
@@ -33,14 +35,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var cWid = topWid-leftWid;
 			var hei = ($('#sys').panel('options').height);
 			var tit = $("#"+inParm).text();
-			var tab = $('#tt').tabs('exists',tit);
+			var tab = $('#tabs').tabs('exists',tit);
 			var url = 'view/backstage/'+url;
 			if(tab){
-				$('#tt').tabs('select', tit);   
-				var tab = $('#tt').tabs('getSelected');  // 获取选择的面板
+				$('#tabs').tabs('select', tit);   
+				var tab = $('#tabs').tabs('getSelected');  // 获取选择的面板
 				tab.panel('refresh', url+"?hei="+(hei)+"&wid="+cWid);
 			}else{
-				$('#tt').tabs("add" , { 
+				$('#tabs').tabs("add" , { 
 					title:tit,    
 	   				closable:true, 
 				    border:true,  
@@ -66,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!-- <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">后台管理</a> 
 			<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">网站管理</a> --> 
 	    </div>
-		<div style="border-bottom: 1px red solid;"></div>
+		<div style="border-bottom: 0px red solid;"></div>
 	    	<ul id="tree_menu" class="easyui-tree" data-options="animate:true,lines:true">  
 	    		<c:forEach items="${sessionScope.user.rights}" var='right'> 
 				    <li>   
@@ -85,8 +87,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    
 	    </div>   
 	    <div id="cen" data-options="region:'center',title:'操作区'" style="padding:0px;background:#eee;">
-		    <div id="tt" class="easyui-tabs" data-options="fit:true" style="width:100%">   
+		    <div id="tabs" class="easyui-tabs" data-options="fit:true" style="width:100%">   
 			</div>  
+			
+			
+		 <div id="mm" class="easyui-menu" style="width:150px;">
+	         <div id="mm-tabclose" data-options="iconCls:'icon-cancel'">关闭当前标签页</div>
+	         <div id="mm-tabcloseother" data-options="iconCls:'icon-other'">关闭其他标签页</div>
+	         <div id="mm-tabcloseall" data-options="iconCls:'icon-all'">关闭所有标签页</div>
+	         <div class="menu-sep"></div>
+	         <div id="mm-tabcloseright">当前页右侧全部关闭</div>
+	         <div id="mm-tabcloseleft">当前页左侧全部关闭</div>
+		 </div>
 	    </div> 
   </body>
 
