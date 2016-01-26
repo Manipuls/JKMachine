@@ -24,6 +24,7 @@ public class backProduct extends BaseAction {
 	
 	private Integer page;
 	private Integer rows;
+	private Integer id;
 
 	/**
 	 * @return
@@ -49,9 +50,14 @@ public class backProduct extends BaseAction {
 	public String getProductChildList(){
 		String productToJson = productservice.getProductChildList((page-1)*rows,rows);
 		jsonObj = JSONObject.fromObject(productToJson);
-		System.out.println(jsonObj);
 		return "json";
-		
+	}
+	
+	
+	public String getProductInfoChildList(){
+		String productInfoChildList = new productServiceImpl().getProductInfoChildList(id);
+		jsonObj = JSONObject.fromObject(productInfoChildList);
+		return "json";
 	}
 
 	public Integer getPage() {
@@ -65,6 +71,14 @@ public class backProduct extends BaseAction {
 	}
 	public void setRows(Integer rows) {
 		this.rows = rows;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }

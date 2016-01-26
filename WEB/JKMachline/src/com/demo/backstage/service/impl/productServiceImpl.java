@@ -1,7 +1,9 @@
 package com.demo.backstage.service.impl;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -13,6 +15,7 @@ import com.demo.backstage.doman.util;
 import com.demo.backstage.service.productInfoService;
 import com.demo.backstage.service.productService;
 import com.demo.util.CreateSession;
+import com.demo.util.jdbcUtils;
 import com.google.gson.Gson;
 
 public class productServiceImpl implements productService {
@@ -20,6 +23,7 @@ public class productServiceImpl implements productService {
 	private productDao  productdao;
 
 	productInfoService proInfo = new productInfoServiceImpl();
+	jdbcUtils jdbcutils = new jdbcUtils();
 	Logger log = Logger.getLogger(productServiceImpl.class);
 	/**
 	 * <p>
@@ -130,5 +134,52 @@ public class productServiceImpl implements productService {
 		json+="]}";
 		return json;
 	}
+	
+	public String getProductInfoChildList(Integer id){
+		log.info(" [ ========START:开始查询产品列表 参数Id："+id+"===========START========= ] ");
+		String sql = "select * from backstage_product_info where product_id ="+id;
+		log.info(" [ 查询sql:"+sql+" ] ");
+		List<Map<String, String>> map = jdbcutils.executeQuery(sql);
+		List<ProductInfo> productInfoList = new ArrayList<ProductInfo>();
+		try {
+			
+			for (int i = 0; i < map.size(); i++) {
+				ProductInfo productinfo = new ProductInfo();
+				productinfo.setId(Integer.parseInt(map.get(i).get("id")));
+				productinfo.setProductName(map.get(i).get("product_name"));
+				productinfo.setProductId(Integer.parseInt(map.get(i).get("product_id")));
+				productinfo.setProductInfoImg(map.get(i).get("product_info_img"));
+				productinfo.setIsDelete(Integer.parseInt(map.get(i).get("is_delete")));
+				log.info(map.get(i).get("id")+"--"+map.get(i).get("product_name"));
+				productInfoList.add(productinfo);
+			}
+			/*for (Map<String, String> map : executeQuery) {
+				productinfo.setId(Integer.parseInt(map.get("id")));
+				productinfo.setProductName(map.get("product_name"));
+				productinfo.setProductId(Integer.parseInt(map.get("product_id")));
+				productinfo.setProductInfoImg(map.get("product_info_img"));
+				productinfo.setIsDelete(Integer.parseInt(map.get("is_delete")));
+				productInfoList.add(productinfo);
+			}*/
+			log.info(" [ 查询结果：size:"+productInfoList.size()+" ] ");
+		} catch (Exception e) {
+			log.info(" [ 错误信息： "+e.getMessage()+"] ");
+			
+		}
+		String json ="{\"total\":\""+productInfoList.size()+"\",\"rows\":[";
+		boolean flag = false;
+		
+		for (int i = 0; i < productInfoList.size(); i++) {
+			
+			if(flag)json+=",";
+			flag = true;
+			json += new Gson().toJson(productInfoList.get(i));
+		}
+		json+="]}";
+		log.info(" [ ========END:开始查询产品列表结束 json："+json+"===========END========= ] ");
+		return json;
+	}
+	
+	
 
 }

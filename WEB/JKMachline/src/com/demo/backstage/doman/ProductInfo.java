@@ -2,11 +2,11 @@ package com.demo.backstage.doman;
 
 public class ProductInfo {
 	
-	private Integer id;
-	private String productName;
-	private Integer productId;
-	private String productInfoImg;
-	private Integer isDelete;
+	private Integer id;   // id
+	private String productName;  //product_name
+	private Integer productId;  //product_id
+	private String productInfoImg; //product_info_img
+	private Integer isDelete;  //is_delete
 	
 	public Integer getId() {
 		return id;
