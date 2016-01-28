@@ -234,6 +234,9 @@ function onLoanProductInfo(id){
 	    		plain:true,
 	    		iconCls:'icon-check',
 	    		onClick : function(){
+	    			$('#dd_checkImg').dialog({    
+	    			    title: '图片预览',
+	    			});
 	    			$("#dd_checkImg").dialog("open");
 	    			$('#dd_checkImgContent').removeClass("hide");
 	    			var selectRow = $('#dg_productInfo').datagrid('getSelected');

@@ -14,7 +14,7 @@ $(function() {
 		if (event.keyCode == 13 && name !="" && pwd !="") {
 			$("#loginFrom").submit();// 处理事件
 		} else{
-			alertMsgBox("提示","码值和名称不能为空!");
+			//alertMsgBox("提示","码值和名称不能为空!");
 			$("#eName").addClass("boxError");
 			$("#ePwd").addClass("boxError");
 		}

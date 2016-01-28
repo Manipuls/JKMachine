@@ -19,7 +19,9 @@
  .icon-upload{
 	background:url('icons/icons.gif') repeat scroll -122px -282px;
 } 
-
+ .icon-notice{
+	background:url('icons/icons.gif') repeat scroll -82px -2px;
+} 
 
 .icon-edit{
 	background:url('icons/pencil.png') no-repeat center center;

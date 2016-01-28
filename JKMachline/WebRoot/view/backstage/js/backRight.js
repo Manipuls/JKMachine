@@ -26,11 +26,24 @@ $(function(){
 		
 		scrollbarSize: 0,   //滚动条的宽度
 		
-		toolbar: '#tb_rightParent',
+//		toolbar: '#tb_rightParent',
 		
 		onClickRow: function(rowIndex, rowData){
 			onLoadChildRights(rowData.id);
 		},
+		
+		toolbar: [{
+			iconCls: 'icon-search',
+			text : "查询",
+			width :70,
+			handler: function(){alert('编辑按钮')}
+		},'-',{
+			iconCls: 'icon-add',
+			text : "新增",
+			width :70,
+			handler: function(){alert('帮助按钮')}
+		},'-'],
+		
 		columns:[[    
 			        {
 					field : 'id',
@@ -94,7 +107,30 @@ function onLoadChildRights(id){
 		
 		scrollbarSize: 0,   //滚动条的宽度
 		
-		toolbar: '#tb_rights',
+//		toolbar: '#tb_rights',
+		
+		toolbar: [{
+			iconCls: 'icon-search',
+			text : "新增",
+			width :70,
+			handler: function(){
+				
+			}
+		},'-',{
+			iconCls: 'icon-add',
+			text : "修改",
+			width :70,
+			handler: function(){
+				var rowData = $("#dg_rights").datagrid("getSelected");
+				if(rowData!=null){
+					openRightDataDialog();
+				}else{
+					alertMsgBox("提示","请选择要修改的数据!","info");
+				}
+				
+				
+			}
+		},'-'],
 		
 		columns:[[    
 			        {
@@ -126,4 +162,37 @@ function onLoadChildRights(id){
 				]],
 		});
 	page("rights");
+}
+
+function openRightDataDialog(){//returnReason
+	$("#dd_rightData").dialog("open");
+	$("#dd_rightDataContent").removeClass("hide");
+	var rowData = $("#dg_rights").datagrid("getSelected");
+	$("#dd_rightData_name").textbox('setValue',rowData.rightName);
+	$("#dd_rightData_pageName").textbox('setValue',rowData.location);
+}
+
+function updateRightData(){
+	var name = $("#dd_rightData_name").textbox('getValue');
+	var pageName = $("#dd_rightData_pageName").textbox('getValue');
+	var rowData = $("#dg_rights").datagrid("getSelected");
+	var id = $("#dg_rightParent").datagrid("getSelected").id;
+	$.ajax({                                                                     
+		url : 'backRightAction_updateRightInfo',
+		type : 'post',
+		data :"right.rightName="+name+"&right.location="+pageName+"&right.id="+rowData.id,
+		dataType : "json",
+		async: false,
+		success : function(root) {
+			if(root[0].total>0){
+				var content = "<div style='margin: 0 auto;'>修改成功!</div>";
+				showMsgBox('提示', content, 2);
+				$("#dd_rightData").dialog('close');
+				onLoadChildRights(id);
+			}else{
+				var content = "<div style='margin: 0 auto;'>修改失败,请联系管理员！</div>";
+				showMsgBox('提示', content, 2);
+			}
+		}
+	});
 }
