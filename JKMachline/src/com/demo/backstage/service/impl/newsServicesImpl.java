@@ -2,6 +2,7 @@ package com.demo.backstage.service.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -11,12 +12,15 @@ import com.demo.backstage.doman.News;
 import com.demo.backstage.doman.util;
 import com.demo.backstage.service.newsServices;
 import com.demo.util.CreateSession;
+import com.demo.util.jdbcUtils;
 import com.google.gson.Gson;
 
 public class newsServicesImpl implements newsServices {
 	
 	
 	private newsDao newsdao;
+	
+	private jdbcUtils jdbcutils = new jdbcUtils();
 	
 	Logger log = Logger.getLogger(newsServicesImpl.class);
 
@@ -128,5 +132,57 @@ public class newsServicesImpl implements newsServices {
 		Integer newsNum = newsdao.getCountNews();
 		return newsNum;
 	}
+	
+	
+	
+	
+	public String getNewsAll(){
+		log.info(" [ ========START:开始新闻资讯列表 ===========START========= ] ");
+		String sql = " select * from backstage_news order by create_time desc ";
+		log.info(" [ 查询sql: "+sql+" ] ");
+		List<Map<String, String>> executeQuery = jdbcutils.executeQuery(sql);
+		News news = new News();
+		String json = "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		for (int i = 0; i < executeQuery.size(); i++) {
+			news.setId(Integer.parseInt(executeQuery.get(i).get("id")));
+			news.setNewType(executeQuery.get(i).get("new_type"));
+			news.setNewTitle(executeQuery.get(i).get("new_type"));
+			news.setCreateStrTime(sdf.format(executeQuery.get(i).get("create_time")));
+		}
+		
+		return "";
+	}
+
+	@Override
+	public String getBackNewsForList(util utils) {
+		log.info(" [ ========START:开始查询新闻资讯列表 ===========START========= ] ");
+		SqlSession session = new CreateSession().getSession();
+		newsdao = session.getMapper(newsDao.class);
+		//调用实现方法
+		List<News> pageForNews = newsdao.getPageForNews(utils);
+		log.info(" [ 查询结果size："+pageForNews.size()+" ] ");
+		String json = "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		if(pageForNews.size()>0){
+			json +="{\"total\":\""+newsdao.getCountNews()+"\",\"rows\":[";
+			boolean flag = false;
+			for (News news : pageForNews) {
+				if(flag)json+=",";
+				flag = true;
+				news.setCreateStrTime(sdf.format(news.getCreateTime()));
+				news.setCreateTime(null);
+				json += new Gson().toJson(news);
+			}
+			json +="]}";
+		}
+		log.info(" [ json:"+json+" ] ");
+		log.info(" [ ========END:查询新闻资讯列表结束 ===========END========= ] ");
+		return json;
+	}
+	
+	
+	
+	
 
 }

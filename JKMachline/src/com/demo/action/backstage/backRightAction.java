@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
 
 import com.demo.action.BaseAction;
+import com.demo.backstage.doman.Right;
 import com.demo.backstage.service.rightService;
 import com.demo.backstage.service.impl.rightServiceImpl;
 import com.demo.util.utilMethod;
@@ -28,9 +28,10 @@ public class backRightAction extends BaseAction {
 	private Integer id;
 	private Integer page;
 	private Integer rows;
+	private Right right;
 	
 	private rightService  rightservice = new rightServiceImpl();
-	private rightServiceImpl  rightserviceompl = new rightServiceImpl();
+	private rightServiceImpl  rightserviceimpl = new rightServiceImpl();
 	/**
 	 * 
 	 * 获取菜单导航tree
@@ -74,6 +75,13 @@ public class backRightAction extends BaseAction {
 	}
 	
 	
+	public String updateRightInfo(){
+		String updateRightInfo = rightserviceimpl.updateRightInfo(right);
+		jsonObj = JSONArray.fromObject(updateRightInfo);
+		return "json";
+	}
+	
+	
 	
 	public JSONArray getJsonObj() {
 		return jsonObj;
@@ -110,6 +118,12 @@ public class backRightAction extends BaseAction {
 	}
 	public void setRows(Integer rows) {
 		this.rows = rows;
+	}
+	public Right getRight() {
+		return right;
+	}
+	public void setRight(Right right) {
+		this.right = right;
 	}
 
 }

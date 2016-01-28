@@ -249,5 +249,22 @@ public class rightServiceImpl implements rightService {
 		log.info(" [ ==============END:开始查询子类权限=================END========= ] ");
 		return json;
 	}
+	
+	
+	
+	public String updateRightInfo(Right right){
+		log.info(" [ ==============START:开始修改权限信息=================START========= ] ");
+		String sql = " update backstage_rights" +
+				" set right_name='"+right.getRightName()+"' , " +
+				" right_location='"+right.getLocation()+"' " +
+				" where right_id= "+right.getId();
+		log.info(" [ 执行sql:"+sql+" ] ");
+		Integer execute = jdbcutils.execute(sql);
+		log.info(" [ 执行sql:"+(execute==1?"成功":"失败")+" ] ");
+		String json = "[{\"total\":\""+execute+"\",\"rows\":\""+execute+"\"}]";
+		log.info(" [ json: "+json+" ] ");
+		log.info(" [ ==============END:修改权限信息结束=================END========= ] ");
+		return json;
+	}
 
 }

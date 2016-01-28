@@ -24,7 +24,7 @@ public class jdbcUtils   {
 	 * @return  0-执行失败,1-执行成功
 	 */
 	public static Integer execute(String sql){
-		Integer result = 0;
+		Integer result = -1;
 		ResultSet rs=null;
 		PreparedStatement ps = null;
 		Connection con = cons.getConnection();
@@ -32,7 +32,8 @@ public class jdbcUtils   {
 			ps = con.prepareStatement(sql);
 			result = ps.executeUpdate();
 		} catch (Exception e) {
-			log.error(" [ ----execute 执行sql错误："+e.getMessage()+"------- ] ");
+			result = -1;
+			log.error(" [ ----jdbc.execute 执行sql错误："+e.getMessage()+"------- ] ");
 		}finally{
 			cons.close(rs, ps, con);
 		}
