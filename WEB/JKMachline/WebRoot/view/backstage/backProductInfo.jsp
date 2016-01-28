@@ -92,13 +92,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div> 
 		<!-- 图片预览dialog -->
 	  	<div id="dd_checkImg" class="easyui-dialog" title="上传图片" style="width:400px;height:200px;"   
-					        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,closed:true, buttons:[{ 
+					        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,closed:true,resizable:true, buttons:[{ 
 	        			text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_checkImg').dialog('close');}
 					}]">   <!-- closed:true -->
-		    <div id="dd_checkImgContent" class='hide'>
+		    <div id="dd_checkImgContent" class='hide' class="easyui-dialog" data-options="resizable:true">
 	    		<img id = "checkImg">
 		    </div>   
-		</div> 
+		</div>
   	</div>
 	
   </body>

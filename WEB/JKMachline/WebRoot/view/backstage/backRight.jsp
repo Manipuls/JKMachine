@@ -22,10 +22,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/icon.css" />   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
-
   </head>
   
   <body style="height: ${param.hei}" >
+	<style type="text/css">
+		.hide{display: none}
+		#dd_rightDataContent{margin-top: 30px;margin-left: 30px}
+    </style>
 	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script>
   	<script type="text/javascript" src="<%=paths%>js/backRight.js"></script>
   	<!-- 权限类型列表 -->
@@ -36,22 +39,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<div style="clear: both;"></div>
   		</div>
   		<div style="margin-top: 10px;">
-			<div id="tb_rightParent">
-				<a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-search',width:70,plain:true">查询 </a>
-				<a id='add_rightParent' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
-				<a id='edit_rightParent'class="easyui-linkbutton" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
-			</div>
 			<table id="dg_rightParent" width="100%" data-options=""></table> 
-			 
   		</div>
   	</div>
 	<!-- 权限详细列表 -->
 	<div>
   		<div style="margin-top: 10px;">
-			<div id="tb_rights">
-				<a id='add_rights' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
-				<a id='edit_rights' class="easyui-linkbutton" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
-			</div>
 			<table id="dg_rights" width="100%" data-options=""></table> 
   		</div>
   	</div>
@@ -68,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		},{
 					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_parent').dialog('close');}
 			}]">   
-	   <div class='s1'>
+	   <div class='hide'>
 		  		<p id='s1' >枚举码值：<input id='s1_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 		  		<p id='s2' >枚举名称：<input id='s2_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 		  		<p id='s3' ><span style="vertical-align: top;">枚举描述：</span><textarea id='s3_text' style="width: 295px;border: 1px #e3e3e3 solid; border-radius:5px"></textarea> </p>
@@ -82,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		},{
 					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_parent_edit').dialog('close');}
 			}]">   
-	   <div class='s1'>
+	   <div class='hide'>
 		  		<p id='s1_editParent' >枚举码值：<input id='s1_editParent_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 		  		<p id='s2_editParent' >枚举名称：<input id='s2_editParent_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 		  		<p id='s3_editParent' ><span style="vertical-align: top;">枚举描述：</span><textarea id='s3_editParent_text' style="width: 295px;border: 1px #e3e3e3 solid; border-radius:5px;font-size: 12px;font-family:Microsoft YaHei"></textarea> </p>
@@ -96,22 +89,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				},{
 					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_enums').dialog('close'); }
 			}]"> 
-		<div class='s1'>
+		<div class='hide'>
 		  		<p id='s1_enums' >枚举码值：<input id='s1_enums_text' class="easyui-textbox"  style="width:300px"> </p>
 		  		<p id='s2_enums' >枚举名称：<input id='s2_enums_text' class="easyui-textbox"  style="width:300px"> </p>
 		</div>    
 	</div> 
-	<!-- ----------------------------修改枚举值dialog --------------------------------------->
-	<div id="dd_dlg_enums_edit" class="easyui-dialog" title="修改枚举值"   
-        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
+	<!-- ----------------------------修改权限属性dialog --------------------------------------->
+	<div id="dd_rightData" class="easyui-dialog" title="修改枚举值"   
+        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:450,height:200,closed:true,
         buttons:[{ 
-        			text:'确定', iconCls:'icon-save', onClick:function(){ updateEnums(); } 
+        			text:'确定', iconCls:'icon-save', onClick:function(){ updateRightData(); } 
         		},{
-					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_dlg_enums_edit').dialog('close');}
+					text:'取消', iconCls:'icon-cancel', onClick:function(){ $('#dd_rightData').dialog('close');}
 			}]">   
-	   <div class='s1'>
-		  		<p id='s1_editEnums' >枚举码值：<input id='s1_editEnums_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
-		  		<p id='s2_editEnums' >枚举名称：<input id='s2_editEnums_text' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
+	   <div id='dd_rightDataContent' class='hide'>
+		  		<p >角色名称：<input id='dd_rightData_name' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
+		  		<p >Tab页签：<input id='dd_rightData_pageName' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 		</div>      
 	</div> 
 

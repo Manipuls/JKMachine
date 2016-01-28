@@ -29,26 +29,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style> 
 	<script type="text/javascript">
 	
-		function add(inParm,url){
+		function add(inParm,loc){
 			var topWid = ($('#top').panel('options').width);
 			var leftWid = ($('#sys').panel('options').width);
 			var cWid = topWid-leftWid;
 			var hei = ($('#sys').panel('options').height);
 			var tit = $("#"+inParm).text();
 			var tab = $('#tabs').tabs('exists',tit);
-			var url = 'view/backstage/'+url;
+			var url = 'view/backstage/'+loc;
 			if(tab){
-				$('#tabs').tabs('select', tit);   
+				if(loc!=null && loc!=''){
+					$('#tabs').tabs('select', tit);   
+					var tab = $('#tabs').tabs('getSelected');  // 获取选择的面板
+					tab.panel('refresh', url+"?hei="+(hei)+"&wid="+cWid); 
+				}else{
+					$('#tabs').tabs('select', tit);   
+					var tab = $('#tabs').tabs('getSelected');  // 获取选择的面板
+					tab.panel('refresh', 'view/backstage/backError.jsp');
+				}
+				/* $('#tabs').tabs('select', tit);   
 				var tab = $('#tabs').tabs('getSelected');  // 获取选择的面板
-				tab.panel('refresh', url+"?hei="+(hei)+"&wid="+cWid);
+				tab.panel('refresh', url+"?hei="+(hei)+"&wid="+cWid); */
 			}else{
-				$('#tabs').tabs("add" , { 
-					title:tit,    
-	   				closable:true, 
-				    border:true,  
-				    selected : true,
-				    href:url+"?hei="+hei
-				}); 
+				if(loc!=null && loc!=''){
+					$('#tabs').tabs("add" , { 
+						title:tit,    
+		   				closable:true, 
+					    border:true,  
+					    selected : true,
+					    href:url+"?hei="+hei
+					}); 
+				}else{
+					$('#tabs').tabs("add" , { 
+						title:tit,    
+		   				closable:true, 
+					    border:true,  
+					    selected : true,
+					    href:'view/backstage/backError.jsp',
+					});
+				}
 			}
 		}
 	</script>
