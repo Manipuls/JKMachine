@@ -37,4 +37,14 @@ public interface newsServices {
 	 * @date 2015-11-21 下午3:29:58
 	 */
 	public Integer getCountNews();
+	
+	
+	
+	//---------------------------------------------------------------------------------------------------//
+	
+	
+	public String getBackNewsForList(util utils);
+	
+	
+	
 }
