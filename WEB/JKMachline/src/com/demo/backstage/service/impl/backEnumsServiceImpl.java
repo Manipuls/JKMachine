@@ -162,7 +162,7 @@ public class backEnumsServiceImpl implements backEnumsService {
 		try{
 			updateBackEnumsParent = backenumsparentdao.updateBackEnumsParent(enumsParent);
 		}catch(Exception e){
-			log.info(" [ ============错误信息："+e.getMessage()+"========= ] ");
+			log.info(" [ 错误信息："+e.getMessage()+" ] ");
 			updateBackEnumsParent = 0;
 		}
 		session.close();
@@ -179,7 +179,7 @@ public class backEnumsServiceImpl implements backEnumsService {
 		try{
 			updateBackEnums = backenumsdao.updateBackEnums(enums);
 		}catch(Exception e){
-			log.error(" [ ============错误信息："+e.getMessage()+"========= ] ");
+			log.error(" [ 错误信息："+e.getMessage()+" ] ");
 			updateBackEnums = 0;
 		}
 		session.close();

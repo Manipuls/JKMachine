@@ -14,6 +14,7 @@ import com.demo.backstage.service.newsServices;
 import com.demo.util.CreateSession;
 import com.demo.util.jdbcUtils;
 import com.google.gson.Gson;
+import com.mysql.jdbc.StringUtils;
 
 public class newsServicesImpl implements newsServices {
 	
@@ -181,6 +182,37 @@ public class newsServicesImpl implements newsServices {
 		return json;
 	}
 	
+	public String saveBackNewsInfo(News news){
+		log.info(" [ ========START:新增新闻资讯 ===========START========= ] ");
+		String sql = " insert into backstage_news(new_type,new_title,new_content,crete_time) ";
+		sql +=" values('"+news.getNewType()+"','"+news.getNewTitle()+"','"+news.getNewContent()+"',"+news.getCreateTime()+") ";
+		log.info(" [ 执行sql:"+sql+" ] ");
+		Integer execute = jdbcutils.execute(sql);
+		log.info(" [ 执行sql结果:"+(execute==1?"成功":"失败")+"! ] ");
+		log.info(" [ ========END:新增新闻资讯结束 ===========END========= ] ");
+		String json ="{\"total\":\""+execute+"\",\"rows\":\""+execute+"\"}";
+		return json;
+	}
+	
+	
+	public String updateBackNewsInfo(News news){
+		log.info(" [ ========START:修改新闻资讯 ===========START========= ] ");
+		String sql = " update backstage_news set new_type='"+news.getNewType()+"' ";
+		
+		if(!StringUtils.isNullOrEmpty(news.getNewTitle())){
+			sql +=" new_title='"+news.getNewTitle()+"', ";
+		}
+		if(!StringUtils.isNullOrEmpty(news.getNewContent())){
+			sql +=" new_content='"+news.getNewContent()+"' ";
+		}
+		sql +=" where id="+news.getId();
+		log.info(" [ 执行sql:"+sql+" ] ");
+		Integer execute = jdbcutils.execute(sql);
+		log.info(" [ 执行sql结果:"+(execute==1?"成功":"失败")+"! ] ");
+		log.info(" [ ========END:修改新闻资讯结束 ===========END========= ] ");
+		String json ="{\"total\":\""+execute+"\",\"rows\":\""+execute+"\"}";
+		return json;
+	}
 	
 	
 	

@@ -1,6 +1,6 @@
 package com.demo.backstage.doman;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class News {
 
@@ -8,7 +8,7 @@ public class News {
 	private String newType;
 	private String newTitle;
 	private String newContent;
-	private Date createTime;
+	private Timestamp createTime;
 	private String createStrTime;
 	private String isDelete;
 	
@@ -37,10 +37,10 @@ public class News {
 	public void setNewContent(String newContent) {
 		this.newContent = newContent;
 	}
-	public Date getCreateTime() {
+	public Timestamp getCreateTime() {
 		return createTime;
 	}
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
 	public String getCreateStrTime() {

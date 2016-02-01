@@ -1,10 +1,14 @@
 package com.demo.action.backstage;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
+
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
 
 import com.demo.action.BaseAction;
+import com.demo.backstage.doman.News;
 import com.demo.backstage.doman.util;
 import com.demo.backstage.service.newsServices;
 import com.demo.backstage.service.impl.newsServicesImpl;
@@ -16,11 +20,13 @@ public class backNewsAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = -8930904907115674728L;
 	private newsServices newsservices = new newsServicesImpl();
+	private newsServicesImpl newsservicesimpl = new newsServicesImpl();
 	
 	Logger log = Logger.getLogger(backNewsAction.class);
 	public JSONObject jsonObj;
 	private Integer page;
 	private Integer rows;
+	private News news;
 	
 	
 	/**
@@ -34,6 +40,22 @@ public class backNewsAction extends BaseAction {
 		utils.setInteger2(rows);
 		String backNewsForList = newsservices.getBackNewsForList(utils);
 		jsonObj = JSONObject.fromObject(backNewsForList);
+		return "json";
+	}
+	
+	
+	public String updateBackNewsInfo(){
+		news.setCreateTime(new java.sql.Timestamp(new Date().getTime()));
+		String replaceAll = news.getNewContent().replaceAll("<KG>", "&nbsp;");
+		/*try {
+			replaceAll = new String(replaceAll.getBytes("gbk"),"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			log.info(e.getMessage());
+		}*/
+		System.out.println(replaceAll);
+		news.setNewContent(replaceAll);
+		String updateBackNewsInfo = newsservicesimpl.updateBackNewsInfo(news);
+		jsonObj = JSONObject.fromObject(updateBackNewsInfo);
 		return "json";
 	}
 
@@ -55,5 +77,11 @@ public class backNewsAction extends BaseAction {
 	}
 	public void setRows(Integer rows) {
 		this.rows = rows;
+	}
+	public News getNews() {
+		return news;
+	}
+	public void setNews(News news) {
+		this.news = news;
 	}
 }
