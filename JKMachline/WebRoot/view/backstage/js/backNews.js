@@ -27,7 +27,9 @@ $(function(){
 		
 		fitColumns : true,
 		
-		toolbar: [{
+		toolbar: '#tb_newsTools',
+		
+		/*toolbar: [{
 			iconCls: 'icon-search',
 			text : "查询",
 			width :70,
@@ -49,7 +51,7 @@ $(function(){
 			text : "新增",
 			width :70,
 			handler: function(){alert('帮助按钮')}
-		},],  
+		},], */ 
 		
 		columns:[[    
 			        {
