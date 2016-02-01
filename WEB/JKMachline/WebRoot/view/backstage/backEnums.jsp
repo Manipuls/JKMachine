@@ -43,13 +43,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<div style="clear: both;"></div>
   		</div>
   		<div style="margin-top: 10px;">
-			<div id="tb_enumsParent">
+  			<div id="tb_enumsParent">
 				<a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-search',width:70,plain:true">查询 </a>
 				<a id='add_enumsParent' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
 				<a id='edit_enumsParent'class="easyui-linkbutton" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
 			</div>
 			<table id="dg_enumsParent" width="100%" data-options=""></table> 
-			 
   		</div>
   	</div>
 	<!-- 枚举值详细列表 -->
