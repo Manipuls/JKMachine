@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/default/easyui.css" />   
 	<link rel="stylesheet" type="text/css" href="<%=paths%>easyui/themes/icon.css" />   
-	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script>   
+	<script type="text/javascript" src="<%=paths%>easyui/jquery-1.8.3.min.js"></script> 
 	<script type="text/javascript" src="<%=paths%>easyui/jquery.easyui.min.js"></script> 
   </head>
   
@@ -30,7 +30,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
   	<script type="text/javascript" src="<%=paths%>js/easyui_public.js"></script> 
   	<script type="text/javascript" src="<%=paths%>js/backNews.js"></script>
+
 	    <div style="height: ${param.hei}px;width:100%" >
+	    		<div id="tb_newsTools">
+					<a  class="easyui-linkbutton" data-options="iconCls: 'icon-search',width:70,plain:true">查询 </a>
+					<a id='add_enumsParent' class="easyui-linkbutton" data-options="iconCls:'icon-add',width:70,plain:true">新增</a>
+					<a id='edit_enumsParent'class="easyui-linkbutton" onclick="updateNewsInfo()" data-options="iconCls: 'icon-edit',width:70,plain:true">修改 </a>
+				</div>
 	    		<table id="dg_news"></table>  
 	    <div id="dlg_news_edit" class="easyui-dialog" title="修改资讯信息"   
 	        data-options="iconCls:'icon-save',resizable:true,modal:true,inline:true,width:500,height:300,closed:true,
@@ -42,7 +48,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   <div id='dlg_news_edit_con' class='hide'>
 			  		<p>资讯标题：<input id='title_edit' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
 			  		<p>资讯类型：<input id='type_edit' class="easyui-textbox" data-options="iconCls:''" style="width:300px"> </p>
-			  		<p ><span style="vertical-align: top;">资讯内容：</span><input id='content_edit' class="easyui-textbox" data-options="iconCls:'',multiline:true,height:100," style="width:300px"> </p>
+			  		<p ><span style="vertical-align: top;">资讯内容：</span>
+<!-- 			  		<input id='content_edit' class="easyui-textbox" data-options="iconCls:'',multiline:true,height:100," style="width:300px">
+ -->			  		
+ 
+					<jsp:include page="euditor.jsp"></jsp:include> 					
+					</p>
 			</div>      
 		</div> 
     </div>
