@@ -19,7 +19,7 @@
 	
 	<!--获取news.jsp页面的新闻数据翻页   create_time  desc  -->
 	<select id="getPageForNews" parameterType="util" resultMap="newsMap">
-		select * from backstage_news n ORDER BY create_time  asc  limit #{integer1},#{integer2} 
+		select * from backstage_news n ORDER BY create_time  desc  limit #{integer1},#{integer2} 
 	</select>
 	
 	<!-- 查看新闻详细内容  -->
