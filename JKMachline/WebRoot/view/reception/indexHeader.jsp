@@ -32,7 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="top">
 		  <div id="logo"><a href="view/reception/index.jsp"><img src="view/reception/images/logo.png"></a></div>
-		  <ul id="menu"> </ul>   <!-- 菜单栏加载 --> 
+		  <ul id="menu"> 
+		  
+		  
+		  
+		  
+		  </ul>   <!-- 菜单栏加载 --> 
 		  <div id="search">
 		  <form id="formsearch" name="formsearch" method="get" action="###">    
 		    <div style="width:36px; height:28px; float:right;"><img src="view/reception/images/search_btn.png" style="cursor:pointer;" ></div><!--onclick="$(&#39;#formsearch&#39;).submit();"   -->
