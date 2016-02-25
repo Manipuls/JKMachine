@@ -200,14 +200,21 @@ public class newsServicesImpl implements newsServices {
 		String sql = " update backstage_news set new_type='"+news.getNewType()+"' ";
 		
 		if(!StringUtils.isNullOrEmpty(news.getNewTitle())){
-			sql +=" new_title='"+news.getNewTitle()+"', ";
+			sql +=" , new_title='"+news.getNewTitle()+"'";
 		}
 		if(!StringUtils.isNullOrEmpty(news.getNewContent())){
-			sql +=" new_content='"+news.getNewContent()+"' ";
+			sql +=" , new_content='"+news.getNewContent()+"' ";
 		}
 		sql +=" where id="+news.getId();
-		log.info(" [ 执行sql:"+sql+" ] ");
-		Integer execute = jdbcutils.execute(sql);
+		
+		//Integer execute = jdbcutils.execute(sql);
+		
+		String t = "update backstage_news set new_type=? , new_title=? , new_content=? where id="+news.getId();
+		Object[] ss = new String[]{news.getNewType(),news.getNewTitle(),news.getNewContent()};
+		Integer execute = jdbcutils.saveOrUpdateData(t, ss);
+		
+		
+		
 		log.info(" [ 执行sql结果:"+(execute==1?"成功":"失败")+"! ] ");
 		log.info(" [ ========END:修改新闻资讯结束 ===========END========= ] ");
 		String json ="{\"total\":\""+execute+"\",\"rows\":\""+execute+"\"}";
