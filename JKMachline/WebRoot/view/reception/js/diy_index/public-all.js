@@ -3,7 +3,7 @@
  * index.jsp-- 主页数据加载
  */
 function onLoadIndexData(){
-	indexAction_onLoadMenu();  //加载首页最新动态
+	//indexAction_onLoadMenu();  //加载首页最新动态
 	indexAction_onLoadNewsInfos();  //加载新闻动态
 	onLoadFirstProduct(); //加载创新产品  首页展示
 	onLoadFirstProductCataLog(); //产品目录
@@ -14,7 +14,7 @@ function onLoadIndexData(){
  * 
  */
 function onLoadAboutData(){
-	indexAction_onLoadMenu();  //加载首页页面菜单栏
+	//indexAction_onLoadMenu();  //加载首页页面菜单栏
 }
 
 /**
@@ -22,14 +22,14 @@ function onLoadAboutData(){
  * 
  */
 function onLoadNewsData(){//news.jsp
-	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
+	//indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	newsAction_getCountNews();
 	//newsAction_onLoadNewsTitle();  //加载新闻资讯标题
 	
 	
 }
 function onLoadNewsContentData(){
-	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
+	//indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	//newsAction_onLoadNewsContent(); //加载新闻资讯具体内容
 }
 
@@ -38,7 +38,7 @@ function onLoadNewsContentData(){
  * 
  */
 function onLoadProductCaseData(){
-	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
+	//indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	
 }
 /**
@@ -47,13 +47,13 @@ function onLoadProductCaseData(){
  * 
  */
 function onLoadProductData(){
-	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
+	//indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 	
 }
 
 
 function onLoadProductContentData(){
-	indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
+	//indexAction_onLoadMenu();  //加载新闻资讯页面菜单栏
 }
 
 /**
@@ -62,7 +62,7 @@ function onLoadProductContentData(){
  */
 function onLoadResourceData(){
 	//加载新闻资讯页面菜单栏
-	indexAction_onLoadMenu();  
+	//indexAction_onLoadMenu();  
 }
 /*=======================================index.jsp===============================start=========================================*/
 function indexAction_onLoadMenu(){
@@ -121,7 +121,7 @@ function indexAction_onLoadNewsInfos(){
 			var data = root.rows;
 			for ( var i = 0; i < data.length; i++) {
 				//newsAndInfos += "<li><span>"+data[i].createStrTime+"</span><a href='view/reception/newsContent.jsp?id="+data[i].id+"'>"+data[i].newTitle+"</a></li>";
-				newsAndInfos += "<a href='view/reception/newsContent.jsp?id="+data[i].id+"'>"+data[i].newTitle+"</a>";
+				newsAndInfos += "<a href='newsAction_onLoadNewsContentToJsp?id="+data[i].id+"'>"+data[i].newTitle+"</a>";
 			}
 			var newsInfos = $("#newslist");
 			newsInfos.empty();

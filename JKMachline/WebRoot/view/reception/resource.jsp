@@ -16,11 +16,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<link href="view/reception/css/ui-box.css" rel="stylesheet" type="text/css">
+	
+	
+	
 	<script type="text/javascript" src="view/reception/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="view/reception/js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script type="text/javascript" src="view/reception/js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="view/reception/js/diy_index/public-all.js"></script>
+ 	<script type="text/javascript" src="view/reception/js/diy_index/resourece.js"></script>
 	<script type="text/javascript" src="view/reception/js/public.js"></script>
+	
 	<style type="text/css">
 .man_left_left,.man_right {
 	background-color: #EEEEEE;
@@ -31,6 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	float: left;
 	width: 302px;
 	height: 100%;
+	background-color: #EEEEEE; 
+	border-radius: .8em;
 }
 
 .man_left_left,.man_left_right {
@@ -94,10 +102,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	background: #CC0000;
 	color: white;
 }
-.span1{display: none;}
-.span2{display: block;}
+.re{border: 0px dashed #0066CC;height:35px;	 width: 198px}
 
-.re{border: 0px dashed #0066CC;height:35px;	float:left; width: 198px}
+.body{background: #FFF; padding-top: 100px;}
+.ub_ul{border: px solid ; width: 200px; background: #ccc; height: 500px; margin: 0 auto; float: left; margin-left: 600px}
+.ub_ul ul a{color: #000;} 
+.ub_ul ul a li{ border: px solid ;  width: 200px; font-size: 20px; line-height: 40px; text-align: center;border-radius: .5em;}
+.ub_ul1{border: px solid ;width: 400px; height: 500px; background: #ccc; float: left; text-align: center;}
+.ub_ul1 p{display: none;}
+.man_left div span{margin-left: 30px;font-size: 19px;}
+.man_left div div{border: px solid ;  width: 100%; font-size: 20px; line-height: 40px; text-align: center;border-radius: .3em;text-align: center;line-height: 60px;}
+.bottom_style{height:30px;width: 600px; border-bottom: 1px dashed #CC0000}
+.non1,.non2,.non3,.non4, div .sub_tit{text-align: center;}
 </style>
 
   </head>
@@ -137,79 +153,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="text" style="margin-top:20px;">
 			<p style="">
 			
-			<div style="width: 100%;height: 450px;border: 0px red solid;">
+			<div  style="width: 100%;height: 450px;border: 0px red solid;">
 				<div class='man_left' style="float: left;">
-					<div class="header">
-						<div id='ub1' class="ub">
-							<li>钢材切割师A</li></span><span class="span1" style="margin-left: 45px;">>></span>
-						</div>
-						<div id='ub2' class="ub">
-							<li>钢材切割师B</li><span class="span1" style="margin-left: 45px;">>></span>
-						</div>
-						<div id='ub3' class="ub">
-							<li>钢材切割师C</li><span class="span1" style="margin-left: 45px;">>></span>
-						</div>
-						<div id='ub4' class="ub">
-							<li>钢材切割师D</li><span class="span1" style="margin-left: 45px;">>></span>
-						</div>
+					<div style="margin-top: 15px;">
+							<div class="ub_as1" style="color: #FFF; background: red;"><span>切割师A</span></div>
+							<div class="ub_as2"><span>切割师B</span></div>
+							<div class="ub_as3"><span>切割师C</span></div>
+							<div class="ub_as4"><span>切割师D</span></div>
+						</ul>
 					</div>
-					<script type="text/javascript">
-						$(document).ready(function() {
-							/* $(".header div").mouseover(function() {
-								$(this).addClass("hea2");
-								var ss = $(this).attr("id");
-								$("#" + ss + " span").removeClass("span1");
-								var tit = $("#"+ss+" li").text();
-								$(".s"+ss).empty();
-								$(".sub1").append(tit);
-							});
-							$(".header div").mouseout(function() {
-								$(this).removeClass("hea2");
-								var ss = $(this).attr("id");
-								$("#" + ss + " span").addClass("span1");
-							}); */
-							//$("td").bind("mouseenter mouseleave",handlerInOut);
-							$(".header div").mouseenter(function(){
-								$(this).addClass("hea2");
-								var ss = $(this).attr("id");
-								$("#" + ss + " span").removeClass("span1");
-								var tit = $("#"+ss+" li").text();
-								$(".sub1").empty();
-								$(".sub1").append(tit);
-							});
-							$(".header div").mouseleave(function(){
-								$(this).removeClass("hea2");
-								var ss = $(this).attr("id");
-								$("#" + ss + " span").addClass("span1");
-							});
-							$(".header div").hover(handlerInOut);
-							$(".header div").click(function(){
-								$(this).addClass("hea3");
-								alert(11);
-							});
-							});
-					</script>
 				</div>
 				<div class='man_right' style="float: right;border: 0px blue solid;width: 650px;height: 100%">
 					<div style="width: 600px;height: 90%;border: 0px red solid; margin-left: 25px;margin-top: 3%">
-						<div style="border-bottom: 1px dashed #CC0000;height:35px;	 width: 600px">
-							<div class='re'></div>
-							<div class='re' style=""><span class='sub1' style="font-size: 20px;margin-left: 50px;;">钢材切割师</span></div>
-							<div class='re'></div>
+						<div>
+							<div class="non1" style="display: block">
+								<div class='bottom_style' >
+									<span class='sub_tit' style="font-size: 20px;width: 100%">切割师A</span>
+								</div>
+								你好吗2？你好吗2？你好吗2？你好吗2？你好吗2？      1111111
+							</div>
+							<div class="non2" style="display: none;">
+								<div class='bottom_style'>
+									<span class='sub_tit' style="font-size: 20px;width: 100%">切割师A</span>
+								</div>
+								你好吗2？你好吗2？你好吗2？你好吗2？你好吗2？      222222222
+							</div>
+							<div class="non3" style="display: none;">
+								<div class='bottom_style'>
+									<span class='sub_tit' style="font-size: 20px;width: 100%">切割师A</span>
+								</div>
+								你好吗2？你好吗2？你好吗2？你好吗2？你好吗2？      3333333
+							</div>
+							<div class="non4" style="display: none;">
+								<div class='bottom_style' >
+									<span class='sub_tit' style="font-size: 20px;width: 100%">切割师A</span>
+								</div>
+								你好吗2？你好吗2？你好吗2？你好吗2？你好吗2？        44444444
+							</div>
 						</div>
 
 					</div>
-
 				</div>
 			</div>
-
-			</p>
-
 		</div>
 	</div>
 	<jsp:include page="indexBack.jsp"></jsp:include>
 </body>
 <link href="view/reception/css/ime.css" rel="stylesheet" type="text/css">
 <link href="view/reception/css/imeIn.css" rel="stylesheet" type="text/css">
-<link href="view/reception/css/ui-box.css" rel="stylesheet" type="text/css">
 </html>
