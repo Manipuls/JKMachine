@@ -12,9 +12,8 @@
 <base href="<%=basePath%>">
 
 <title>重庆劲凯机电设备有限公司</title>
-
+<meta name="baidu-site-verification" content="cnkPDTHDis" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -105,7 +104,10 @@ $(".solution").hover(function(){
     <p style="color:#0066CC; font-size:16px;">新闻动态 &nbsp;<span style="color:#999; font-size:11px; font-family:Arial;">What's New</span></p>
     <p style="border-top:1px dotted #CCC;">
       </p>
-	 <div id="newslist"></div>
+	 <div id="newslist">
+	 
+	 
+	 </div>
     <p style="padding-top:8px; padding-left:10px;"><a href="newsAction_onLoadNewsTitleToJsp" class="more">More…</a></p>
   </div>
   <div style="float:left; width:260px; margin-left:30px;">

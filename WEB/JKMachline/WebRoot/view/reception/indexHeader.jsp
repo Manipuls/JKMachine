@@ -32,12 +32,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="top">
 		  <div id="logo"><a href="view/reception/index.jsp"><img src="view/reception/images/logo.png"></a></div>
-		  <ul id="menu"> 
-		  
-		  
-		  
-		  
-		  </ul>   <!-- 菜单栏加载 --> 
+		  <ul id="menu">
+			<li><a href='view/reception/about.jsp?num=1' class=''>走进劲凯</a>
+			<div style='display: none; overflow: hidden; height: auto; margin-top: 0px; margin-bottom: 0px; padding-top: 10px; padding-bottom: 15px;'>
+					<a href='view/reception/about.jsp?num=1'>企业概况</a><a href='view/reception/about.jsp?num=2'>企业文化</a><a href='view/reception/about.jsp?num=3'>发展历史</a><a href='view/reception/about.jsp?num=4'>联系我们</a>
+				</div>
+			</li>
+			<li class='split'><img src='view/reception/images/menu_split.gif'>
+			</li>
+			<li><a href='newsAction_onLoadNewsTitleToJsp' class=''>新闻中心</a>
+			<div style='display: none; overflow: hidden; height: auto; margin-top: 0px; margin-bottom: 0px; padding-top: 10px; padding-bottom: 15px;'>
+					<a href='newsAction_onLoadNewsTitleToJsp'>公司新闻</a><a href='newsAction_onLoadNewsTitleToJsp'>行业新闻</a>
+				</div>
+			</li>
+			<li class='split'><img src='view/reception/images/menu_split.gif'>
+			</li>
+			<li><a href='view/reception/productCase.jsp' class=''>产品案例</a>
+			<div style='display: none; overflow: hidden; height: auto; margin-top: 0px; margin-bottom: 0px; padding-top: 10px; padding-bottom: 15px;'></div>
+			</li>
+			<li class='split'><img src='view/reception/images/menu_split.gif'>
+			</li>
+			<li><a href='productAction_onLoadProductToJsp' class=''>产品中心</a>
+			<div style='display: none; overflow: hidden; height: auto; margin-top: 0px; margin-bottom: 0px; padding-top: 10px; padding-bottom: 15px;'>
+					<a href='productAction_onLoadProductToJsp'>工位器具系列</a><a href='productAction_onLoadProductToJsp'>货架系列</a><a href='productAction_onLoadProductToJsp'>单元化储存系列</a><a href='productAction_onLoadProductToJsp'>搬运输送系列</a><a href='productAction_onLoadProductToJsp'>化学品储存系列</a><a
+						href='productAction_onLoadProductToJsp'>工具柜系列</a>
+				</div>
+			</li>
+			<li class='split'><img src='view/reception/images/menu_split.gif'>
+			</li>
+			<li><a href='view/reception/resource.jsp' class=''>加入我们</a>
+			<div style='display: none; overflow: hidden; height: auto; margin-top: 0px; margin-bottom: 0px; padding-top: 10px; padding-bottom: 15px;'>
+					<a href='asdasd'>招聘职位</a>
+				</div>
+			</li>
+			<li class='split'><img src='view/reception/images/menu_split.gif'>
+			</li>
+			<li><a href='view/reception/support.jsp' class=''>服务与支持</a>
+			<div style='display: none; overflow: hidden; height: auto; margin-top: 0px; margin-bottom: 0px; padding-top: 10px; padding-bottom: 15px;'></div>
+			</li>
+			<li class='split'><img src='view/reception/images/menu_split.gif'>
+			</li>
+		</ul>   <!-- 菜单栏加载 --> 
 		  <div id="search">
 		  <form id="formsearch" name="formsearch" method="get" action="###">    
 		    <div style="width:36px; height:28px; float:right;"><img src="view/reception/images/search_btn.png" style="cursor:pointer;" ></div><!--onclick="$(&#39;#formsearch&#39;).submit();"   -->
