@@ -7,7 +7,7 @@
 	<!--Mopass_docker MopassMySqlDockerConnection.properties -->
 	<!--IDC789  id789mysqlConnection.properties -->
 	<!--localhost   mysqlConnection.properties     --> 
-	<properties resource="mysqlConnection.properties" />
+	<properties resource="MopassMySqlDockerConnection.properties" />
 	<!-- 可以设置性能 让性能更佳-->
 	
 	<typeAliases>
