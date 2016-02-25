@@ -7,18 +7,19 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	
-		/*private static  String	DRIVER="com.mysql.jdbc.Driver";
-		private static  String	URL="jdbc:mysql://192.168.1.27:49002/5f8db509a66d4";
+		
+		private static  String	DRIVER="com.mysql.jdbc.Driver";
+		private static  String	URL="jdbc:mysql://192.168.1.27:49002/5f8db509a66d4?useUnicode=true&characterEncoding=UTF-8";
 		private static  String	USERNAME="2a7f1940f37c4";
-		private static  String	PASSWORD="996d30a261a64";*/
+		private static  String	PASSWORD="996d30a261a64";
 		
 	
 	
 
-		private static  String DRIVER="com.mysql.jdbc.Driver";
-		private static  String URL="jdbc:mysql://localhost/demo_jk?useUnicode=true&characterEncoding=utf-8";
+		/*private static  String DRIVER="com.mysql.jdbc.Driver";
+		private static  String URL="jdbc:mysql://localhost/demo_jk?useUnicode=true&characterEncoding=UTF-8";
 		private static  String USERNAME="root";
-		private static  String PASSWORD="admin";
+		private static  String PASSWORD="admin";*/
 		
 		
 		static{

@@ -23,22 +23,60 @@ public class jdbcUtils   {
 	 * @param sql
 	 * @return  0-执行失败,1-执行成功
 	 */
-	public static Integer execute(String sql){
+	public static Integer execute(String sql ){
 		Integer result = -1;
 		ResultSet rs=null;
 		PreparedStatement ps = null;
 		Connection con = cons.getConnection();
 		try {
+			log.info("[ jdbc.execute 执行sql:"+sql+"  ]");
 			ps = con.prepareStatement(sql);
+			/*for (int i = 0; i < par.length; i++) {
+				ps.setObject(i+1, par[i]);
+			}*/
 			result = ps.executeUpdate();
 		} catch (Exception e) {
 			result = -1;
-			log.error(" [ ----jdbc.execute 执行sql错误："+e.getMessage()+"------- ] ");
+			log.error(" [ jdbc.execute 执行sql错误："+e.getMessage()+" ] ");
+			e.printStackTrace();
 		}finally{
 			cons.close(rs, ps, con);
 		}
 		return result;
 	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * 执行sql语句     update   返回Integer
+	 * liufei 2016-1-15
+	 * @param sql
+	 * @return  0-执行失败,1-执行成功
+	 */
+	public static Integer saveOrUpdateData(String sql,Object[] par){
+		Integer result = -1;
+		ResultSet rs=null;
+		PreparedStatement ps = null;
+		Connection con = cons.getConnection();
+		try {
+			log.info("[ jdbc.execute 执行sql:"+sql+"  ]");
+			ps = con.prepareStatement(sql);
+			for (int i = 0; i < par.length; i++) {
+				ps.setObject(i+1, par[i]);
+			}
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			result = -1;
+			log.error(" [ jdbc.execute 执行sql错误："+e.getMessage()+" ] ");
+			e.printStackTrace();
+		}finally{
+			cons.close(rs, ps, con);
+		}
+		return result;
+	}
+	
 	
 	
 	/**
@@ -53,6 +91,7 @@ public class jdbcUtils   {
 		Connection con = cons.getConnection();
 		List<Map<String, String>> list = new ArrayList<Map<String,String>>();
 		try {
+			log.info("[ jdbc.execute 执行sql:"+sql+"  ]");
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 		    ResultSetMetaData md = rs.getMetaData(); //获得结果集结构信息,元数据
@@ -65,7 +104,7 @@ public class jdbcUtils   {
 	        	list.add(rowData);
 	        }
 		} catch (SQLException e) {
-			log.error(" [ ----executeQuery 执行sql错误："+e.getMessage()+"------- ] ");
+			log.error(" [ executeQuery 执行sql错误："+e.getMessage()+" ] ");
 		}finally{
 			cons.close(rs, ps, con);
 		}

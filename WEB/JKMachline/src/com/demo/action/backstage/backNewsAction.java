@@ -1,6 +1,7 @@
 package com.demo.action.backstage;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 
 import net.sf.json.JSONObject;
@@ -47,13 +48,8 @@ public class backNewsAction extends BaseAction {
 	public String updateBackNewsInfo(){
 		news.setCreateTime(new java.sql.Timestamp(new Date().getTime()));
 		String replaceAll = news.getNewContent().replaceAll("<KG>", "&nbsp;");
-		/*try {
-			replaceAll = new String(replaceAll.getBytes("gbk"),"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			log.info(e.getMessage());
-		}*/
-		System.out.println(replaceAll);
 		news.setNewContent(replaceAll);
+		System.out.println(news.getNewContent());
 		String updateBackNewsInfo = newsservicesimpl.updateBackNewsInfo(news);
 		jsonObj = JSONObject.fromObject(updateBackNewsInfo);
 		return "json";
